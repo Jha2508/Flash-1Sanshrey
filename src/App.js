@@ -1,10 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
-import Abc from './Components/abc'
+import './App.css'
+import ProfilePage from './Pages/profilepage';
 function App() {
   return (
     <div className="App">
-      <Abc/>
+      <ProfilePage/>
     </div>
   );
 }
