@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './profilepage.css'
-import { FaFilePdf, FaYoutube } from 'react-icons/fa'
-import { AiOutlineClose } from 'react-icons/ai'
+import { FaFilePdf, FaYoutube, FaRegHeart, FaRegComment } from 'react-icons/fa'
+import { AiOutlineClose, AiOutlineShareAlt} from "react-icons/ai";
 export default class ProfilePage extends Component {
     constructor(props) {
         super(props);
@@ -55,21 +55,21 @@ export default class ProfilePage extends Component {
                     <center>
                         <hr className='divider' />
                         <div className='row allposts'>
-                                <div className='col profilepost'>
-                                    <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' alt='...' className='profilepostimg' data-bs-toggle="modal" data-bs-target="#singlepostModal"/>
-                                </div>
-                                <div className='col profilepost'>
-                                    <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' alt='...' className='profilepostimg' data-bs-toggle="modal" data-bs-target="#singlepostModal"/>
-                                </div><div className='col profilepost'>
-                                    <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' alt='...' className='profilepostimg' data-bs-toggle="modal" data-bs-target="#singlepostModal"/>
-                                </div><div className='col profilepost'>
-                                    <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' alt='...' className='profilepostimg' data-bs-toggle="modal" data-bs-target="#singlepostModal"/>
-                                </div><div className='col profilepost'>
-                                    <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' alt='...' className='profilepostimg' data-bs-toggle="modal" data-bs-target="#singlepostModal"/>
-                                </div><div className='col profilepost'>
-                                    <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' alt='...' className='profilepostimg' data-bs-toggle="modal" data-bs-target="#singlepostModal"/>
-                                </div>
-                                
+                            <div className='col profilepost'>
+                                <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' alt='...' className='profilepostimg' data-bs-toggle="modal" data-bs-target="#singlepostModal" />
+                            </div>
+                            <div className='col profilepost'>
+                                <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' alt='...' className='profilepostimg' data-bs-toggle="modal" data-bs-target="#singlepostModal" />
+                            </div><div className='col profilepost'>
+                                <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' alt='...' className='profilepostimg' data-bs-toggle="modal" data-bs-target="#singlepostModal" />
+                            </div><div className='col profilepost'>
+                                <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' alt='...' className='profilepostimg' data-bs-toggle="modal" data-bs-target="#singlepostModal" />
+                            </div><div className='col profilepost'>
+                                <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' alt='...' className='profilepostimg' data-bs-toggle="modal" data-bs-target="#singlepostModal" />
+                            </div><div className='col profilepost'>
+                                <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' alt='...' className='profilepostimg' data-bs-toggle="modal" data-bs-target="#singlepostModal" />
+                            </div>
+
                         </div>
                     </center>
 
@@ -135,16 +135,70 @@ export default class ProfilePage extends Component {
                                 <div className='col-sm-7'>
                                     <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' className='pppostimagemodal' alt='..' />
                                 </div>
-                                <div className='col-sm-5'>
-                                    2
-                                </div>
+                                <div className='col-sm-5 open'>
+                                    <div className="row">
+                                        <div className='col-sm-2'>
+                                            <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2F3KhSxjXiwiYPBeVt56ofSsGXcrmRBCHxQ&usqp=CAU' className='rounded-circle profilepicmod' alt='...' />
+                                        </div>
+                                        <div className='col-sm-10'>
+                                            <div className='profiletitlemodal'>
+                                                Harrison Wells
+                                            </div>
+                                        </div>
+                                    </div>
 
+                                    <div className="row">
+                                        <div className="caption">
+                                            <p> Contrary to popular belief, Lorem Ipsum is not simply random text. </p>
+                                            <hr />
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className='col-sm-2'>
+                                            <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Kate_Winslet_at_the_2017_Toronto_International_Film_Festival_%28cropped%29.jpg/220px-Kate_Winslet_at_the_2017_Toronto_International_Film_Festival_%28cropped%29.jpg' className='rounded-circle profilepicfriendmod' alt='...' />
+                                        </div>
+                                        <div className='col-sm-3'>
+                                            <div className='profiletitlefriendmodal'>
+                                                Kate Winslet
+                                            </div>
+                                        </div>
+                                        <div className='col-sm-7'>
+                                            <div className="commentmodal">
+                                                <p> Lorem Ipsum is not simply random text. </p>
+
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div className='reaction'>
+                                            <FaRegHeart className='reactionicon' />
+                                            <FaRegComment className='reactionicon' />
+                                            <AiOutlineShareAlt className='reactionicon' />
+                                        </div>
+                                        <p>40,699 likes</p>
+                                    </div>
+                                    <div className="yourcomment">
+                                    <div className="row">
+                                        
+                                        <div className='col-sm-12'>
+                                            <div class="input-group mb-3">
+                                                <input type="text" class="form-control" placeholder="Add a Comment..." aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-outline-secondary" type="button">Post</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-            </div>
-        )
+                    </div>
+                    </div>
+
+                    </div>
+
+    )
     }
 }
