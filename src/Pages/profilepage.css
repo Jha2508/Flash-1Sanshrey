@@ -30,6 +30,32 @@ padding-top: 49px;
   height:300px;
   
 }
+.profilepicmod{
+    width:50px;
+    height:50px;
+    
+  }
+  .profilepicfriendmod{
+    width:50px;
+    height:50px;
+    
+  }
+  .caption{
+    font-family: 'Roboto', sans-serif;
+    margin-top: 15px;
+  font-style: normal;
+  color:rgb(0, 0, 0);
+  font-weight: normal;
+  font-size: 18px;
+  }
+  .commentmodal{
+    font-family: 'Roboto', sans-serif;
+    margin-top: 15px;
+  font-style: normal;
+  color:rgb(0, 0, 0);
+  font-weight: normal;
+  font-size: 18px;
+  }
 
 
 .links{
@@ -53,6 +79,20 @@ font-weight: 500;
 color:white;
 font-size: 48px;
 }
+.profiletitlemodal{
+    font-family: 'Satisfy';
+font-style: normal;
+font-weight: 50;
+color:rgb(0, 0, 0)28, 87, 87);
+font-size: 25px;
+}
+.profiletitlefriendmodal{
+    font-family: 'Satisfy';
+font-style: normal;
+font-weight: 50;
+color:rgb(0, 0, 0)28, 87, 87);
+font-size: 25px;
+}
 .pppostimagemodal{
     width: 100%;
     padding:0;
@@ -68,11 +108,11 @@ font-size: 48px;
 }
 
 .allposts{
-  margin-right: 100px;
-  margin-left: 100px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 .profilepost{
-  padding:0
+  padding:10px;
 }
 
 .profilepostimg{
@@ -125,7 +165,17 @@ font-size: 18px;
   text-align: center;
   font-size: 24px;
 }
+.reactionicon{
+    cursor: pointer;
+    font-size: 35px;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+
 @media only screen and (max-width:800px){
+    .open{
+        display: none;
+        }
   .initials{
     margin-left: 0;
   }
@@ -154,4 +204,5 @@ font-size: 18px;
 .numberofPosts{
   margin-top: -20px;
 }
+
 }
