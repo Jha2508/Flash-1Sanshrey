@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
 import './profilepage.css'
-import { FaFilePdf, FaYoutube, FaRegHeart, FaRegComment } from 'react-icons/fa'
-import { AiOutlineClose, AiOutlineShareAlt} from "react-icons/ai";
+import { FaFilePdf, FaYoutube } from 'react-icons/fa'
+import { AiOutlineClose, AiFillLike } from 'react-icons/ai';
+import { BiSend } from 'react-icons/bi'
+const comments = [1, 2, 3, 4, 5, 6, 7]
 export default class ProfilePage extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
             buttonMssg: 'Send Friend Request'
         };
     }
+
     render() {
 
         return (
@@ -112,6 +116,7 @@ export default class ProfilePage extends Component {
                 </div>
                 <div className="modal fade" id="mutualsModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog">
+                        <AiOutlineClose />
                         <div className="modal-content">
                             <div className="modal-header">
                                 <h5 className="modal-title" id="exampleModalLabel">Mutuals Modal</h5>
@@ -124,81 +129,73 @@ export default class ProfilePage extends Component {
                     </div>
                 </div>
                 <div className="modal fade" id="singlepostModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div className="modal-dialog modal-xl">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalLabel">Post Modal</h5>
-                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
-                            </div>
-                            <div className="modal-body row pppost">
+                    <div className="modal-dialog modal-xl bg-dark">
+                        <div className="modal-content bg-dark">
+                            <AiOutlineClose data-bs-dismiss="modal" aria-label="Close" className='closebtn' />
+
+
+                            <div className='modal-body bg-dark row pppost'>
 
                                 <div className='col-sm-7'>
                                     <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' className='pppostimagemodal' alt='..' />
                                 </div>
                                 <div className='col-sm-5 open'>
-                                    <div className="row">
-                                        <div className='col-sm-2'>
+                                    <div className='row'>
+                                        <div className='col-sm-3'>
                                             <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2F3KhSxjXiwiYPBeVt56ofSsGXcrmRBCHxQ&usqp=CAU' className='rounded-circle profilepicmod' alt='...' />
                                         </div>
-                                        <div className='col-sm-10'>
-                                            <div className='profiletitlemodal'>
+                                        <div className='col-sm-9'>
+                                            <div className='profiletitlemodal row'>
                                                 Harrison Wells
                                             </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="row">
-                                        <div className="caption">
-                                            <p> Contrary to popular belief, Lorem Ipsum is not simply random text. </p>
-                                            <hr />
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className='col-sm-2'>
-                                            <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Kate_Winslet_at_the_2017_Toronto_International_Film_Festival_%28cropped%29.jpg/220px-Kate_Winslet_at_the_2017_Toronto_International_Film_Festival_%28cropped%29.jpg' className='rounded-circle profilepicfriendmod' alt='...' />
-                                        </div>
-                                        <div className='col-sm-3'>
-                                            <div className='profiletitlefriendmodal'>
-                                                Kate Winslet
+                                            <div className='row caption'>
+                                                <p> Contrary to popular belief, Lorem Ipsum is not simply random text. </p>
                                             </div>
-                                        </div>
-                                        <div className='col-sm-7'>
-                                            <div className="commentmodal">
-                                                <p> Lorem Ipsum is not simply random text. </p>
 
-                                            </div>
                                         </div>
-                                        <hr />
-                                        <div className='reaction'>
-                                            <FaRegHeart className='reactionicon' />
-                                            <FaRegComment className='reactionicon' />
-                                            <AiOutlineShareAlt className='reactionicon' />
-                                        </div>
-                                        <p>40,699 likes</p>
                                     </div>
-                                    <div className="yourcomment">
-                                    <div className="row">
-                                        
-                                        <div className='col-sm-12'>
-                                            <div class="input-group mb-3">
-                                                <input type="text" class="form-control" placeholder="Add a Comment..." aria-label="Recipient's username" aria-describedby="basic-addon2" />
-                                                <div class="input-group-append">
-                                                    <button class="btn btn-outline-secondary" type="button">Post</button>
+                                    <center>
+                                        <hr className='captiondivider' /></center>
+
+
+                                    <div className='comments'>
+                                        {comments.map((item, index) => {
+                                            return (
+                                                <div className='row'>
+                                                    <div className='col-sm-3'>
+                                                        <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Kate_Winslet_at_the_2017_Toronto_International_Film_Festival_%28cropped%29.jpg/220px-Kate_Winslet_at_the_2017_Toronto_International_Film_Festival_%28cropped%29.jpg' className='rounded-circle profilepicfriendmod' alt='...' />
+                                                    </div>
+                                                    <div className='col-sm-9'>
+                                                        <div className='row profiletitlefriendmodal'>
+                                                            Kate Winslet
+                                                        </div>
+                                                        <div className='row commentmodal'>
+                                                            Lorem Ipsum is not simply random text.sasasssasadasa as asas as a sas as as as  sa s as a sa s
+                                                        </div>
+                                                    </div>
+                                                    <center><hr className='commentdivider' /></center>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        </div>
+                                            )
+                                        })}
 
                                     </div>
+                                    <div className='col-sm'>
+                                        <div className='yourcomment'>
+                                            <AiFillLike className='modallike' />
+                                            <input type="text" className="custominput form-control" placeholder="Add a Comment..." aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                                            <BiSend className='modalsend' />
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
 
                     </div>
-                    </div>
+                </div>
 
-                    </div>
+            </div>
 
-    )
+        )
     }
 }
