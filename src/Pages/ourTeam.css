@@ -1,0 +1,50 @@
+.teams-page{
+padding-top: 20px;
+padding-bottom: 80px;
+}
+.team-heading{
+    color: aliceblue;
+    font-family: 'Pacifico', cursive;
+    font-size: 80px;
+}
+
+.profile-img{
+padding: 10px;
+}
+
+.member-card{
+    width: 15rem;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.member-data{
+    margin-top: 150px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.4s ease-in-out 0s;
+}
+.member-card:hover .member-data{
+    opacity: 1;
+}
+.teams-back{
+    color: whitesmoke;
+    margin: 2.5rem;
+    position: absolute;
+    right: 0vw;
+}
+
+
+@media only screen and (max-width:500px){
+    .member-card{
+        margin: 3px;
+        width: 10rem;
+    }
+    .member-data{
+        margin-top: 70px;
+    }
+    .team-heading{
+        font-size: 40px;
+    }
+}

@@ -1,0 +1,16 @@
+.landing-page-body{
+    background-image: linear-gradient(to bottom right, black, red);
+    height: 100vh;
+    width: 100vw;
+}
+
+.row{
+    margin-right: 0;
+    padding-right: 0;
+}
+
+@media only screen and (max-width: 750px){
+    .landing-page-body{
+        height: 200%;
+    }
+}
