@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './profilepage.css'
-import { FaFilePdf, FaYoutube } from 'react-icons/fa'
+import { FaComment, FaFilePdf, FaHeart, FaYoutube } from 'react-icons/fa'
 import { AiOutlineClose, AiFillLike } from 'react-icons/ai';
 import { BiSend } from 'react-icons/bi'
 const comments = [1, 2, 3, 4, 5, 6, 7]
@@ -59,21 +59,181 @@ export default class ProfilePage extends Component {
                     <center>
                         <hr className='divider' />
                         <div className='row allposts'>
-                            <div className='col profilepost'>
-                                <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' alt='...' className='profilepostimg' data-bs-toggle="modal" data-bs-target="#singlepostModal" />
-                            </div>
-                            <div className='col profilepost'>
-                                <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' alt='...' className='profilepostimg' data-bs-toggle="modal" data-bs-target="#singlepostModal" />
-                            </div><div className='col profilepost'>
-                                <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' alt='...' className='profilepostimg' data-bs-toggle="modal" data-bs-target="#singlepostModal" />
-                            </div><div className='col profilepost'>
-                                <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' alt='...' className='profilepostimg' data-bs-toggle="modal" data-bs-target="#singlepostModal" />
-                            </div><div className='col profilepost'>
-                                <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' alt='...' className='profilepostimg' data-bs-toggle="modal" data-bs-target="#singlepostModal" />
-                            </div><div className='col profilepost'>
-                                <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' alt='...' className='profilepostimg' data-bs-toggle="modal" data-bs-target="#singlepostModal" />
-                            </div>
+                            <div className='col profilepost content'>
+                                <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' alt='...' className='rounded profilepostimg' data-bs-toggle="modal" data-bs-target="#singlepostModal" />
 
+                                <div className="content-overlay" data-bs-toggle="modal" data-bs-target="#singlepostModal" ></div>
+                                <div style={{ color: 'white' }} className="content-details fadeIn-top fadeIn-left">
+                                    <div className='row'>
+                                        <div className='col'>
+                                            <h1>
+
+                                                <FaHeart />
+                                            </h1>
+                                            <p>21</p>
+                                        </div>
+                                        <div className='col'>
+                                            <h1>
+
+                                                <FaComment />
+                                            </h1>
+                                            <p>32</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            
+                            <div className='col profilepost content'>
+                                <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' alt='...' className='rounded profilepostimg' data-bs-toggle="modal" data-bs-target="#singlepostModal" />
+
+                                <div className="content-overlay" data-bs-toggle="modal" data-bs-target="#singlepostModal" ></div>
+                                <div style={{ color: 'white' }} className="content-details fadeIn-top fadeIn-left">
+                                    <div className='row'>
+                                        <div className='col'>
+                                            <h1>
+
+                                                <FaHeart />
+                                            </h1>
+                                            <p>21</p>
+                                        </div>
+                                        <div className='col'>
+                                            <h1>
+
+                                                <FaComment />
+                                            </h1>
+                                            <p>32</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            
+                            <div className='col profilepost content'>
+                                <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' alt='...' className='rounded profilepostimg' data-bs-toggle="modal" data-bs-target="#singlepostModal" />
+
+                                <div className="content-overlay" data-bs-toggle="modal" data-bs-target="#singlepostModal" ></div>
+                                <div style={{ color: 'white' }} className="content-details fadeIn-top fadeIn-left">
+                                    <div className='row'>
+                                        <div className='col'>
+                                            <h1>
+
+                                                <FaHeart />
+                                            </h1>
+                                            <p>21</p>
+                                        </div>
+                                        <div className='col'>
+                                            <h1>
+
+                                                <FaComment />
+                                            </h1>
+                                            <p>32</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            
+                            <div className='col profilepost content'>
+                                <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' alt='...' className='rounded profilepostimg' data-bs-toggle="modal" data-bs-target="#singlepostModal" />
+
+                                <div className="content-overlay" data-bs-toggle="modal" data-bs-target="#singlepostModal" ></div>
+                                <div style={{ color: 'white' }} className="content-details fadeIn-top fadeIn-left">
+                                    <div className='row'>
+                                        <div className='col'>
+                                            <h1>
+
+                                                <FaHeart />
+                                            </h1>
+                                            <p>21</p>
+                                        </div>
+                                        <div className='col'>
+                                            <h1>
+
+                                                <FaComment />
+                                            </h1>
+                                            <p>32</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            
+                            <div className='col profilepost content'>
+                                <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' alt='...' className='rounded profilepostimg' data-bs-toggle="modal" data-bs-target="#singlepostModal" />
+
+                                <div className="content-overlay" data-bs-toggle="modal" data-bs-target="#singlepostModal" ></div>
+                                <div style={{ color: 'white' }} className="content-details fadeIn-top fadeIn-left">
+                                    <div className='row'>
+                                        <div className='col'>
+                                            <h1>
+
+                                                <FaHeart />
+                                            </h1>
+                                            <p>21</p>
+                                        </div>
+                                        <div className='col'>
+                                            <h1>
+
+                                                <FaComment />
+                                            </h1>
+                                            <p>32</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            
+                            <div className='col profilepost content'>
+                                <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' alt='...' className='rounded profilepostimg' data-bs-toggle="modal" data-bs-target="#singlepostModal" />
+
+                                <div className="content-overlay" data-bs-toggle="modal" data-bs-target="#singlepostModal" ></div>
+                                <div style={{ color: 'white' }} className="content-details fadeIn-top fadeIn-left">
+                                    <div className='row'>
+                                        <div className='col'>
+                                            <h1>
+
+                                                <FaHeart />
+                                            </h1>
+                                            <p>21</p>
+                                        </div>
+                                        <div className='col'>
+                                            <h1>
+
+                                                <FaComment />
+                                            </h1>
+                                            <p>32</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            
+                            <div className='col profilepost content'>
+                                <img src='https://i.insider.com/56dd5464dd08956d4b8b46ac?width=800&format=jpeg' alt='...' className='rounded profilepostimg' data-bs-toggle="modal" data-bs-target="#singlepostModal" />
+
+                                <div className="content-overlay" data-bs-toggle="modal" data-bs-target="#singlepostModal" ></div>
+                                <div style={{ color: 'white' }} className="content-details fadeIn-top fadeIn-left">
+                                    <div className='row'>
+                                        <div className='col'>
+                                            <h1>
+
+                                                <FaHeart />
+                                            </h1>
+                                            <p>21</p>
+                                        </div>
+                                        <div className='col'>
+                                            <h1>
+
+                                                <FaComment />
+                                            </h1>
+                                            <p>32</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            
                         </div>
                     </center>
 
@@ -141,10 +301,10 @@ export default class ProfilePage extends Component {
                                 </div>
                                 <div className='col-sm-5 open'>
                                     <div className='row'>
-                                        <div className='col-sm-3'>
+                                        <div className='col-3'>
                                             <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2F3KhSxjXiwiYPBeVt56ofSsGXcrmRBCHxQ&usqp=CAU' className='rounded-circle profilepicmod' alt='...' />
                                         </div>
-                                        <div className='col-sm-9'>
+                                        <div className='col-9'>
                                             <div className='profiletitlemodal row'>
                                                 Harrison Wells
                                             </div>
@@ -162,10 +322,10 @@ export default class ProfilePage extends Component {
                                         {comments.map((item, index) => {
                                             return (
                                                 <div className='row'>
-                                                    <div className='col-sm-3'>
+                                                    <div className='col-3'>
                                                         <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Kate_Winslet_at_the_2017_Toronto_International_Film_Festival_%28cropped%29.jpg/220px-Kate_Winslet_at_the_2017_Toronto_International_Film_Festival_%28cropped%29.jpg' className='rounded-circle profilepicfriendmod' alt='...' />
                                                     </div>
-                                                    <div className='col-sm-9'>
+                                                    <div className='col-9'>
                                                         <div className='row profiletitlefriendmodal'>
                                                             Kate Winslet
                                                         </div>

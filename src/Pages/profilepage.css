@@ -51,8 +51,8 @@
 }
 
 .postpage {
-    background-color: #000000;
     background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
+    margin-left: 220px;
 }
 
 .initials {
@@ -211,7 +211,7 @@
 
 .pppost {
     padding: 0;
-    height: 80vh;
+    height: 100%;
     display: flex;
 }
 
@@ -265,7 +265,7 @@
     font-style: normal;
     color: white;
     font-weight: normal;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .numberofPosts {
@@ -292,10 +292,96 @@
     margin-top: 15px;
     margin-right: 20px;
 }
+@media only screen and (min-width:800px) {
+    .content {
+        position: relative;
+        width: 90%;
+      }
 
+      .content .content-overlay {
+        background: rgba(0,0,0,0.7);
+        position: absolute;
+        height: 95%;
+        width: 94%;
+        left: 14px;
+        top: 8px;
+        bottom: 0;
+        right: 14px;
+        opacity: 0;
+        -webkit-transition: all 0.4s ease-in-out 0s;
+        -moz-transition: all 0.4s ease-in-out 0s;
+        transition: all 0.4s ease-in-out 0s;
+      }
+      
+      .content:hover .content-overlay{
+        opacity: 0.7;
+      }
+      
+      .content-image{
+        width: 100%;
+      }
+      
+      .content-details {
+        position: absolute;
+        text-align: center;
+        padding-left: 1em;
+        padding-right: 1em;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        opacity: 0;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        -webkit-transition: all 0.3s ease-in-out 0s;
+        -moz-transition: all 0.3s ease-in-out 0s;
+        transition: all 0.3s ease-in-out 0s;
+      }
+      
+      .content:hover .content-details{
+        top: 50%;
+        left: 50%;
+        opacity: 1;
+      }
+      
+      
+      
+      .fadeIn-left{
+        left: 20%;
+      }
+    
+}
+
+  
 @media only screen and (max-width:800px) {
-    .open {
+    #singlepostModal{
+        padding-top: 20px;
+    }
+    .postpage{
+        margin-left: 0;
+    }
+    .profiletitlefriendmodal{
+        margin-left: -5px;
+    }
+    .profilepicmod{
+        width:60px;
+        height: 60px;
+    }
+    .commentmodal{
+        margin-left: 0px;
+        
+        font-size: 13px;
+    }
+    .content-details{
         display: none;
+    }
+    .content-overlay{
+        display: none;
+    }
+
+    .caption{
+        
+        font-size: 13px;
     }
     .initials {
         margin-left: 0;
