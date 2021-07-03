@@ -1,9 +1,10 @@
 import React from 'react'
 import './sidebr.css'
 import {BiSearch} from 'react-icons/bi'
-import {Link } from 'react-router-dom';
-import Settings from '../../pages/settings/settings';
-
+import {IoHome,IoSettings} from 'react-icons/io5'
+import { CgProfile} from 'react-icons/cg'
+import {Link } from 'react-router-dom'
+import logon from '../../logon.png'
 
 
 function sidebar() {
@@ -14,25 +15,25 @@ function sidebar() {
             <nav className="menu" tabIndex={0}>
         <div className="smartphone-menu-trigger" />
         <header className="avatar">
-          <div className="search-box">
             <form className="example" action="action_page.php">
-              <input type="text" placeholder="Search.." name="search" />
-              <button type="submit"><BiSearch/></button>
+              <input type="text" className='form-control customsearch' placeholder="Search.." name="search" />
+              <BiSearch className='searchButton'/>
             </form>
-          </div>
+          
           <div className="lower-us">
-            <div className="img"><img src="img1.jpg" alt='pp' /></div>
+            <img src='https://www.syfy.com/sites/syfy/files/styles/1200x680/public/2021/03/the-flash-barry-allen.jpg' alt='pp' />
             <div className="name">
-              <p style={{margin: '5px'}}>NAME</p>
-              <p style={{margin: '5px'}} >Email id</p>
+              <div >Dahmien Dark</div>
+              <div className='status'>Student</div>
             </div>
           </div>
         </header>
-        <ul >         
-         <li tabIndex={0} className="icon-1">Menu 1</li>
-          <li tabIndex={0} className="icon-2">Menu 2</li>
-          <li tabIndex={0} className="icon-3">Menu 3</li>
-          <li tabIndex={0} className="icon-4"><Link to='/settings'>Settings</Link></li>
+        <img  className='logo' src={logon} alt='...'/>
+        <div className='logotitle'>Sanshreya</div>
+        <ul className='allmenus'>       
+         <li tabIndex={0} ><Link className='Menu' to='/'><IoHome style={{marginRight:'8px'}}/>Home</Link></li>
+          <li tabIndex={0} ><Link className='Menu' to='/settings'><CgProfile style={{marginRight:'8px'}}/>View Your Profile</Link></li>
+          <li tabIndex={0} ><Link className='Menu' to='/settings'><IoSettings style={{marginRight:'8px'}}/>Settings</Link></li>
           
 
         </ul>

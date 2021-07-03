@@ -1,7 +1,8 @@
 
   
   .menu {
-    background-color: darkslategray;
+  background-color: #000000;
+  background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
     height: 100vh;
     width: 240px;
     position: fixed;
@@ -10,28 +11,54 @@
     z-index: 5;
     outline: none;
   }
-  :link{
-    text-decoration: none;
+  .logo{
+    margin-left: -85px;
     
   }
+  .Menu{
+    text-decoration: none;
+    color:white;
+    font-size: 20px;
+    
+  }
+  .Menu:hover{
+      color: wheat
+  }
   .menu .avatar {
-    background: rgba(0, 0, 0, 0.1);
+    background-image: url(https://blog.spoongraphics.co.uk/wp-content/uploads/2019/composite-background/final-lg.jpg);
+    background-size: 140%;
     padding: 1em 0.5em;
     text-align: center;
    
   }
+  .status{
+    background-color: #9b870c;
+    width: fit-content;
+    margin-left: 10px;
+    padding: 0 3px 0 3px;
+    border-radius: 10px;
+    font-family: Algerian;
+  }
   .name {
       display: flex;
+      color: white;
       flex-direction: column;
       font-family:Georgia, 'Times New Roman', Times, serif;
+      margin-top: 10px;
 
   }
+  .logotitle{
+    color: white;
+    font-family: 'Yellowtail', cursive;
+    font-size: 40px;
+    margin-top: -80px;
+  }
   .menu .avatar img {
-    width: 50px;
+    width: 80px;
+    height: 80px;
     border-radius: 30%;
     overflow: hidden;
-    border: 4px solid #ffea92;
-    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
+    box-shadow: 1px 1px 2px 1px rgba(255, 255, 255, 0.2);
   }
   .menu .avatar .name{
     font-weight: normal;
@@ -45,8 +72,7 @@
 
   }
   .menu ul li {
-    padding: 0.5em 1em 0.5em 3em;
-    font-size: 0.95em;
+    padding: 0.5em;
     font-weight: regular;
     background-repeat: no-repeat;
     background-position: left 15px center;
@@ -73,7 +99,7 @@
   .menu ul li:focus {
     outline: none;
   }
-  @media screen and (max-width: 900px) and (min-width: 400px) {
+  @media screen and (max-width: 900px) and (min-width: 500px) {
     body {
       padding-left: 90px;
     }
@@ -85,7 +111,7 @@
       position: relative;
     }
     .menu .avatar img {
-      width: 60px;
+      width: 70px;
     }
     .menu .avatar .name {
       opacity: 0;
@@ -137,7 +163,7 @@
       transform: translate3d(0px, -50%, 0);
     }
   }
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 500px) {
     body {
       padding-left: 0;
     }
@@ -154,7 +180,9 @@
       left: 100%;
       background: #5bc995;
     }
-  
+    .logo{
+      margin-top: -30px;
+    }
     .menu .smartphone-menu-trigger:before,
     .menu .smartphone-menu-trigger:after {
       content: '';
@@ -172,7 +200,6 @@
       transform: translate3d(-50%, -50%, 0);
     }
     .menu ul li {
-      padding: 1em 1em 1em 3em;
       font-size: 1.2em;
     }
     .menu:focus {
@@ -183,29 +210,10 @@
       pointer-events: none;
     }
   }
-  input[type=text] {
-      width: 130px;
-      -webkit-transition: width 0.4s ease-in-out;
-      transition: width 0.4s ease-in-out;
-      height: 30px;
-      border-radius: 5px;
-      border: 2px solid black;
-  }
   
-      input[type=text]:focus {
-          width: 80%;
-      }
-  .search-box {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 50px;
-      align-content: flex-end;
-  }
+  
   .lower-us{
       display:flex;
-      justify-content:space-evenly;
-      align-items:center;
       padding-top:50px;
   }
   
@@ -215,36 +223,19 @@
   }
   
   /* Style the search field */
-  form.example input[type=text] {
-      padding: 10px;
-      font-size: 17px;
-      border: 1px solid grey;
+  .customsearch {
+      font-size: 12px;
       float: left;
-      width: 68%;
+      width: 85%;
+      border-radius: 15px;
       background: #f1f1f1;
-      margin-top: 9px;
   }
   
-  /* Style the submit button */
-  form.example button {
-      float: left;
-      width: 20%;
-      padding: 6px;
-      background: #2196F3;
-      color: white;
-      font-size: 17px;
-      border: 1px solid grey;
-      border-left: none;
-      cursor: pointer;
-      margin-left: 3px;
-      border-radius: 7px;
-      margin-top: 8px; /* Prevent double borders */
-      cursor: pointer;
+  .searchButton {
+    font-size: 25px;
+    cursor: pointer;
+    margin-left: -70px;
   }
-  
-      form.example button:hover {
-          background: #0b7dda;
-      }
   
   /* Clear floats */
   form.example::after {
@@ -252,5 +243,11 @@
       clear: both;
       display: table;
   }
-  
+  @media (min-width:900px){
+    .allmenus{
+      position: absolute;
+      bottom: 20px;
+      left:20px
+    }
+  }
   

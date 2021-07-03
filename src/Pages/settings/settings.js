@@ -5,7 +5,7 @@ import {ImCamera} from 'react-icons/im'
 
 function Settings() {
     return (
-<div className="settings-body">
+<div className="settings-body marginforside">
         <div className="Heading" >
             <h1>Settings</h1>
         </div>        
