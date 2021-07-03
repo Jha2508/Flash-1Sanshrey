@@ -1,0 +1,411 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+.app {
+    align-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.postmodaltitle {
+    color: wheat
+}
+
+.modallike:hover {
+    color: rgb(197, 4, 4)
+}
+
+.modalsend:hover {
+    color: rgb(197, 4, 4)
+}
+
+.modallike {
+    font-size: 30px;
+    color: wheat;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.modalsend {
+    font-size: 32px;
+    margin-top: 2px;
+    margin-left: 20px;
+    color: wheat;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.yourcomment {
+    display: flex;
+    flex-direction: row;
+}
+
+.category {
+    background-color: goldenrod;
+    color: rgb(66, 66, 66);
+    font-family: 'Algerian';
+    width: fit-content;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 20px;
+    border-radius: 10px;
+}
+
+.postpage {
+    background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
+    margin-left: 220px;
+}
+
+.initials {
+    margin-right: 0;
+    margin-left: 36px;
+    padding-top: 49px;
+}
+
+.profilepic {
+    width: 300px;
+    height: 300px;
+}
+
+.profilepicmod {
+    margin-top: 10px;
+    width: 95px;
+    height: 95px;
+}
+
+.profilepicfriendmod {
+    width: 65px;
+    height: 65px;
+}
+
+.caption {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    color: whitesmoke;
+    font-weight: normal;
+    padding-left: 0;
+    font-size: 16px;
+}
+
+.captiondivider {
+    color: aliceblue;
+    width: 80%;
+    padding-top: 3px;
+    border-radius: 1px;
+    padding: 0;
+}
+
+.custominput {
+    border-radius: 20px;
+}
+
+.commentdivider {
+    color: aliceblue;
+    width: 30%;
+    padding-top: 3px;
+    border-radius: 1px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.commentmodal {
+    font-family: 'Roboto', sans-serif;
+    margin-top: 0px;
+    font-style: normal;
+    color: whitesmoke;
+    margin-left: -40px;
+    font-weight: normal;
+    margin-right: 2px;
+    font-size: 16px;
+}
+
+.links {
+    text-decoration: none;
+    font-size: 20px;
+    color: blue;
+    cursor: pointer;
+}
+
+.rightalign {
+    text-align: right;
+    align-self: right;
+    color: white;
+    align-content: right;
+}
+
+.profiletitle {
+    font-family: 'Satisfy';
+    font-style: normal;
+    font-weight: 500;
+    color: white;
+    font-size: 48px;
+}
+
+.profiletitlemodal {
+    font-family: 'Satisfy';
+    font-style: normal;
+    font-weight: 50;
+    color: wheat;
+    font-size: 25px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 7px;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: wheat;
+    border-radius: 10px;
+}
+
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: #b30000;
+}
+
+.row {
+    padding-right: 0;
+}
+
+.profiletitlefriendmodal {
+    font-family: 'Satisfy';
+    font-style: normal;
+    font-weight: 50;
+    color: wheat;
+    font-size: 25px;
+    margin-left: -40px;
+}
+
+.comments {
+    height: 55vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.closebtn {
+    font-size: 30px;
+    color: white;
+    position: absolute;
+    top: -30px;
+    right: -12px;
+}
+
+.pppostimagemodal {
+    width: 100%;
+    padding: 0;
+    height: 80vh;
+    border-radius: 0 0 0 7px;
+}
+
+.pppost {
+    padding: 0;
+    height: 100%;
+    display: flex;
+}
+
+.btn-close {
+    color: white
+}
+
+.allposts {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.profilepost {
+    padding: 10px;
+}
+
+.profilepostimg {
+    height: 300px;
+    box-shadow: 0px 0px 15px whitesmoke;
+}
+
+.profilepicmodal {
+    width: 50vw;
+    height: 80vh;
+}
+
+.pro {
+    width: fit-content;
+    background-color: transparent;
+}
+
+.profileopen {
+    padding: 0;
+}
+
+.links:hover {
+    color: rgb(252, 252, 26)
+}
+
+.divider {
+    width: 60%;
+    color: whitesmoke;
+    align-self: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.profilebio {
+    font-family: 'Roboto', sans-serif;
+    margin-top: 15px;
+    font-style: normal;
+    color: white;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.numberofPosts {
+    font-size: 60px;
+    margin-left: 40px;
+    margin-top: -20px;
+}
+
+.pdfyt {
+    cursor: pointer;
+    font-size: 35px;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+
+.posts {
+    text-align: center;
+    font-size: 24px;
+}
+
+.reactionicon {
+    cursor: pointer;
+    font-size: 35px;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+@media only screen and (min-width:800px) {
+    .content {
+        position: relative;
+        width: 90%;
+      }
+
+      .content .content-overlay {
+        background: rgba(0,0,0,0.7);
+        position: absolute;
+        height: 95%;
+        width: 94%;
+        left: 14px;
+        top: 8px;
+        bottom: 0;
+        right: 14px;
+        opacity: 0;
+        -webkit-transition: all 0.4s ease-in-out 0s;
+        -moz-transition: all 0.4s ease-in-out 0s;
+        transition: all 0.4s ease-in-out 0s;
+      }
+      
+      .content:hover .content-overlay{
+        opacity: 0.7;
+      }
+      
+      .content-image{
+        width: 100%;
+      }
+      
+      .content-details {
+        position: absolute;
+        text-align: center;
+        padding-left: 1em;
+        padding-right: 1em;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        opacity: 0;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        -webkit-transition: all 0.3s ease-in-out 0s;
+        -moz-transition: all 0.3s ease-in-out 0s;
+        transition: all 0.3s ease-in-out 0s;
+      }
+      
+      .content:hover .content-details{
+        top: 50%;
+        left: 50%;
+        opacity: 1;
+      }
+      
+      
+      
+      .fadeIn-left{
+        left: 20%;
+      }
+    
+}
+
+  
+@media only screen and (max-width:800px) {
+    #singlepostModal{
+        padding-top: 20px;
+    }
+    .postpage{
+        margin-left: 0;
+    }
+    .profiletitlefriendmodal{
+        margin-left: -5px;
+    }
+    .profilepicmod{
+        width:60px;
+        height: 60px;
+    }
+    .commentmodal{
+        margin-left: 0px;
+        
+        font-size: 13px;
+    }
+    .content-details{
+        display: none;
+    }
+    .content-overlay{
+        display: none;
+    }
+
+    .caption{
+        
+        font-size: 13px;
+    }
+    .initials {
+        margin-left: 0;
+    }
+    .profilepic {
+        align-content: center;
+    }
+    .allposts {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    .profilepostimg {
+        width: 100px;
+        height: 100px;
+    }
+    .rightalign {
+        text-align: left;
+        color: white;
+    }
+    .posts {
+        text-align: right;
+        margin-top: -70px;
+    }
+    .numberofPosts {
+        margin-top: -20px;
+    }
+}
