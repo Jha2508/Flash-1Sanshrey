@@ -1,0 +1,50 @@
+.landing-page-right{
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.landing-page-right h1{
+    font-size: 60px;
+    color: aliceblue;
+    font-family: 'Permanent Marker', cursive;
+}
+
+.landing-page-right p{
+    font-family: 'Roboto', sans-serif;
+    color: aliceblue;
+    font-size: larger;
+}
+
+.ruler{
+    color: white;
+    width: 50%;
+    margin-bottom: 25px;
+}
+
+.landing-input{
+    border-bottom: 2px solid white;
+    margin: 10px;
+}
+
+.input-group-lg .form-control{
+    
+    border-radius: 20px;
+}
+.input-group-md .form-control{
+    border-radius: 20px;
+}
+.landing-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.landing-login{
+    margin: 20px 40% 40px 30%;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+.toggle-login{
+    margin: 21px;
+}
