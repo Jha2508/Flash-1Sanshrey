@@ -31,8 +31,8 @@ function sidebar() {
         <img  className='logo' src={logon} alt='...'/>
         <div className='logotitle'>Sanshreya</div>
         <ul className='allmenus'>       
-         <li tabIndex={0} ><Link className='Menu' to='/'><IoHome style={{marginRight:'8px'}}/>Home</Link></li>
-          <li tabIndex={0} ><Link className='Menu' to='/settings'><CgProfile style={{marginRight:'8px'}}/>View Your Profile</Link></li>
+         <li tabIndex={0} ><Link className='Menu' to='/Home'><IoHome style={{marginRight:'8px'}}/>Home</Link></li>
+          <li tabIndex={0} ><Link className='Menu' to='/MyProfile'><CgProfile style={{marginRight:'8px'}}/>View Your Profile</Link></li>
           <li tabIndex={0} ><Link className='Menu' to='/settings'><IoSettings style={{marginRight:'8px'}}/>Settings</Link></li>
           
 

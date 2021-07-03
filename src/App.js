@@ -11,7 +11,7 @@ import Settings from './Pages/settings/settings'
 
 function App() {
   return (
-    <>
+    <div className='App'>
       <Router>
         <Switch>
           <Route exact path="/"><Landing/></Route>
@@ -22,7 +22,7 @@ function App() {
       <Route path='/home' exact component={Home}/>
         </Switch>
       </Router>
-    </>
+    </div>
   );
 }
 
