@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo from "../sources/sociallogo.png"
+import Logo from "../../sources/sociallogo.png"
 import "./mainlogo.css"
 
 const Mainlogo = () => {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaqData, } from '../Components/faqlist'
+import { FaqData } from '../../Components/LandingPage/faqlist'
 import './faqs.css'
 import Faq from "react-faq-component"
 import { Link } from "react-router-dom"

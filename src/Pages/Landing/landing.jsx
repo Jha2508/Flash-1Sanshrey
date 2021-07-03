@@ -1,7 +1,7 @@
 import React from 'react'
-import Navbar from '../Components/navbar'
-import Mainlogo from '../Components/mainlogo'
-import Login from '../Components/login'
+import Navbar from '../../Components/LandingPage/navbar'
+import Mainlogo from '../../Components/LandingPage/mainlogo'
+import Login from '../../Components/LandingPage/login'
 import './landing.css'
 
 function Landing() {
