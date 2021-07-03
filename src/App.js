@@ -1,10 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
-import Abc from './Components/abc'
+import React from "react";
+import MessageSender from "./Components/MessageSender"
+import Sidebar from "./Components/Sidebar"
+import "./App.css";
+
 function App() {
   return (
-    <div className="App">
-      <Abc/>
+    <div className="app">
+      <MessageSender />
+      <Sidebar />
     </div>
   );
 }

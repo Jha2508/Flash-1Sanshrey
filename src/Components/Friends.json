@@ -1,0 +1,57 @@
+[
+
+  {
+    "id": "1",
+    "name": "ABCD",
+    "category": "Student",
+    "Image": "https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-4.png"
+  },
+  {
+    "id": "2",
+    "name": "EFGH",
+    "category": "Student",
+    "Image": "https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-3-300x300.png"
+  },
+  {
+    "id": "3",
+    "name": "EFGH",
+    "category": "Alumni",
+    "Image": "https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-2.png"
+  },
+  {
+    "id": "4",
+    "name": "AYZGH",
+    "category": "Alumni",
+    "Image": "https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-3-300x300.png"
+  },
+  {
+    "id": "5",
+    "name": "XYZAB",
+    "category": "Student",
+    "Image": "https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-2.png"
+  },
+  {
+    "id": "6",
+    "name": "JKLCD",
+    "category": "Alumni",
+    "Image": "https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-3-300x300.png"
+  },
+  {
+    "id": "7",
+    "name": "CDHS",
+    "category": "Student",
+    "Image": "https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-3-300x300.png"
+  },
+  {
+    "id": "8",
+    "name": "JKDXZ",
+    "category": "Alumni",
+    "Image": "https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-2.png"
+  },
+  {
+    "id": "9",
+    "name": "JDGAJ ",
+    "category": "Student",
+    "Image": "https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-2.png"
+  }
+]
