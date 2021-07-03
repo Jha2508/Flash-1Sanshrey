@@ -2,9 +2,11 @@ import React from 'react'
 import './settings.css'
 import DP from './img1.jpg'
 import {ImCamera} from 'react-icons/im'
+import Sidebar from '../../Components/sidebar/sidebar'
 
 function Settings() {
-    return (
+    return (<>
+    <Sidebar/>
 <div className="settings-body marginforside">
         <div className="Heading" >
             <h1>Settings</h1>
@@ -70,6 +72,7 @@ function Settings() {
 </div></div>
         
 </div>
+</>
 
     )
 }
