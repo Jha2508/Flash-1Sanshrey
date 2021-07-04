@@ -1,20 +1,18 @@
 .messageSender {
   display: flex;
   flex-direction: column;
-  background-color: whitesmoke;
+  background-color:rgb(63, 63, 63);
+  color:white;
   margin-top: 30px;
   border-radius: 15px;
   box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);
-  margin-left: auto;
+  margin-left: 30px;
   margin-right: auto;
-  width: 50%;
-  justify-content: center;
 }
 
 .messageSender__top {
   display: flex;
-  border-bottom: 1px solid #eff2f5;
-  padding: 25px;
+  padding: 10px;
 }
 
 .messageSender__top > form {
@@ -22,14 +20,14 @@
   display: flex;
 }
 
-.messageSender__top > form > input {
+.messageSender__top > form > textarea {
   outline-width: 0;
   border: none;
+  color:white;
+  background-color: rgb(172,172,172);
   padding: 5px 20px;
   margin: 0 10px;
-  border-radius: 999px;
-  background-color: #eff2f5;
-  height: 35px;
+  border-radius: 30px;
   display: flex;
 }
 
@@ -47,10 +45,9 @@
 }
 
 .messageSender__option {
-  padding: 20px;
+  
   display: flex;
   align-items: center;
-  color: rgb(63, 63, 63);
   margin: 5px;
 }
 
@@ -58,11 +55,6 @@
   font-size: medium;
   margin-left: 10px;
   cursor: pointer;
-}
-
-.messageSender__option:hover {
-  background-color: rgb(200, 200, 200);
-  border-radius: 20px;
 }
 
 .react-icons {
@@ -78,6 +70,5 @@
 }
 
 .Preview > img {
-  width: 100%;
-  height: fit-content;
+  width: 30vw;
 }

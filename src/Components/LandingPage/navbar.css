@@ -15,19 +15,15 @@
 }
 
 .navbar-logo{
-    height: 60px;
-    width: 60px;
-    margin-right: 20px;
-    border: 2px solid grey;
-    border-radius: 100%;
-    background-color: rgb(245, 245, 233);
-    padding: 10px;
+    height: 80px;
+    margin-top:-15px;
     align-self: center;
 }
 
 .landing-logo span{
     font-size: xx-large;
     font-family: 'Yellowtail', cursive;
+    margin-left: -40px;
     font-weight: 400;
     color: white;
 }

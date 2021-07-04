@@ -7,6 +7,7 @@ import {Link } from 'react-router-dom'
 import logon from '../../logon.png'
 
 
+import Sidebar2 from '../../Components/Sidebar2'
 function sidebar() {
     return (
         <div>
@@ -16,8 +17,7 @@ function sidebar() {
         <div className="smartphone-menu-trigger" />
         <header className="avatar">
             <form className="example" action="action_page.php">
-              <input type="text" className='form-control customsearch' placeholder="Search.." name="search" />
-              <BiSearch className='searchButton'/>
+            <Sidebar2/>
             </form>
           
           <div className="lower-us">

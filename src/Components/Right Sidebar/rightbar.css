@@ -1,0 +1,51 @@
+.rightbar {
+    flex: 3;
+    padding: 10px;
+    color:white;
+    position: sticky;
+    top: 50px;
+    
+}
+.rightbarWrapper{
+    -webkit-box-shadow: 1px 0px 15px 5px rgba(0,0,0,0.13); 
+    box-shadow: 1px 0px 15px 5px rgba(0,0,0,0.13);
+    border-radius: 20px;
+    overflow-y: scroll;
+    padding: 20px;
+}
+.rightbarHead{
+   margin-left: 30px;
+}
+.rightbarHr{
+    margin: 30px;
+}
+.rightbarFriendList{
+    padding: 0;
+    margin: 0 25px;
+    list-style: none;
+}
+.rightbarFriendImg{
+    height: 32px;
+    width: 32px;
+    border-radius: 25%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+.rightbarFriend{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.onlineFriendStatus{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: limegreen;
+    position: absolute;
+    right: 40px;
+   
+}
+.rightbarFriendImgContainer{
+    margin-right: 10px;
+    position: -webkit-sticky;
+}

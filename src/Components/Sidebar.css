@@ -2,10 +2,12 @@
   text-align: left;
   align-items: center;
   height: 100%;
-  width: 20%;
+  width: 240px;
+  background-color: #000000;
+  background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
   position: fixed;
-  z-index: 1;
   top: 0;
   left: 0;
-  overflow-x: scroll;
+  overflow-x:hidden;
+  overflow-y: scroll;
 }

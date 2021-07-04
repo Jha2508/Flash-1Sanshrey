@@ -223,20 +223,7 @@
   }
   
   /* Style the search field */
-  .customsearch {
-      font-size: 12px;
-      float: left;
-      width: 85%;
-      border-radius: 15px;
-      background: #f1f1f1;
-  }
-  
-  .searchButton {
-    font-size: 25px;
-    cursor: pointer;
-    margin-left: -70px;
-  }
-  
+ 
   /* Clear floats */
   form.example::after {
       content: "";

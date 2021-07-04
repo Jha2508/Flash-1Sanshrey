@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./SearchBarSection.css";
 import { BiSearchAlt } from "react-icons/bi";
 import { IconContext } from "react-icons";
-import { RiUserFollowLine, RiUserUnfollowFill, RiCloseCircleFill} from "react-icons/ri";
+import { RiUserFollowLine, RiUserUnfollowFill, RiCloseCircleFill } from "react-icons/ri";
 
 function SearchBar({ placeholder, data }) {
   const [filteredData, setFilteredData] = useState([]);
@@ -29,7 +29,6 @@ function SearchBar({ placeholder, data }) {
 
   return (
     <div className="SearchBarSection">
-      <div className="header">
         <div className="header__left">
           <div className="header__input">
             <input
@@ -40,38 +39,68 @@ function SearchBar({ placeholder, data }) {
             />
 
             {filteredData.length === 0 ? (
-              <IconContext.Provider value={{ color: "green", size: 25 }}>
+              <IconContext.Provider value={{ color: "green", size: 20 }}>
                 <BiSearchAlt />
               </IconContext.Provider>
             ) : (
-              <IconContext.Provider value={{ color: "blue", size: 25 }}>
+              <IconContext.Provider value={{ color: "blue", size: 20 }}>
                 <RiCloseCircleFill id="react-icons" onClick={clearInput} />
               </IconContext.Provider>
             )}
           </div>
         </div>
-      </div>
-      <div className="display">
+        
+    <div className='sidebar' style={filteredData.length===0?{zIndex:'-10',overflow:'hidden'}:{zIndex:'1000'}}>
+    <div className="header__left">
+          <div className="header__input" style={{marginTop:'17px'}}>
+            <input
+              type="text"
+              placeholder="Search Friends"
+              value={wordEntered}
+              onChange={handleFilter}
+            />
+
+            {filteredData.length === 0 ? (
+              <IconContext.Provider value={{ color: "green", size: 20 }}>
+                <BiSearchAlt />
+              </IconContext.Provider>
+            ) : (
+              <IconContext.Provider value={{ color: "blue", size: 20 }}>
+                <RiCloseCircleFill id="react-icons" onClick={clearInput} />
+              </IconContext.Provider>
+            )}
+          </div>
+        </div>
+        
+      <div className="display" style={filteredData.length===0?{zIndex:'-10'}:{zIndex:'1000'}}>
         {filteredData.length !== 0 && (
           <div className="data">
             {filteredData.slice(0, 15).map((value, key) => {
               return (
                 <div className="product">
-                  <h6>{value.category}</h6>
-                  <h4>{value.name}</h4>
-                  <img alt='...' src={value.Image} className="profilePic"/>
-                  <IconContext.Provider value={{ color: "green", size: 25, className:"follow" }}>
+                <div className='row'>
+                <div className='col'><h6>{value.category}</h6>
+                  <h5>{value.name}</h5>
+                  <div className='row'>
+                  <IconContext.Provider value={{ color: "green", size: 25, className: "follow" }}>
                     <RiUserFollowLine />
                   </IconContext.Provider>
-                  <IconContext.Provider value={{ color: "gray", size: 25, className:"unfollow" }}>
-                    <RiUserUnfollowFill />
-                  </IconContext.Provider>
+                  </div></div>
+
+                  <div className='col'>
+                  <img alt='...' src={value.Image} className="profilePic" />
+                  </div>
+                  </div>
+                  
+                  
+                 
                 </div>
               );
             })}
           </div>
         )}
       </div>
+    </div>
     </div>
   );
 }

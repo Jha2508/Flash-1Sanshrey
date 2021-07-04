@@ -36,7 +36,8 @@ function MessageSender() {
           <BsChatSquareFill />
         </IconContext.Provider>
         <form>
-          <input
+          <textarea
+            rows='5'
             type="text"
             className="messageSender__input"
             placeholder={`What's on your mind`}
@@ -70,10 +71,12 @@ function MessageSender() {
           />
         </div>
         <div className="messageSender__option">
-          <IconContext.Provider value={{ color: "blue", size: 25 }}>
+          <IconContext.Provider value={{ color: "gold", size: 25 }}>
             <FaSmileWink />
-            <h3>Emoji</h3>
           </IconContext.Provider>
+        </div>
+        <div className="messageSender__option">
+<button type="button" class="btn btn-outline-light">Post</button>
         </div>
       </div>
     </div>

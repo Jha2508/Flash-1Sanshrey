@@ -4,8 +4,10 @@
 }
 
 .product {
-  margin: 25px 12px;
-  padding: 20px;
+  margin-top: 25px;
+    margin-right: 12px;
+    margin-bottom: 25px;
+  padding: 10px;
   align-items: center;
   width: 100%;
   height:fit-content;
@@ -46,8 +48,8 @@
   display: flex;
   align-items: center;
   background-color: #eff2f5;
-  padding: 10px;
-  margin-left: 10px;
+  padding: 5px;
+  z-index: 400;
   border-radius: 999px;
 }
 
@@ -62,5 +64,4 @@
   display: flex;
   margin:0px 7px;
 }
-
 

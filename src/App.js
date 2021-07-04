@@ -6,7 +6,8 @@ import FAQs from "./Pages/FAQs/faqs"
 import Home from './Pages/Home/Home'
 import OurTeam from "./Pages/ourTeam/ourTeam"
 import Settings from './Pages/settings/settings'
-import ProfilePage from "./Pages/profilepage";
+import ProfilePage from "./Pages/Profile Page/profilepage";
+import Post from "./Components/Post/Post";
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
       <Route path='/settings' exact component={Settings}/>
       
       <Route path='/MyProfile' exact component={ProfilePage}/>
-      
+      <Route path ='/Post' exact component={Post}/>
       <Route path='/home' exact component={Home}/>
         </Switch>
       </Router>

@@ -3,7 +3,7 @@ import './profilepage.css'
 import { FaComment, FaFilePdf, FaHeart, FaYoutube } from 'react-icons/fa'
 import { AiOutlineClose, AiFillLike } from 'react-icons/ai';
 import { BiSend } from 'react-icons/bi'
-import Sidebar from '../Components/sidebar/sidebar';
+import Sidebar from '../../Components/sidebar/sidebar';
 const comments = [1, 2, 3, 4, 5, 6, 7]
 export default class ProfilePage extends Component {
 

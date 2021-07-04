@@ -3,12 +3,12 @@ import "./Sidebar.css";
 import SearchBarSection from "./SearchBarSection";
 import Friends from "./Friends.json";
 
-function Sidebar() {
+function Sidebar2() {
   return (
-    <div className="sidebar">
+    <div>
       <SearchBarSection  data={Friends} />
     </div>
   );
 }
 
-export default Sidebar;
+export default Sidebar2;
