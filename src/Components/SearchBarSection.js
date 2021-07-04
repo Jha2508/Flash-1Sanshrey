@@ -52,14 +52,14 @@ function SearchBar({ placeholder, data }) {
         </div>
       </div>
       <div className="display">
-        {filteredData.length != 0 && (
+        {filteredData.length !== 0 && (
           <div className="data">
             {filteredData.slice(0, 15).map((value, key) => {
               return (
                 <div className="product">
                   <h6>{value.category}</h6>
                   <h4>{value.name}</h4>
-                  <img className="ProfilePic" src={value.Image} className="profilePic"></img>
+                  <img alt='...' src={value.Image} className="profilePic"/>
                   <IconContext.Provider value={{ color: "green", size: 25, className:"follow" }}>
                     <RiUserFollowLine />
                   </IconContext.Provider>
