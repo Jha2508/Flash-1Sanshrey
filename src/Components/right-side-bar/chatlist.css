@@ -1,0 +1,43 @@
+img{
+    height:40px;
+    width:40px;
+    border-radius: 100%;
+    vertical-align: middle;
+    padding:5px;
+}
+.app-wrapper{
+    
+    border-radius: 15px;
+    display:flex;
+    flex-direction: row;
+    width:250px;
+    margin-bottom: 3px;
+    background-color: black;
+}
+.userName{
+    width:160px;
+}
+h6{
+    margin:1px 0;
+    padding:0 0 0 10px;
+    opacity:0.5;
+    color: white;
+    font-size: smaller;
+    text-align: left;
+}
+h5{
+    margin:0 0;
+    padding:6.5px 0 0 10px;
+    color: white;
+    font-size: smaller;
+    text-align: left;
+}
+#icon-dot{
+    font-size:larger;
+    padding-top: 10px;
+    color:blue;
+    opacity: 0.7;   
+}
+.chatbox{
+    float: right;
+}
