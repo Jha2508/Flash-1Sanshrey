@@ -133,6 +133,7 @@
 }
 
 .profiletitle {
+    text-align: left;
     font-family: 'Satisfy';
     font-style: normal;
     font-weight: 500;

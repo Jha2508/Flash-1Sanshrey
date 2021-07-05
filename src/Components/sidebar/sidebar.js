@@ -1,6 +1,6 @@
 import React from 'react'
 import './sidebr.css'
-import {BiSearch} from 'react-icons/bi'
+import {FiLogOut} from 'react-icons/fi'
 import {IoHome,IoSettings} from 'react-icons/io5'
 import { CgProfile} from 'react-icons/cg'
 import {Link } from 'react-router-dom'
@@ -34,8 +34,7 @@ function sidebar() {
          <li tabIndex={0} ><Link className='Menu' to='/Home'><IoHome style={{marginRight:'8px'}}/>Home</Link></li>
           <li tabIndex={0} ><Link className='Menu' to='/MyProfile'><CgProfile style={{marginRight:'8px'}}/>View Your Profile</Link></li>
           <li tabIndex={0} ><Link className='Menu' to='/settings'><IoSettings style={{marginRight:'8px'}}/>Settings</Link></li>
-          
-
+          <li tabIndex={0} ><Link className='Menu' to='/'><FiLogOut style={{marginRight:'8px'}}/>Logout</Link></li>
         </ul>
       </nav>
         </div>

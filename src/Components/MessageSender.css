@@ -21,7 +21,6 @@
 }
 
 .messageSender__top > form > textarea {
-  outline-width: 0;
   border: none;
   color:white;
   background-color: rgb(172,172,172);
@@ -70,5 +69,5 @@
 }
 
 .Preview > img {
-  width: 30vw;
+  width: 20vw;
 }

@@ -37,7 +37,8 @@ function MessageSender() {
         </IconContext.Provider>
         <form>
           <textarea
-            rows='5'
+            rows={(imageToPost===null)?'2':'10'}
+            
             type="text"
             className="messageSender__input"
             placeholder={`What's on your mind`}
