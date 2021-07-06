@@ -8,13 +8,14 @@ function Home() {
     return (<>
         <Sidebar />
         <div className='marginforside home'>
-            
+
             <div className='row'>
-                <div className={window.matchMedia("(max-width: 800px)").matches?'col':'col-8'}>
-                
+                <div className={window.matchMedia("(max-width: 800px)").matches ? 'col' : 'col-8'}>
+
                     <MessageSender />
+                    <Post />
                 </div>
-                <div className={window.matchMedia("(max-width: 800px)").matches?'disable':'col-4'}>
+                <div className={window.matchMedia("(max-width: 800px)").matches ? 'disable' : 'col-4'}>
 
                     <Rightbar />
                 </div>

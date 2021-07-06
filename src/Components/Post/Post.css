@@ -1,86 +1,67 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
+.post-container{
+    width: 800px;
+    margin-left: 2.5rem;
+    margin-top:20px;
+    border-radius: 1rem;
+    overflow: hidden;
+    }
 
-div.polaroid {
-  width: 50%;
-  background-color: white;
-  border-radius: 25px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-bottom: 25px;
-  
+.post-img{
+    height: inherit;
+    width: inherit;
 }
 
-div.container {
-  text-align: center;
-  padding: 5px 10px;
+.author-img{
+height: 4rem;
+width: 4rem;
+border-radius: 100px;
+margin-right: 5px;
 }
-.modalsend {
-    font-size: 32px;
-    margin-top: 2px;
-    margin-left: 20px;
-    color: rgb(94, 92, 88);
-    margin-right: 10px;
+
+.author-title{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+.post-actions{
+    font-size: 35px;
     cursor: pointer;
+    color: white;
+    
 }
-.modalsend:hover {
-    color: rgb(0, 0, 0)
+.open-view{
+    height: 70vh;
+    width: 80vh;
 }
-.reaction{
-    font-size: 32px;
-    margin-left: 20px;
-    margin-bottom: 2px;
-    color: rgb(94, 92, 88);
-    margin-right: 10px;
-    cursor: pointer;
-}
-.reaction:hover {
-    color: rgb(0, 0, 0)
-}
-.yourcomment {
+
+.post-icons{
     display: flex;
     flex-direction: row;
-    padding-bottom: 5px;
-    padding-left: 5px;
-}
-.caption {
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    color: rgb(0, 0, 0);
-    font-weight: normal;
-    padding-left: 0;
-    font-size: 16px;
-    text-align: left;
-    
+    justify-content: space-around;
 }
 
-
-.profilepicmod {
+.post-below-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     margin-top: 10px;
-    width: 50px;
-    height: 50px;
-}
-.profiletitlemodal {
-    font-family: 'Satisfy';
-    font-style: normal;
-    font-weight: 50;
-    color: rgb(0, 0, 0);
-    font-size: 25px;
-    text-align: left;
-    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-.custominput {
+.comment-input{
+    width: 80%;
     border-radius: 20px;
 }
-.col-sm-3 img {
-    
-    width:100%;
-    border-radius: 8px;
-}
 
-.first-txt {
-            position: absolute;
-            top: 50px;
-            left: 50px;
-        }
+.load-comments{
+    height: 300px;
+    overflow-y: scroll;
+    padding-left: 10px;
+}
+.author-img-modal{
+padding: 0;
+
+}
