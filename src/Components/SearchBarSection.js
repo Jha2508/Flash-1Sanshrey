@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./SearchBarSection.css";
 import { BiSearchAlt } from "react-icons/bi";
 import { IconContext } from "react-icons";
-import { RiUserFollowLine, RiUserUnfollowFill, RiCloseCircleFill } from "react-icons/ri";
+import { RiUserFollowLine,  RiCloseCircleFill } from "react-icons/ri";
 
 function SearchBar({ placeholder, data }) {
   const [filteredData, setFilteredData] = useState([]);

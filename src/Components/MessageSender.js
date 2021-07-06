@@ -77,7 +77,7 @@ function MessageSender() {
           </IconContext.Provider>
         </div>
         <div className="messageSender__option">
-<button type="button" class="btn btn-outline-light">Post</button>
+<button type="button" className="btn btn-outline-light">Post</button>
         </div>
       </div>
     </div>

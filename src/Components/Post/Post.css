@@ -20,10 +20,11 @@ width: 4rem;
 border-radius: 100px;
 margin-right: 5px;
 }
-
+.time{
+    margin-top: -30px;
+}
 .author-title{
     display: flex;
-    align-items: center;
     justify-content: left;
 }
 .post-actions{
@@ -51,11 +52,22 @@ margin-right: 5px;
     margin-bottom: 10px;
 }
 
-.comment-input{
-    width: 80%;
-    border-radius: 20px;
+.numberoflikes{
+    margin:10px
 }
-
+.numberofcomments{
+    margin:10px
+}
+.shadows{
+    -webkit-box-shadow: 6px 33px 78px -13px rgba(0,0,0,0.7) inset;
+-moz-shadow: 6px 33px 78px -13px rgba(0,0,0,0.7) inset;
+box-shadow: 6px 33px 198px -13px rgba(0,0,0,0.7) inset;
+}
+.comment-input{
+    border-radius: 20px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
 .load-comments{
     height: 300px;
     overflow-y: scroll;

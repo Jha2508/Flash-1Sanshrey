@@ -1,21 +1,13 @@
-import React, { Component } from 'react'
+import React, {useState } from 'react'
 import './profilepage.css'
 import { FaComment, FaFilePdf, FaHeart, FaYoutube } from 'react-icons/fa'
 import { AiOutlineClose, AiFillLike } from 'react-icons/ai';
 import { BiSend } from 'react-icons/bi'
 import Sidebar from '../../Components/sidebar/sidebar';
 const comments = [1, 2, 3, 4, 5, 6, 7]
-export default class ProfilePage extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            buttonMssg: 'Send Friend Request'
-        };
-    }
-
-    render() {
-
+function ProfilePage (props){
+            const [buttonMssg, setbuttonMssg] = useState('Send friend Request')
+            
         return (
             <div>
             <Sidebar/>
@@ -25,7 +17,7 @@ export default class ProfilePage extends Component {
                         <div data-bs-toggle="modal" data-bs-target="#profileModal" className='col-sm-3'>
                             <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2F3KhSxjXiwiYPBeVt56ofSsGXcrmRBCHxQ&usqp=CAU' className='rounded-circle profilepic' alt='...' />
                         </div>
-                        <div className='col-sm-7'>
+                        <div className='col-sm'>
                             <div className='profiletitle'>
                                 Harrison Wells
                             </div>
@@ -50,7 +42,7 @@ export default class ProfilePage extends Component {
                                         </div>
                                     </div>
 
-                                    <button type="button" onClick={() => this.setState({ buttonMssg: 'sent' })} className="btn btn-outline-warning">{this.state.buttonMssg}</button>
+                                    <button type="button" onClick={()=>setbuttonMssg('sent')} style={props.buttonstat} className="btn btn-outline-warning">{buttonMssg}</button>
                                     <div>
                                         <FaFilePdf className='pdfyt' color='red' />
                                         <FaYoutube className='pdfyt' color='red' />
@@ -361,4 +353,5 @@ export default class ProfilePage extends Component {
 
         )
     }
-}
+
+export default ProfilePage

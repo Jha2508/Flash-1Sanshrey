@@ -4,8 +4,6 @@
 }
 .home{
     background-color: black;
-    height: 100vh;
-    
 }
 @media (max-width:600px){
     .marginforside{

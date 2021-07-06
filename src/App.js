@@ -21,7 +21,7 @@ function App() {
           <Route exact path="/ourteam"><OurTeam/></Route>
       <Route path='/settings' exact component={Settings}/>
       
-      <Route path='/MyProfile' exact component={ProfilePage}/>
+      <Route path='/MyProfile' exact component={()=><ProfilePage buttonstat={{display:'none'}}/>}/>
       <Route path ='/Post' exact component={Post}/>
       <Route path='/home' exact component={Home}/>
         </Switch>
