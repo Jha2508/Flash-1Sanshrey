@@ -6,7 +6,8 @@ export default function Rightbar() {
     return (
         <div className="rightbar">
             <div className="rightbarWrapper">
-                <h2 className="rightbarHead">Friends</h2>
+            <center>
+                <h2 className="rightbarHead">Friends</h2></center>
                 <center><hr className="rightbarHr" /></center>
                 <ul className="rightbarFriendList">
 

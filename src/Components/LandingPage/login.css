@@ -11,7 +11,11 @@
     color: aliceblue;
     font-family: 'Permanent Marker', cursive;
 }
-
+.passcheck{
+    color: rgb(224, 138, 138);
+    font-size: 18px;
+    font-weight: 500;
+}
 .landing-page-right p{
     font-family: 'Roboto', sans-serif;
     color: aliceblue;

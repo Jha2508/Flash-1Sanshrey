@@ -33,9 +33,9 @@ function ProfilePage (props){
 
                                 </div>
                                 <div className='col-sm-3 rightalign'>
-                                    <div className='links' data-bs-toggle="modal" data-bs-target="#friendsModal"> Friends  &nbsp;(30)<br /></div>
+                                    <div className='links' data-bs-toggle="modal" data-bs-target="#friendsModal"> Followers  &nbsp;(30)<br /></div>
 
-                                    <div className='links' data-bs-toggle="modal" data-bs-target="#mutualsModal">Mutual &nbsp;(2)<br /></div>
+                                    <div className='links' data-bs-toggle="modal" data-bs-target="#mutualsModal">Following &nbsp;(2)<br /></div>
                                     <div className='posts'><b>Posts: &nbsp;&nbsp;&nbsp;&nbsp;</b>
                                         <div className='numberofPosts'>
                                             43

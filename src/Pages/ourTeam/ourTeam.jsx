@@ -20,7 +20,7 @@ const OurTeam = () => {
                                     <div className="col">
 
                                         <div className="card bg-dark text-white member-card">
-                                            <img src={Dummy} className="card-img profile-img" alt="..." />
+                                            <img src={index===0?items.memPic:Dummy} className="card-img profile-img" alt="..." />
                                             <div className="card-img-overlay member-data">
                                                 <h5 className="card-title member-name">{items.memName}</h5>
                                                 <a href={items.memResume} target="_blank" rel="noreferrer" className="member-link"><button type="button" className="btn btn-info">View Resume</button></a>
