@@ -3,11 +3,22 @@ import './sidebr.css'
 import {FiLogOut} from 'react-icons/fi'
 import {IoHome,IoSettings} from 'react-icons/io5'
 import { CgProfile} from 'react-icons/cg'
-import {Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import logon from '../../logon.png'
-
+import firebase from '../../firebase'
 
 import Sidebar2 from '../../Components/Sidebar2'
+
+const handlelogout = () =>{
+  firebase.auth().signOut().then(() => {
+    // Sign-out successful.
+    
+  }).catch((error) => {
+    // An error happened.
+  });
+  
+}
+
 function sidebar() {
     return (
         <div>
@@ -34,7 +45,7 @@ function sidebar() {
          <li tabIndex={0} ><Link className='Menu' to='/Home'><IoHome style={{marginRight:'8px'}}/>Home</Link></li>
           <li tabIndex={0} ><Link className='Menu' to='/MyProfile'><CgProfile style={{marginRight:'8px'}}/>View Your Profile</Link></li>
           <li tabIndex={0} ><Link className='Menu' to='/settings'><IoSettings style={{marginRight:'8px'}}/>Settings</Link></li>
-          <li tabIndex={0} ><Link className='Menu' to='/'><FiLogOut style={{marginRight:'8px'}}/>Logout</Link></li>
+          <li tabIndex={0} onClick={handlelogout}><div className='Menu'><FiLogOut style={{marginRight:'8px'}}/>Logout</div></li>
         </ul>
       </nav>
         </div>

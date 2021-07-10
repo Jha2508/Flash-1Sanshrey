@@ -8,12 +8,16 @@ import OurTeam from "./Pages/ourTeam/ourTeam"
 import Settings from './Pages/settings/settings'
 import ProfilePage from "./Pages/Profile Page/profilepage";
 import Post from "./Components/Post/Post";
-
+import firebase from './firebase' 
+import { AuthProvider } from "./Auth";
+import PrivateRoute from "./PrivateRoute";
 
 function App() {
+  const user = firebase.auth().currentUser;
+
   return (
     <div className='App'>
-    
+    <AuthProvider>
       <Router>
         <Switch>
           <Route exact path="/"><Landing/></Route>
@@ -21,11 +25,12 @@ function App() {
           <Route exact path="/ourteam"><OurTeam/></Route>
       <Route path='/settings' exact component={Settings}/>
       
-      <Route path='/MyProfile' exact component={()=><ProfilePage buttonstat={{display:'none'}}/>}/>
+      <Route path='/MyProfile' exact component={()=><ProfilePage uid={user.uid} buttonstat={{display:'none'}}/>}/>
       <Route path ='/Post' exact component={Post}/>
-      <Route path='/home' exact component={Home}/>
+      <PrivateRoute path='/home' exact component={Home}/>
         </Switch>
       </Router>
+      </AuthProvider>
     </div>
   );
 }

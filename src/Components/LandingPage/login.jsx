@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useCallback, useContext, useState } from 'react'
 import './login.css'
 import firebase from '../../firebase'
+import { Redirect } from 'react-router-dom'
+import { AuthContext } from '../../Auth'
 
-const Login = () => {
+const Login = ({history}) => {
     const auth = firebase.auth()
     const store = firebase.storage()
     const [email, setemail] = useState('');
@@ -21,10 +23,23 @@ const Login = () => {
     const [login, setlogin] = useState(true)
     const [err, seterr] = useState('')
     const errormssgs = ['Please Enter Your Name', 'Passwords Do not match', 'Please Try again', 'Profile Image not selected', 'Please enter any email', 'enter a valid password']
-    const handleLogin = () => {
-        if (email === '' || password === '') {
-            return
-        }
+    const handleLogin = useCallback(
+        async event => {
+            event.preventDefault();
+            try {
+                await firebase.auth().signInWithEmailAndPassword(email, password);
+            } catch (error) {
+                alert(error);
+            }
+        },
+        [history,email,password]
+    );
+
+    const { currentUser } = useContext(AuthContext);
+
+    if (currentUser) {
+        return <Redirect to="/home" />;
+
     }
 
     const handleReg = () => {
@@ -42,48 +57,47 @@ const Login = () => {
                     // error handling must be done here
                 }, function () {
                     store.ref(`/images/${cred.user.uid}`).getDownloadURL()
-                    .then((url) => {
-                    return firebase.firestore().collection('Users').doc(cred.user.uid).set({
-                        bio: Bio,
-                        name: regn,
-                        phoneNO: phone,
-                        passoutyear: passoutyr,
-                        resumeurl: resumelink,
-                        image: url
+                        .then((url) => {
+                            return firebase.firestore().collection('Users').doc(cred.user.uid).set({
+                                bio: Bio,
+                                name: regn,
+                                phoneNO: phone,
+                                passoutyear: passoutyr,
+                                resumeurl: resumelink,
+                                image: url
 
-                    })
+                            })
 
-                }).catch(e => alert(e.message))
-            })
+                        }).catch(e => alert(e.message))
+                })
 
         })
 
     }
 
     const handleRegmain = () => {
-        if (regn !== '') {
-            if (rege !== '') {
-                if (regp !== '') {
-                    if (regp === regp2) {
-                        setstyle({ display: 'none' })
 
-                    } else {
-                        setstyle({ display: 'block' })
-                        seterr(errormssgs[1])
 
-                    }
-                } else {
+        if (regn !== '' && rege !== '' && regp !== '' && regp === regp2) {
+            setstyle({ display: 'none' })
 
-                    setstyle({ display: 'block' })
-                    seterr(errormssgs[5])
-                }
-            }
-            else {
-                setstyle({ display: 'block' })
-                seterr(errormssgs[4])
-            }
+        }
+        else if (regp !== regp2) {
+            setstyle({ display: 'block' })
+            seterr(errormssgs[1])
+            return
+        }
+        else if (regp === '') {
 
-        } else {
+            setstyle({ display: 'block' })
+            seterr(errormssgs[5])
+        }
+        else if (rege === '') {
+            setstyle({ display: 'block' })
+            seterr(errormssgs[4])
+        }
+
+        else if (regn === '') {
 
             setstyle({ display: 'block' })
             seterr(errormssgs[0])
