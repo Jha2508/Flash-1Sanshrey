@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './login.css'
+import firebase from '../../firebase'
 
 
 const Login = () => {
@@ -13,6 +14,27 @@ const Login = () => {
             return
         }
     }
+    firebase.auth().signInWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+    // Signed in
+    var user = userCredential.user;
+    alert("SignIN")
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+  });
+
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      var uid = user.uid;
+      alert("SignIN Succes"+ uid)
+      // ...
+    }
+});
+
     return (
         <>
             <div className="container landing-page-right" style={{ display: login ? "" : "none" }}>
