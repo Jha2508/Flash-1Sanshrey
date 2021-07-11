@@ -58,7 +58,7 @@ const Login = ({history}) => {
                 }, function () {
                     store.ref(`/images/${cred.user.uid}`).getDownloadURL()
                         .then((url) => {
-                            return firebase.firestore().collection('Users').doc(cred.user.uid).set({
+                           let data = {
                                 bio: Bio,
                                 name: regn,
                                 phoneNO: phone,
@@ -66,7 +66,10 @@ const Login = ({history}) => {
                                 resumeurl: resumelink,
                                 image: url
 
-                            })
+                            }
+                            console.log('data entered in reg form',data)
+
+                            firebase.firestore().collection('Users').doc(cred.user.uid).add(data)
 
                         }).catch(e => alert(e.message))
                 })

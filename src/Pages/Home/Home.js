@@ -6,9 +6,9 @@ import MessageSender from '../../Components/MessageSender.js'
 import Rightbar from '../../Components/Right Sidebar/Rightbar'
 import firebase from '../../firebase.js'
 function Home() {
-   
+
     const [posts, setposts] = useState([])
-        useEffect(() => {
+    useEffect(() => {
         const ref = firebase.firestore().collection("AllPost")
         ref.onSnapshot((querySnap) => {
             const newpost = []
@@ -18,34 +18,25 @@ function Home() {
                 }
             )
             setposts(newpost)
-            console.log('newposts',newpost)
+            console.log('newposts', newpost)
+            
         })
-        }, [])
-        const user = firebase.auth().currentUser;
+    }, [])
 
-if (user) {
-  // User is signed in, see docs for a list of available properties
-  // https://firebase.google.com/docs/reference/js/firebase.User
-  console.log('user',user)
-  // ...
-} else {
-  // No user is signed in.
-}
 
     return (<>
-        <Sidebar />
+        <Sidebar/>
         <div className='marginforside home'>
 
             <div className='row'>
                 <div className={window.matchMedia("(max-width: 800px)").matches ? 'col' : 'col-8'}>
 
                     <MessageSender />
-                    {posts.map((item,index)=>{
-                        console.log(item.caption,item.imageURL)
-                        return( <Post key={index} caption={item.caption} image={item.imageURL} userProfile={item.userProfile} name={item.name} timestamp={item.timestamp}/>
-                    )
-                       })}
-                    
+                    {posts.map((item, index) => {
+                        return (<Post key={index} caption={item.caption} like={item.likes} image={item.imageURL} userProfile={item.userProfile} name={item.name} pID={item.postID} timestamp={item.timestamp} userId = {item.userID}/>
+                        )
+                    })}
+
                 </div>
                 <div className={window.matchMedia("(max-width: 800px)").matches ? 'disable' : 'col-4'}>
 

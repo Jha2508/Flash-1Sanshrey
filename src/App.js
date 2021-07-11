@@ -14,7 +14,8 @@ import PrivateRoute from "./PrivateRoute";
 
 function App() {
   const user = firebase.auth().currentUser;
-
+  if(user){
+    console.log('useraw',user.uid)}
   return (
     <div className='App'>
     <AuthProvider>
@@ -25,7 +26,7 @@ function App() {
           <Route exact path="/ourteam"><OurTeam/></Route>
       <Route path='/settings' exact component={Settings}/>
       
-      <Route path='/MyProfile' exact component={()=><ProfilePage uid={user.uid} buttonstat={{display:'none'}}/>}/>
+      <Route path='/MyProfile' exact component={()=><ProfilePage  buttonstat={{display:'none'}}/>}/>
       <Route path ='/Post' exact component={Post}/>
       <PrivateRoute path='/home' exact component={Home}/>
         </Switch>

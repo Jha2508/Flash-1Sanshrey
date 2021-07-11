@@ -60,7 +60,7 @@ function MessageSender() {
           onClick={() => filePickerRef.current.click()}
           className="messageSender__option"
         >
-          <IconContext.Provider value={{ color: "green", size: 25 }}>
+          <IconContext.Provider value={{ color: "#90ee90", size: 25 }}>
             <MdPhotoLibrary />
             <h3>Upload Photo</h3>
           </IconContext.Provider>
