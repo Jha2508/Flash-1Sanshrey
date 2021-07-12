@@ -20,7 +20,7 @@
   display: flex;
 }
 
-.messageSender__top > form > textarea {
+.InputEmoji {
   outline-width: 0;
   border: none;
   color:white;
