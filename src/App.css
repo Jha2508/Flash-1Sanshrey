@@ -3,3 +3,52 @@
     padding: 0;
     box-sizing: border-box;
 }
+.App{
+    background-color: black;
+}
+
+.preloader{
+    background-color: black;
+    min-height: 100vh;
+    
+}
+.swing {
+    animation: swing ease-in-out 1s infinite alternate;
+    transform-origin: center -20px;
+    margin-left: 200px;
+    margin-top: 100px;
+    float:left;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}
+.swing img {
+    width: 50vw;
+    height: 50vh;
+    display: block;
+}
+.swing:after{
+    content: '';
+    position: absolute;  
+    width: 20px; height: 20px;  
+    border: 1px solid #999;
+    top: -10px; left: 50%;
+    z-index: 0;
+    border-bottom: none;
+    border-right: none;
+    transform: rotate(45deg);
+}
+/* nail */
+.swing:before{
+    content: '';
+    position: absolute;
+    width: 5px; height: 5px;
+    top: -14px;left: 54%;
+    z-index: 5;
+    border-radius: 50% 50%;
+    background: #000;
+}
+ 
+@keyframes swing {
+    0% { transform: rotate(25deg); }
+    70% { transform: rotate(-25deg); }
+    90%{transform: scale(1.5);}
+}

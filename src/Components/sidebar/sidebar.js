@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './sidebr.css'
 import { FiLogOut } from 'react-icons/fi'
 import { IoHome, IoSettings } from 'react-icons/io5'
+import {BiSave} from 'react-icons/bi'
 import { CgProfile } from 'react-icons/cg'
 import { Link } from 'react-router-dom'
 import logon from '../../logon.png'
@@ -52,8 +53,10 @@ function Sidebar() {
         <ul className='allmenus'>
           <li tabIndex={0} ><Link className='Menu' to='/Home'><IoHome style={{ marginRight: '8px' }} />Home</Link></li>
           <li tabIndex={0} ><Link className='Menu' to='/MyProfile'><CgProfile style={{ marginRight: '8px' }} />View Your Profile</Link></li>
+          <li tabIndex={0} ><Link className='Menu' to='/savedposts'><BiSave style={{ marginRight: '8px' }} />Saved Posts</Link></li>
           <li tabIndex={0} ><Link className='Menu' to='/settings'><IoSettings style={{ marginRight: '8px' }} />Settings</Link></li>
           <li tabIndex={0} onClick={handlelogout}><div className='Menu'><FiLogOut style={{ marginRight: '8px' }} />Logout</div></li>
+                  
         </ul>
       </nav>
     </div>

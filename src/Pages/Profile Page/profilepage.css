@@ -53,6 +53,7 @@
 .postpage {
     background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
     margin-left: 220px;
+    min-height: 100vh;
 }
 
 .initials {

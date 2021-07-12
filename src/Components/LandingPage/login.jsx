@@ -17,7 +17,7 @@ const Login = ({history}) => {
     const [Bio, setBio] = useState('')
     const [passoutyr, setpassoutyr] = useState('')
     const [resumelink, setresumelink] = useState('')
-
+    const [branch, setbranch] = useState('')
     const [style, setstyle] = useState({ display: 'none' })
     const [regp2, setregp2] = useState('')
     const [login, setlogin] = useState(true)
@@ -45,7 +45,6 @@ const Login = ({history}) => {
     const handleReg = () => {
 
         const promise = auth.createUserWithEmailAndPassword(rege, regp)
-
         promise.then(cred => {
 
             alert('signup successful! with email :')
@@ -62,14 +61,15 @@ const Login = ({history}) => {
                                 bio: Bio,
                                 name: regn,
                                 phoneNO: phone,
+                                branch: branch,
                                 passoutyear: passoutyr,
-                                resumeurl: resumelink,
+                                Linkedinurl: resumelink,
                                 image: url
 
                             }
                             console.log('data entered in reg form',data)
 
-                            firebase.firestore().collection('Users').doc(cred.user.uid).add(data)
+                            firebase.firestore().collection('Users').doc(cred.user.uid).set(data)
 
                         }).catch(e => alert(e.message))
                 })
@@ -161,8 +161,9 @@ const Login = ({history}) => {
                             <input type="file" id="img" name="img" onChange={(e) => setregimage(e.target.files[0])} accept="image/*" />
                             <input type='text' className='form-control' onChange={(e) => setpassoutyr(e.target.value)} placeholder='enter your Passing-out Year' />
 
-                            <input type='url' className='form-control' onChange={(e) => setresumelink(e.target.value)} placeholder='enter your Resume Url ' />
-
+                            <input type='url' className='form-control' onChange={(e) => setresumelink(e.target.value)} placeholder='enter your Linkedin Url ' />
+                            
+                            <input type='url' className='form-control' onChange={(e) => setbranch(e.target.value)} placeholder='enter your Branch' />
                             <input type='text' className='form-control' onChange={(e) => setphone(e.target.value)} placeholder='enter your phoneNumber' />
                             <textarea id="w3review" className='form-control' onChange={(e) => setBio(e.target.value)} name="w3review" rows="4" cols="50" placeholder='enter your bio data here' />
                         </div>

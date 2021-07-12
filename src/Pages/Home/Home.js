@@ -1,29 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import './Home.css'
 import Sidebar from '../../Components/sidebar/sidebar'
 import Post from '../../Components/Post/Post'
 import MessageSender from '../../Components/MessageSender.js'
 import Rightbar from '../../Components/Right Sidebar/Rightbar'
-import firebase from '../../firebase.js'
-function Home() {
-
-    const [posts, setposts] = useState([])
-    useEffect(() => {
-        const ref = firebase.firestore().collection("AllPost")
-        ref.onSnapshot((querySnap) => {
-            const newpost = []
-            querySnap.forEach(
-                (doc) => {
-                    newpost.push(doc.data());
-                }
-            )
-            setposts(newpost)
-            console.log('newposts', newpost)
-            
-        })
-    }, [])
-
-
+function Home(props) {
+    
     return (<>
         <Sidebar/>
         <div className='marginforside home'>
@@ -32,7 +14,7 @@ function Home() {
                 <div className={window.matchMedia("(max-width: 800px)").matches ? 'col' : 'col-8'}>
 
                     <MessageSender />
-                    {posts.map((item, index) => {
+                    {props.posts.map((item, index) => {
                         return (<Post key={index} caption={item.caption} like={item.likes} image={item.imageURL} userProfile={item.userProfile} name={item.name} pID={item.postID} timestamp={item.timestamp} userId = {item.userID}/>
                         )
                     })}
