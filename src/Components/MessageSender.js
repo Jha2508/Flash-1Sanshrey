@@ -1,9 +1,9 @@
 import React, { useRef, useState } from "react";
 import { IconContext } from "react-icons";
 import { MdPhotoLibrary } from "react-icons/md";
-import { FaSmileWink } from "react-icons/fa";
 import { BsChatSquareFill } from "react-icons/bs";
 import "./MessageSender.css";
+import InputEmoji from "react-input-emoji";
 
 function MessageSender() {
   const filePickerRef = useRef(null);
@@ -13,6 +13,11 @@ function MessageSender() {
     e.preventDefault();
     console.log("Post Done");
   };
+  const [text, setText] = useState("");
+
+  function handleOnEnter(text) {
+    console.log("enter", text);
+  }
 
   const addImageToPost = (e) => {
     const reader = new FileReader();
@@ -36,11 +41,13 @@ function MessageSender() {
           <BsChatSquareFill />
         </IconContext.Provider>
         <form>
-          <textarea
-            rows='5'
+          <InputEmoji
+            rows={(imageToPost===null)?'2':'10'} 
             type="text"
             className="messageSender__input"
             placeholder={`What's on your mind`}
+            onChange={setText}
+            onEnter={handleOnEnter}
           />
 
           <button onClick={handleSubmit} type="submit">
@@ -72,11 +79,11 @@ function MessageSender() {
         </div>
         <div className="messageSender__option">
           <IconContext.Provider value={{ color: "gold", size: 25 }}>
-            <FaSmileWink />
+           
           </IconContext.Provider>
         </div>
         <div className="messageSender__option">
-<button type="button" class="btn btn-outline-light">Post</button>
+<button type="button" className="btn btn-outline-light">Post</button>
         </div>
       </div>
     </div>
