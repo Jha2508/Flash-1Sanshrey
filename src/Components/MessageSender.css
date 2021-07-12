@@ -20,7 +20,20 @@
   display: flex;
 }
 
+.InputEmoji {
+  
+  outline-width: 0;
+  border: none;
+  color:white;
+  background-color: rgb(172,172,172);
+  padding: 5px 20px;
+  margin: 0 10px;
+  border-radius: 30px;
+  display: flex;
+}
 .messageSender__top > form > textarea {
+
+  outline-width: 0;
   border: none;
   color:white;
   background-color: rgb(172,172,172);
