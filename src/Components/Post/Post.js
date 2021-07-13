@@ -3,6 +3,9 @@ import './Post.css'
 
 import { AiFillLike, AiOutlineClose, AiOutlineComment, AiOutlineFolderView } from 'react-icons/ai';
 import { BiSend } from 'react-icons/bi'
+// import {GiSaveArrow} from 'react-icons/gi'
+// import {HiOutlineSave} from 'react-icons/hi'
+import {FaBookmark} from 'react-icons/fa'
 
 const Post = (props) => {
     console.log('post comsole',props.userProfile)
@@ -19,7 +22,20 @@ const Post = (props) => {
                     <div className="card bg-dark">
                         <img src={props.image} className="card-img post-img" alt="..." />
                         <div className="card-img-overlay shadows">
-                            <div className="card-title author-title"><img src={props.userProfile} alt="..." className="author-img" /><div style={{flexDirection:'column'}}><h3>{props.name}</h3><br/><div className='time'>{tobepostedtime+','+tobepostedate}</div></div></div>
+                            <div className="card-title author-title">
+                            <img src={props.userProfile} alt="..." className="author-img" />
+                            <div style={{flexDirection:'column'}}>
+                            <h3>{props.name}</h3><br/>
+                            <div className='time'>{tobepostedtime+','+tobepostedate}</div>
+                            </div>
+                            {/* put here */}
+                            <div className='downloadIconContainer'>
+                                {/* <GiSaveArrow  className='downloadIcon' /> */}
+                                {/* <HiOutlineSave className='downloadIcon' /> */}
+                                <FaBookmark className='downloadIcon' />
+
+                            </div>
+                            </div>
                             
                         </div>
                     </div>
