@@ -7,6 +7,7 @@ import Sidebar from '../../Components/sidebar/sidebar'
 import firebase from '../../firebase'
 const comments = [1, 2, 3, 4, 5, 6, 7]
 function ProfilePage (props){
+           
             const [buttonMssg, setbuttonMssg] = useState('Send friend Request')
             const [profileData, setprofileData] = useState('')
             const [profilePosts, setprofilePosts] = useState([])
@@ -26,6 +27,7 @@ function ProfilePage (props){
         
                 })
             }
+            const date = new Date()
         return (
             <div>
             <Sidebar/>
@@ -40,7 +42,7 @@ function ProfilePage (props){
                                 {profileData.name}
                             </div>
                             <div className='category'>
-                                {profileData.passoutyear}
+                                {(date.getFullYear()<profileData.passoutyear)?'Student':'Alumni - '+profileData.passoutyear}
                             </div>
 
                             <div className='row'>
@@ -126,9 +128,9 @@ function ProfilePage (props){
 
 
                                     <div className='comments'>
-                                        {comments.map((item, index) => {
+                                        {comments.map((iteminn, indexinn) => {
                                             return (
-                                                <div key={index} className='row'>
+                                                <div key={indexinn} className='row'>
                                                     <div className='col-3'>
                                                         <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Kate_Winslet_at_the_2017_Toronto_International_Film_Festival_%28cropped%29.jpg/220px-Kate_Winslet_at_the_2017_Toronto_International_Film_Festival_%28cropped%29.jpg' className='rounded-circle profilepicfriendmod' alt='...' />
                                                     </div>

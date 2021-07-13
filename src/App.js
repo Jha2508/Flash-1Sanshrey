@@ -15,7 +15,7 @@ import firebase from "./firebase";
 import logo from './sources/sociallogo.png'
 function App() {
   const [posts, setposts] = useState([])
-            
+  
     useEffect(() => {
         const ref = firebase.firestore().collection("AllPost")
         ref.onSnapshot((querySnap) => {
@@ -39,6 +39,8 @@ return   (posts.length !==0)?(
             <Route exact path="/faqs"><FAQs/></Route>
             <Route exact path="/ourteam"><OurTeam/></Route>
         <PrivateRoute path='/settings' exact component={Settings}/>
+        
+        <PrivateRoute path='/showProfile' exact component={ProfilePage}/>
         <PrivateRoute path='/savedposts' exact component={()=><SavedPages posts={posts}/>}/>
         <PrivateRoute path='/MyProfile' exact component={()=><ProfilePage pro='self'/>}/>
         <Route path ='/Post' exact component={Post}/>

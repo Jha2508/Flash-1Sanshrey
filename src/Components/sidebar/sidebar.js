@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './sidebr.css'
 import { FiLogOut } from 'react-icons/fi'
 import { IoHome, IoSettings } from 'react-icons/io5'
@@ -26,13 +26,14 @@ function Sidebar() {
   
   const ref2 = firebase.firestore().collection('Users')
   const [profileinfo, setprofileinfo] = useState({image:'',name:'',passoutyr:'2023'})
-  if (user) {
-    ref2.doc(user.uid).get().then((snap) => setprofileinfo(snap.data()))
-  }
+  useEffect(()=>{
+    if (user) {
+      ref2.doc(user.uid).get().then((snap) => setprofileinfo(snap.data()))
+    }
+  },[])
+  
   return (
     <div>
-
-
       <nav className="menu" tabIndex={0}>
         <div className="smartphone-menu-trigger" />
         <header className="avatar">
@@ -41,14 +42,17 @@ function Sidebar() {
           </form>
 
           <div className="lower-us">
-            <img src={profileinfo.image} alt='pp' />
+            <img src={(profileinfo!==undefined)?profileinfo.image:''} alt='pp' />
             <div className="name">
-              <div >{profileinfo.name}</div>
+              <div >{(profileinfo!==undefined)?profileinfo.name:''}</div>
               <div className='status'>Student</div>
             </div>
           </div>
         </header>
+        <div className='logoimage'>
         <img className='logo' src={logon} alt='...' />
+        </div>
+       
         <div className='logotitle'>Sanshreya</div>
         <ul className='allmenus'>
           <li tabIndex={0} ><Link className='Menu' to='/Home'><IoHome style={{ marginRight: '8px' }} />Home</Link></li>

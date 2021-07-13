@@ -65,11 +65,10 @@ const Login = ({history}) => {
                                 passoutyear: passoutyr,
                                 Linkedinurl: resumelink,
                                 image: url
-
                             }
                             console.log('data entered in reg form',data)
 
-                            firebase.firestore().collection('Users').doc(cred.user.uid).set(data)
+                            firebase.firestore().collection('Users').doc(cred.user.uid).set(data).then(()=>console.log('registered'))
 
                         }).catch(e => alert(e.message))
                 })

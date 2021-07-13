@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./SearchBarSection.css";
+import { Link } from 'react-router-dom'
 import { BiSearchAlt } from "react-icons/bi";
 import { IconContext } from "react-icons";
 import { RiUserFollowLine,  RiCloseCircleFill } from "react-icons/ri";
@@ -76,7 +77,9 @@ function SearchBar({ data }) {
         {filteredData.length !== 0 && (
           <div className="data">
             {filteredData.slice(0, 15).map((value, key) => {
+
               return (
+                <Link to='/showProfile'>
                 <div className="product">
                 <div className='row'>
                 <div className='col'><h6>{value.category}</h6>
@@ -95,6 +98,7 @@ function SearchBar({ data }) {
                   
                  
                 </div>
+                </Link>
               );
             })}
           </div>

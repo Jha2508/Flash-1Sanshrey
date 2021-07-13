@@ -11,6 +11,13 @@
     z-index: 5;
     outline: none;
   }
+
+  .logoimage{
+    width: 100%;
+    height:210px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
   .logo{
     margin-left: -85px;
     

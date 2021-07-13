@@ -1,22 +1,29 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Post.css'
 import firebase from '../../firebase.js'
-import { AiFillLike, AiOutlineClose, AiOutlineComment, AiOutlineFolderView } from 'react-icons/ai';
+import { AiFillHeart, AiOutlineClose, AiOutlineComment, AiOutlineFolderView } from 'react-icons/ai';
 import { BiSend } from 'react-icons/bi'
 
 const Post = (props) => {
     const [isLiked, setisLiked] = useState(false)
+    const [user, setuser] = useState('')
+    useEffect(() => {
+        
+    firebase.auth().onAuthStateChanged((us)=>{
+        setuser(us)
+        
+    })
+    }, [])
     const [commentOpen, setcommentOpen] = useState(false)
     var date = new Date(props.timestamp);
     const tobepostedate = date.toDateString();
     const tobepostedtime =
         date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
     const likearr = props.like
-    
+    console.log('decider',user.uid)
     const likes = Object.keys(props.like).length
     const addlike = () => {
-        const user = firebase.auth().currentUser;
-        if (user) {
+        if (user.uid!==undefined) {
             likearr.push(user.uid);
             console.log({
                 caption:props.caption,
@@ -42,7 +49,7 @@ const Post = (props) => {
         }
         console.log('after click', likearr)
     }
-    return (
+    return (user.uid!==undefined)?(
         <>
             <div className=" post-container">
                 <div className="card bg-dark text-white">
@@ -92,10 +99,10 @@ const Post = (props) => {
                     </div>
                     <div className="post-below-content">
                         <div className="post-icons">
-                            <AiFillLike className="post-actions" onClick={() => {
+                            <AiFillHeart className="post-actions" onClick={() => {
                                 setisLiked(!isLiked);
                                 addlike()
-                            }} style={{ color: isLiked ? "pink" : "white" }} /><div className='numberoflikes'>{likes}</div>
+                            }} style={{ color: isLiked ? "red" : "white" }} /><div className='numberoflikes'>{likes}</div>
                             <AiOutlineComment className="post-actions dropdown-toggle" id="dropdownMenu2" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false" onClick={() => setcommentOpen(!commentOpen)} style={{ color: commentOpen ? "pink" : "white" }} /><div className='numberofcomments'>21</div>
                             <AiOutlineFolderView className="post-actions" data-bs-toggle="modal" data-bs-target={'#Modal' + props.timestamp} style={{ color: "white" }} />
                         </div>
@@ -131,7 +138,7 @@ const Post = (props) => {
 
         </>
 
-    )
+    ):(<div>loacing</div>)
 }
 
 export default Post
