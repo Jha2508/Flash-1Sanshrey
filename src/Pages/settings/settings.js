@@ -1,8 +1,10 @@
 import React from 'react'
-import './settings.css'
+// import './settings.css'
+import './Setting1.css'
 import DP from './img1.jpg'
 import {ImCamera} from 'react-icons/im'
 import Sidebar from '../../Components/sidebar/sidebar'
+import logon from '../../logon.png'
 
 function Settings() {
     return (<>
@@ -12,7 +14,8 @@ function Settings() {
             <h1>Settings</h1>
         </div>        
         
-        <div className="Lower-part"><div className="accordion accordion-flush" id="accordionFlushExample">
+        <div className="Lower-part">
+        <div className="accordion accordion-flush" id="accordionFlushExample">
 
 
   <div className="accordion-item">
@@ -20,7 +23,7 @@ function Settings() {
       <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
         Profile 
       </button>
-    </h2>
+      </h2>
     <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
       <div className="accordion-body">
           <div className="prfile-img">
@@ -68,8 +71,8 @@ function Settings() {
   </div>
 
 
-
 </div></div>
+
         
 </div>
 </>
