@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { IconContext } from "react-icons";
 import { MdPhotoLibrary } from "react-icons/md";
-import { FaSmileWink } from "react-icons/fa";
 import { BsChatSquareFill } from "react-icons/bs";
 import "./MessageSender.css";
 import firebase from "../firebase";
+import InputEmoji from "react-input-emoji";
 
 function MessageSender() {
   const store = firebase.storage()
@@ -63,6 +63,11 @@ function MessageSender() {
     e.preventDefault();
     console.log("Post Done");
   };
+  const [text, setText] = useState("");
+
+  function handleOnEnter() {
+    console.log("enter", text);
+  }
 
   const addImageToPost = (e) => {
     const reader = new FileReader();
@@ -87,12 +92,14 @@ function MessageSender() {
           <BsChatSquareFill />
         </IconContext.Provider>
         <form>
-          <textarea
-            rows={(imageToPost===null)?'2':'10'}
-            onChange={e=>setPostText(e.target.value)}
+         
+          <InputEmoji
+            rows={(imageToPost===null)?'2':'10'} 
             type="text"
             className="messageSender__input"
             placeholder={`What's on your mind`}
+            onChange={setText}
+            onEnter={handleOnEnter}
           />
 
           <button onClick={handleSubmit} type="submit">
@@ -124,7 +131,7 @@ function MessageSender() {
         </div>
         <div className="messageSender__option">
           <IconContext.Provider value={{ color: "gold", size: 25 }}>
-            <FaSmileWink />
+           
           </IconContext.Provider>
         </div>
         <div className="messageSender__option">

@@ -3,41 +3,83 @@
     padding: 0;
     
 }
+
 .Heading{
     top:0;
     height: 85px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    align-content: flex-end;
-    background-image: linear-gradient(to bottom right, black, maroon);
-    box-shadow: 0 8px 8px rgba(48, 47, 47, 0.692);
+    text-align: center;
 }
 .Heading h1{
     color:cornsilk;
-    font-family: 'Lucida Bright' ,sans-serif  ;
-    background-image: linear-gradient(to bottom right, black, maroon);
+    font-family: 'Lobster', cursive;
+    font-size:3.2em;
+    background-image: radial-gradient(circle,black,brown);
     height: 85px;
     padding-top: 18px;
     width: 100%;
-    box-shadow: 0 8px 8px rgba(48, 47, 47, 0.692);
- 
-    
 }
 .Lower-part{
-    padding-top: 50px;
+    height: 260px;
+    width: 100%;
+    background-color: aqua;
+    display: flex;
+    flex-direction:column;
+}
+
+#accordionFlushExample{
+    height: 400px;
+    width:100% ;
+    background-image: radial-gradient(circle,rgb(65, 61, 61),brown,maroon);
+    display: flex;
+    justify-content:first baseline;
 }
 
 .accordion-item{
-    background-color: darkslategrey;
+    background-color:darkslategray;
+    height: 70px;
+    width: 120px;
+    margin: 20px;
 }
+/* Accordian body Div */
+.accordion-body{ 
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    border: 5px dotted darkolivegreen;
+    border-radius: 10px;
+    background-color:darkslategray;
+    height: fit-content;
+    width: fit-content;
+    }
+    
+/* Accordian Button div placed inside the Accordian body */
 .accordion-button {
-    background-color:rgb(163, 0, 0);
-    padding-left: 48vw ;
-    color: black;
-    font-family: 'Lucida Bright';
-    font-weight: bolder;
+    height: 70px;
+    width: 120px;
+    border: 5px solid rgb(53, 16, 16);
+    color: wheat;
+    background-color: rgb(40, 49, 31);
+    font-family: 'Lobster', cursive;
+    font-size: x-large;
 }
+
+#logoInSettingPage{
+    height:250px;
+    width:220px;
+    float:right;
+    background-image: radial-gradient(circle,rgb(65, 61, 61),brown,maroon);
+    text-align: center;
+}
+.logo{
+    margin-left: -85px;
+    margin-top: -80px;
+  }
+.logotitle{
+    color: white;
+    font-family: 'Yellowtail', cursive;
+    font-size: 40px;
+    margin-top: -80px;
+  }
 .prfile-img img{
     width: 80px;
     border: 2px solid white;
@@ -50,12 +92,6 @@
 
 
 }
-
-.accordion-body{
-display: flex;
-flex-direction: column;
-}
-
 .text-area{
     display: flex;
     flex-direction: row;
@@ -77,7 +113,7 @@ flex-direction: column;
     padding-left: 10px;
     padding-bottom: 5px;
     overflow: hidden;
-    background-color: rgb(64, 97, 97);
+    background-color: aqua;
 }
 .btn-upload{
     margin-left: 35px;
@@ -85,7 +121,7 @@ flex-direction: column;
     border: 2px solid white;
     border-radius: 10px;
     padding: 5px;
-    background-color: rgb(64, 97, 97);
+    background-color: aqua;
 }
 
 ::placeholder{
@@ -103,7 +139,7 @@ flex-direction: column;
 }
 
 .settings-body{
-    background-color: firebrick;
+    background-color:brown;
 
 }
 .lower-form{
@@ -119,10 +155,10 @@ flex-direction: column;
 
 #save{
 margin-left: 0px;
+background-color: aqua;
 }
 
 #cancel{
     margin-left: 21px;
+    background-color: aqua;
 }
-
-
