@@ -41,14 +41,7 @@ function MessageSender() {
           <BsChatSquareFill />
         </IconContext.Provider>
         <form>
-          <textarea
-            rows={(imageToPost===null)?'2':'10'}
-            type="text"
-            className="messageSender__input"
-            placeholder={`What's on your mind`}
-            onChange={setText}
-            onEnter={handleOnEnter}
-          />
+         
           <InputEmoji
             rows={(imageToPost===null)?'2':'10'} 
             type="text"
