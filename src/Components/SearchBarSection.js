@@ -13,7 +13,7 @@ function SearchBar({ data }) {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
     const newFilter = data.filter((value) => {
-      return value.name.toLowerCase().includes(searchWord.toLowerCase()) || value.category.toLowerCase().includes(searchWord.toLowerCase());
+      return value.name.toLowerCase().includes(searchWord.toLowerCase()) || value.passoutyear.toLowerCase().includes(searchWord.toLowerCase());
     });
 
     if (searchWord === "") {
@@ -91,7 +91,7 @@ function SearchBar({ data }) {
                   </div></div>
 
                   <div className='col'>
-                  <img alt='...' src={value.Image} className="profilePic" />
+                  <img alt='...' src={value.image} className="profilePic" />
                   </div>
                   </div>
                   
