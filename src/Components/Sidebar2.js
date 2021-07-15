@@ -1,12 +1,34 @@
-import React from "react";
+import React ,{useEffect,useState} from "react";
 import "./Sidebar.css";
 import SearchBarSection from "./SearchBarSection";
 import Friends from "./Friends.json";
-
+import firebase from '../firebase'
 function Sidebar2() {
+  
+  const [userData, setuserData] = useState([])
+
+
+
+    useEffect(() => {
+      
+      firebase.firestore().collection('Users').onSnapshot((snap)=>{
+
+        const users =[]
+  
+        snap.forEach((doc)=>{users.push(doc.data())
+  
+        })
+  
+        setuserData(users)
+  
+      })
+    
+      
+    }, [])
+    console.log('user data',userData) 
   return (
     <div>
-      <SearchBarSection  data={Friends} />
+      <SearchBarSection  data={userData} />
     </div>
   );
 }
