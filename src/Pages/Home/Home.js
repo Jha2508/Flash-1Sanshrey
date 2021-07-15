@@ -42,7 +42,7 @@ if (user) {
                     <MessageSender />
                     {posts.map((item,index)=>{
                         console.log(item.caption,item.imageURL)
-                        return( <Post key={index} caption={item.caption} image={item.imageURL} userProfile={item.userProfile} name={item.name} timestamp={item.timestamp}/>
+                        return( <Post key={index} caption={item.caption} image={item.imageURL} userProfile={item.userProfile} name={item.name} timestamp={item.timestamp} pID={item.postID}/>
                     )
                        })}
                     

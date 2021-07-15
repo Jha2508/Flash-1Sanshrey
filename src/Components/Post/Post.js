@@ -1,5 +1,6 @@
-import React,{useState} from 'react'
+import React,{useState , useEffect} from 'react'
 import './Post.css'
+import firebase from '../../firebase';
 
 import { AiFillLike, AiOutlineClose, AiOutlineComment, AiOutlineFolderView } from 'react-icons/ai';
 import { BiSend } from 'react-icons/bi'
@@ -8,14 +9,51 @@ import { BiSend } from 'react-icons/bi'
 import {FaBookmark} from 'react-icons/fa'
 
 const Post = (props) => {
+    Array.prototype.remove = function() {
+        var what, a = arguments, L = a.length, ax;
+        while (L && this.length) {
+            what = a[--L];
+            while ((ax = this.indexOf(what)) !== -1) {
+                this.splice(ax, 1);
+            }
+        }
+        return this;
+    };
+
+    const [alluserdata,setalluserdata] = useState([]);
+    const user=firebase.auth().currentUser.uid;
+    useEffect(() => {
+        // firebase.firestore().collection('Users').doc(user).get().then((sanp)=>
+        // {setalluserdata (sanp.data())} )
+        firebase.firestore().collection('Users').doc(user).onSnapshot((doc) => {setalluserdata(doc.data())})
+    },[])
+    const savedpost=alluserdata.savedPost;
+    const handlesave=() =>{
+        const cond=savedpost.includes('AllPost/'+props.pID);
+        (!cond) ? savedpost.push('AllPost/'+props.pID) :savedpost.remove('AllPost/'+props.pID)
+        console.log({bio:alluserdata.bio,
+        image:alluserdata.image,name:alluserdata.name,passoutyear : alluserdata.passoutyear,resumeurl : alluserdata.resumeurl,phoneNO:alluserdata.phoneNO,uID:alluserdata.uID,savedPost:savedpost})
+        if(cond)
+        alert('Post  Is Unsaved');
+        else
+        alert('Post Is Saved');
+        firebase.firestore().collection('Users').doc(user).set({bio:alluserdata.bio,
+            image:alluserdata.image,name:alluserdata.name,passoutyear : alluserdata.passoutyear,resumeurl : alluserdata.resumeurl,phoneNO:alluserdata.phoneNO,uID:alluserdata.uID,savedPost:savedpost})
+        console.log('all user data ',savedpost)
+        
+    
+    
+        
+ }
     console.log('post comsole',props.userProfile)
     const [isLiked, setisLiked] = useState(false)
+    // const [issaved,setissaved]=useState(false)
     const [commentOpen, setcommentOpen] = useState(false)
     var date = new Date(props.timestamp);
     const tobepostedate = date.toDateString();
     const tobepostedtime = 
     date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
-    return (
+    return (savedpost!==undefined)?(
         <>
             <div className=" post-container">
                 <div className="card bg-dark text-white">
@@ -32,7 +70,8 @@ const Post = (props) => {
                             <div className='downloadIconContainer'>
                                 {/* <GiSaveArrow  className='downloadIcon' /> */}
                                 {/* <HiOutlineSave className='downloadIcon' /> */}
-                                <FaBookmark className='downloadIcon' />
+                                <FaBookmark className='downloadIcon' onClick={handlesave} 
+                                style={{ color: (savedpost.includes('AllPost/'+props.pID)) ? "blue" : "white" }} />
 
                             </div>
                             </div>
@@ -72,6 +111,7 @@ const Post = (props) => {
                                 </div>
                                 <div className='row caption' style={{ textAlign: "left" }}>
                                     <p> Contrary to popular belief, Lorem Ipsum is not simply random text. Contrary to popular belief, Lorem Ipsum is not simply random text. Contrary to popular belief, Lorem Ipsum is not simply random text. Contrary to popular belief, Lorem Ipsum is not simply random text. </p>
+                
                                 </div>
                             </div>
                         </div>
@@ -114,7 +154,7 @@ const Post = (props) => {
 
         </>
 
-    )
+    ):(<div>Loading</div>)
 }
 
 export default Post
