@@ -63,11 +63,7 @@ function MessageSender() {
     e.preventDefault();
     console.log("Post Done");
   };
-  const [text, setText] = useState("");
 
-  function handleOnEnter() {
-    console.log("enter", text);
-  }
 
   const addImageToPost = (e) => {
     const reader = new FileReader();
@@ -98,8 +94,7 @@ function MessageSender() {
             type="text"
             className="messageSender__input"
             placeholder={`What's on your mind`}
-            onChange={setText}
-            onEnter={handleOnEnter}
+            onChange={setPostText}
           />
 
           <button onClick={handleSubmit} type="submit">

@@ -4,7 +4,6 @@ import Rightbar from '../Components/Right Sidebar/Rightbar'
 import Sidebar from '../Components/sidebar/sidebar'
 import firebase from '../firebase'
 function SavedPages(props) {
-    const [Empty, setEmpty] = useState(true)
     const user = firebase.auth().currentUser
     const [savedID, setsavedID] = useState([])
     useEffect(() => {

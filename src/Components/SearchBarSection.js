@@ -3,12 +3,22 @@ import "./SearchBarSection.css";
 import { Link } from 'react-router-dom'
 import { BiSearchAlt } from "react-icons/bi";
 import { IconContext } from "react-icons";
+import firebase from "../firebase";
 import { RiUserFollowLine,  RiCloseCircleFill } from "react-icons/ri";
 
 function SearchBar({ data }) {
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
+  const [userData, setuserData] = useState([])
 
+    firebase.firestore().collection('Users').onSnapshot((snap)=>{
+      const users =[]
+      snap.forEach((doc)=>{users.push(doc.data())
+      })
+      setuserData(users)
+    })
+
+ 
   const handleFilter = (event) => {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
@@ -79,7 +89,7 @@ function SearchBar({ data }) {
             {filteredData.slice(0, 15).map((value, key) => {
 
               return (
-                <Link to='/showProfile'>
+                <Link key={key} style={{textDecoration:'none',color:'black'}} to='/showProfile'>
                 <div className="product">
                 <div className='row'>
                 <div className='col'><h6>{value.category}</h6>

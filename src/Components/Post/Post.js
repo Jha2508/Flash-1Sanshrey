@@ -5,36 +5,81 @@ import { AiFillHeart, AiOutlineClose, AiOutlineComment, AiOutlineFolderView } fr
 import { BiSend } from 'react-icons/bi'
 
 const Post = (props) => {
+    Array.prototype.remove = function() {
+        var what, a = arguments, L = a.length, ax;
+        while (L && this.length) {
+            what = a[--L];
+            while ((ax = this.indexOf(what)) !== -1) {
+                this.splice(ax, 1);
+            }
+        }
+        return this;
+    };
     const [isLiked, setisLiked] = useState(false)
-    const [user, setuser] = useState('')
-    useEffect(() => {
+    const [comments, setcomments] = useState('')
+    const [commentEntered, setcommentEntered] = useState('')
+    const userid = firebase.auth().currentUser;
+  const [alluserData, setalluserData] = useState([])
+  useEffect(()=>{
+   
+    firebase.firestore().collection('Users').onSnapshot((snap)=>{
+        const users =[]
+        snap.forEach((doc)=>{users.push(doc.data())
+        })
+        setalluserData(users)
         
-    firebase.auth().onAuthStateChanged((us)=>{
-        setuser(us)
+      })
+  },[])
+  
+  console.log('All user Data',alluserData[0])
+    const handlecomment = ()=>{
         
+        const timest = Date.now()
+        const datatobeentered ={
+            commentText:commentEntered,
+            uID:userid.uid,
+            timestamp:timest
+        }
+
+        firebase.firestore().collection('AllPost').doc(props.pID).collection('Comments').add(datatobeentered).then(()=>
+            {alert('comment dana done done!')
+            setcommentEntered('')
     })
+        console.log('comments entered data in',props.pID,datatobeentered)
+    }
+    useEffect(() => {
+
+        firebase.firestore().collection('AllPost').doc('4fsq7pJkQXTRYZXfzE2MFip3qm721625825616385').collection('Comments').onSnapshot((querySnap) => {
+
+            const newComment = [];
+
+            querySnap.forEach((doc) => {
+
+                newComment.push(doc.data())
+
+            })
+
+
+
+            setcomments(newComment)
+
+        })
+
     }, [])
+
+    console.log('mew',comments);
     const [commentOpen, setcommentOpen] = useState(false)
     var date = new Date(props.timestamp);
     const tobepostedate = date.toDateString();
     const tobepostedtime =
         date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
     const likearr = props.like
-    console.log('decider',user.uid)
     const likes = Object.keys(props.like).length
     const addlike = () => {
-        if (user.uid!==undefined) {
-            likearr.push(user.uid);
-            console.log({
-                caption:props.caption,
-                imageURL:props.image,
-                name:props.name,
-                postID:props.pID,
-                timestamp:props.timestamp,
-                userID:props.userId,
-                userProfile: props.userProfile,
-                likes: likearr
-            })
+        if (userid.uid!==undefined) {
+            (likearr.includes(userid.uid))?likearr.remove(userid.uid):likearr.push(userid.uid)
+            
+           
             firebase.firestore().collection("AllPost").doc(`${props.pID}`).update({
                 caption:props.caption,
                 imageURL:props.image,
@@ -44,12 +89,24 @@ const Post = (props) => {
                 userID:props.userId,
                 userProfile:props.userProfile,
                 likes: likearr
-            }).then(alert('liked a post!'));
+            }).then(()=>{firebase.firestore().collection("Users").doc(`${props.userId}`).collection('MyPosts').doc(`${props.pID}`).update({
+                caption:props.caption,
+                imageURL:props.image,
+                name:props.name,
+                postID:props.pID,
+                timestamp:props.timestamp,
+                userID:props.userId,
+                userProfile:props.userProfile,
+                likes: likearr
+            }).then(alert('liked a post!'))}
+            );
            
         }
         console.log('after click', likearr)
     }
-    return (user.uid!==undefined)?(
+
+    
+    return (userid.uid!==undefined)?(
         <>
             <div className=" post-container">
                 <div className="card bg-dark text-white">
@@ -101,13 +158,12 @@ const Post = (props) => {
                         <div className="post-icons">
                             <AiFillHeart className="post-actions" onClick={() => {
                                 setisLiked(!isLiked);
-                                addlike()
-                            }} style={{ color: isLiked ? "red" : "white" }} /><div className='numberoflikes'>{likes}</div>
-                            <AiOutlineComment className="post-actions dropdown-toggle" id="dropdownMenu2" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false" onClick={() => setcommentOpen(!commentOpen)} style={{ color: commentOpen ? "pink" : "white" }} /><div className='numberofcomments'>21</div>
-                            <AiOutlineFolderView className="post-actions" data-bs-toggle="modal" data-bs-target={'#Modal' + props.timestamp} style={{ color: "white" }} />
+                                addlike()}} style={likearr.includes(userid.uid)?{color:'red'}:{color:'wheat'}}/><div className='numberofcomments'>{props.like.length}</div>
+                            <AiOutlineComment className="post-actions dropdown-toggle" id="dropdownMenu2" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false" onClick={() => setcommentOpen(!commentOpen)} style={{ color: commentOpen ? 'red' : "wheat" }} /><div className='numberofcomments'>21</div>
+                            <AiOutlineFolderView className="post-actions" data-bs-toggle="modal" data-bs-target={'#Modal' + props.timestamp}  />
                         </div>
-                        <input type="text" className="form-control comment-input" id="exampleFormControlInput1" placeholder="Type your Comment here"></input>
-                        <BiSend className="post-actions" style={{ color: "white" }} />
+                        <input type="text" value={commentEntered} onChange={(e)=>setcommentEntered(e.target.value)} className="form-control comment-input" placeholder="Type your Comment here"></input>
+                        <BiSend className="post-actions" onClick={()=>handlecomment()} />
                     </div>
                 </div>
             </div>

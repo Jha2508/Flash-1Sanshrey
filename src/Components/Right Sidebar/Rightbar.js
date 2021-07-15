@@ -7,7 +7,7 @@ export default function Rightbar() {
         <div className="rightbar">
             <div className="rightbarWrapper">
             <center>
-                <h2 className="rightbarHead">Friends</h2></center>
+                <h2 className="rightbarHead">Explore!</h2></center>
                 <center><hr className="rightbarHr" /></center>
                 <ul className="rightbarFriendList">
 
@@ -25,9 +25,7 @@ export default function Rightbar() {
                     </div>
 
 
-                        <div className='col-2'>
-                            <RiRadioButtonLine className='onlinestatus' />
-                        </div></div>
+                       </div>
 
                     <div className='row'><div className='col-10'>
                         <li className="rightbarFriend">

@@ -1,11 +1,8 @@
 import React from 'react'
-// import './settings.css'
 import './Setting1.css'
 import DP from './img1.jpg'
 import {ImCamera} from 'react-icons/im'
 import Sidebar from '../../Components/sidebar/sidebar'
-import logon from '../../logon.png'
-
 function Settings() {
     return (<>
     <Sidebar/>
