@@ -23,7 +23,7 @@ function SavedPages(props) {
                     {props.posts.map((item, index) => {
                         if(savedID!==undefined){
                         if(savedID.includes('AllPost/'+item.postID)){
-                            setEmpty(false)
+                            
                             return (<Post key={index} caption={item.caption} like={item.likes} image={item.imageURL} userProfile={item.userProfile} name={item.name} pID={item.postID} timestamp={item.timestamp} userId = {item.userID}/> )
                         }}
                     })}
