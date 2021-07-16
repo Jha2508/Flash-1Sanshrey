@@ -1,6 +1,7 @@
 import React from 'react'
-import './Settings.css'
+import './settings.css'
 import Sidebar from '../../Components/sidebar/sidebar'
+import cover from './cover2.png'
 function Settings() {
     return (<>
     <Sidebar/>
