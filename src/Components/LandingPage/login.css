@@ -5,6 +5,10 @@
     justify-content: center;
     flex-direction: column;
 }
+.mtmb{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
 
 .landing-page-right h1{
     font-size: 60px;

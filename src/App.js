@@ -16,8 +16,9 @@ import logo from './sources/sociallogo.png'
 function App() {
   const [posts, setposts] = useState([])
   
+  const user = firebase.auth().currentUser
     useEffect(() => {
-        const ref = firebase.firestore().collection("AllPost")
+        const ref = firebase.firestore().collection("AllPost").orderBy("timestamp", "desc")
         ref.onSnapshot((querySnap) => {
             const newpost = []
             querySnap.forEach(
@@ -42,7 +43,7 @@ return   (posts.length !==0)?(
         
         <PrivateRoute path='/showProfile' exact component={ProfilePage}/>
         <PrivateRoute path='/savedposts' exact component={()=><SavedPages posts={posts}/>}/>
-        <PrivateRoute path='/MyProfile' exact component={()=><ProfilePage pro='self'/>}/>
+        <PrivateRoute path='/MyProfile' exact component={()=><ProfilePage profileID={user.uid} pro='self'/>}/>
         <Route path ='/Post' exact component={Post}/>
         <PrivateRoute path='/home' exact component={()=><Home posts={posts}/>}/>
           </Switch>

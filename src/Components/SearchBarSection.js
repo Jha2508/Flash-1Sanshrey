@@ -9,6 +9,7 @@ function SearchBar({ data }) {
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
 
+ 
   const handleFilter = (event) => {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
@@ -80,7 +81,7 @@ function SearchBar({ data }) {
             {filteredData.slice(0, 15).map((value, key) => {
 
               return (
-                <Link to='/showProfile'>
+                <Link key={key} style={{textDecoration:'none',color:'black'}} to='/showProfile'>
                 <div className="product">
                 <div className='row'>
                 <div className='col'><h6>{value.category}</h6>

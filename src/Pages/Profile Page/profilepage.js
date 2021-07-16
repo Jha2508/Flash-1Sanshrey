@@ -62,7 +62,7 @@ function ProfilePage (props){
                                     <button type="button" onClick={()=>setbuttonMssg('sent')} style={props.pro==='self'?{display:'none'}:{display:'block'}} className="btn btn-outline-warning">{buttonMssg}</button>
                                     <div>
                                     <ImLinkedin className='pdfyt' style={{backgroundColor:'white',borderRadius:'10px'}}  color='blue' />
-                                    <a href={"https://mail.google.com/mail/?view=cm&fs=1&tf=1&to="+profileData.email} target="_blank"><IoIosMailOpen className='pdfyt' style={{backgroundColor:'white',borderRadius:'10px'}}  color='#F9A602' /></a>
+                                        <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=someone@gmail.com" target="_blank"><IoIosMailOpen className='pdfyt' style={{backgroundColor:'white',borderRadius:'10px'}}  color='#F9A602' /></a>
                                     </div>
                                 </div>
                             </div>
@@ -194,33 +194,7 @@ function ProfilePage (props){
                         </div>
                     </div>
                 </div>
-                <div className="modal fade" id="friendsModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div className="modal-dialog">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalLabel">Friends Modal</h5>
-                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
-                            </div>
-                            <div className="modal-body">
-                                here we will show the component of the list of friends
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="modal fade" id="mutualsModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div className="modal-dialog">
-                        <AiOutlineClose />
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalLabel">Mutuals Modal</h5>
-                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
-                            </div>
-                            <div className="modal-body">
-                                here we will show the component of the list of  mutual friends
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 
             </div>
 
