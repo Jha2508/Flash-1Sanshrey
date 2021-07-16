@@ -100,7 +100,9 @@ padding: 0;
 
 .downloadIcon{
     cursor: pointer;
-    float:right ;
+   position: absolute;
+   right:0;
+   top:20px;
     color: white;
     height: 30px;
     width: 40px;

@@ -9,7 +9,7 @@ function SavedPages(props) {
     const [savedID, setsavedID] = useState([])
     useEffect(() => {
         if (user){
-            firebase.firestore().doc(`Users/${user.uid}`).get().then((snap)=>setsavedID(snap.data().savedPost))
+            firebase.firestore().doc(`Users/${user.uid}`).onSnapshot((snap)=>setsavedID(snap.data().savedPost))
         }
     }, [])
     

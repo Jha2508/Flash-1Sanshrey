@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import './profilepage.css'
-import { FaComment, FaFilePdf, FaHeart, FaYoutube } from 'react-icons/fa'
+import { FaComment, FaHeart } from 'react-icons/fa'
+import {ImLinkedin} from 'react-icons/im'
 import { AiOutlineClose, AiFillLike } from 'react-icons/ai';
 import { BiSend } from 'react-icons/bi'
+import {IoIosMailOpen} from 'react-icons/io'
 import Sidebar from '../../Components/sidebar/sidebar'
 import firebase from '../../firebase'
 const comments = [1, 2, 3, 4, 5, 6, 7]
@@ -51,10 +53,7 @@ function ProfilePage (props){
 
                                 </div>
                                 <div className='col-sm-3 rightalign'>
-                                    <div className='links' data-bs-toggle="modal" data-bs-target="#friendsModal"> Followers  &nbsp;(30)<br /></div>
-
-                                    <div className='links' data-bs-toggle="modal" data-bs-target="#mutualsModal">Following &nbsp;(2)<br /></div>
-                                    <div className='posts'><b>Posts: &nbsp;&nbsp;&nbsp;&nbsp;</b>
+                                   <div className='posts'><b>Posts: &nbsp;&nbsp;&nbsp;&nbsp;</b>
                                         <div className='numberofPosts'>
                                             {numberofposts}
                                         </div>
@@ -62,8 +61,8 @@ function ProfilePage (props){
 
                                     <button type="button" onClick={()=>setbuttonMssg('sent')} style={props.pro==='self'?{display:'none'}:{display:'block'}} className="btn btn-outline-warning">{buttonMssg}</button>
                                     <div>
-                                        <FaFilePdf className='pdfyt' color='red' />
-                                        <FaYoutube className='pdfyt' color='red' />
+                                    <ImLinkedin className='pdfyt' style={{backgroundColor:'white',borderRadius:'10px'}}  color='blue' />
+                                    <a href={"https://mail.google.com/mail/?view=cm&fs=1&tf=1&to="+profileData.email} target="_blank"><IoIosMailOpen className='pdfyt' style={{backgroundColor:'white',borderRadius:'10px'}}  color='#F9A602' /></a>
                                     </div>
                                 </div>
                             </div>

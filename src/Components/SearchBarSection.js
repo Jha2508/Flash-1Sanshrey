@@ -12,11 +12,12 @@ function SearchBar({ data }) {
   const handleFilter = (event) => {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
-    const newFilter = data.filter((value) => {
-      return value.name.toLowerCase().includes(searchWord.toLowerCase()) || value.passoutyear.toLowerCase().includes(searchWord.toLowerCase());
-    });
-
-    if (searchWord === "") {
+    var newFilter = []
+      newFilter = data.filter((value) => {
+        if(value.name!==undefined && value.passoutyear!== undefined && searchWord!==undefined){
+        return value.name.toLowerCase().includes(searchWord.toLowerCase()) || value.passoutyear.toLowerCase().includes(searchWord.toLowerCase());
+      }});
+        if (searchWord === "") {
       setFilteredData([]);
     } else {
       setFilteredData(newFilter);
