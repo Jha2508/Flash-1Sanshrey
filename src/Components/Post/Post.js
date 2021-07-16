@@ -1,17 +1,30 @@
-import React, { useEffect, useState } from 'react'
+import React,{useState , useEffect} from 'react'
 import './Post.css'
-import firebase from '../../firebase.js'
+import firebase from '../../firebase';
+
 import { AiFillHeart, AiOutlineClose, AiOutlineComment, AiOutlineFolderView } from 'react-icons/ai';
 import { BiSend } from 'react-icons/bi'
+import {FaBookmark} from 'react-icons/fa'
 import Commentviewer from './Commentviewer';
 
 const Post = (props) => {
-    const [isLiked, setisLiked] = useState(false)
+    Array.prototype.remove = function() {
+        var what, a = arguments, L = a.length, ax;
+        while (L && this.length) {
+            what = a[--L];
+            while ((ax = this.indexOf(what)) !== -1) {
+                this.splice(ax, 1);
+            }
+        }
+        return this;
+    };
+    
     const [comments, setcomments] = useState([])
     const [commentEntered, setcommentEntered] = useState('')
     const userid = firebase.auth().currentUser;
     const [numberofcomments, setnumberofcomments] = useState(0)
-
+    const [alluserdata,setalluserdata] = useState([]);
+    const user=firebase.auth().currentUser.uid;
     const handlecomment = () => {
         const timest = Date.now()
         const datatobeentered = {
@@ -37,8 +50,31 @@ const Post = (props) => {
             setcomments(newComment)
             setnumberofcomments(newComment.length)
         })
+        firebase.firestore().collection('Users').doc(user).onSnapshot((doc) => {setalluserdata(doc.data())})
+    
     }, [])
-
+    
+    const savedpost=alluserdata.savedPost;
+    const handlesave=() =>{
+        const cond=savedpost.includes('AllPost/'+props.pID);
+        (!cond) ? savedpost.push('AllPost/'+props.pID) :savedpost.remove('AllPost/'+props.pID)
+        console.log({bio:alluserdata.bio,
+        image:alluserdata.image,name:alluserdata.name,passoutyear : alluserdata.passoutyear,resumeurl : alluserdata.resumeurl,phoneNO:alluserdata.phoneNO,uID:alluserdata.uID,savedPost:savedpost})
+        if(cond)
+        alert('Post  Is Unsaved');
+        else
+        alert('Post Is Saved');
+        firebase.firestore().collection('Users').doc(user).set({bio:alluserdata.bio,
+            image:alluserdata.image,name:alluserdata.name,passoutyear : alluserdata.passoutyear,resumeurl : alluserdata.resumeurl,phoneNO:alluserdata.phoneNO,uID:alluserdata.uID,savedPost:savedpost})
+        console.log('all user data ',savedpost)
+        
+    
+    
+        
+ }
+    console.log('post comsole',props.userProfile)
+    const [isLiked, setisLiked] = useState(false)
+    
 
     const [commentOpen, setcommentOpen] = useState(false)
     var date = new Date(props.timestamp);
@@ -94,7 +130,7 @@ const Post = (props) => {
 
 
 
-    return (userid.uid !== undefined) ? (
+    return (userid.uid !== undefined && savedpost!==undefined) ? (
 
         <>
 
@@ -107,11 +143,22 @@ const Post = (props) => {
                         <img src={props.image} className="card-img post-img" alt="..." />
 
                         <div className="card-img-overlay shadows">
+                            <div className="card-title author-title">
+                            <img src={props.userProfile} alt="..." className="author-img" />
+                            <div style={{flexDirection:'column'}}>
+                            <h3>{props.name}</h3><br/>
+                            <div className='time'>{tobepostedtime+','+tobepostedate}</div>
+                            </div>
+                            {/* put here */}
+                            <div className='downloadIconContainer'>
+                                {/* <GiSaveArrow  className='downloadIcon' /> */}
+                                {/* <HiOutlineSave className='downloadIcon' /> */}
+                                <FaBookmark className='downloadIcon' onClick={handlesave} 
+                                style={{ color: (savedpost.includes('AllPost/'+props.pID)) ? "blue" : "white" }} />
 
-                            <div className="card-title author-title"><img src={props.userProfile} alt="..." className="author-img" /><div style={{ flexDirection: 'column' }}><h3>{props.name}</h3><br /><div className='time'>{tobepostedtime + ',' + tobepostedate}</div></div></div>
-
-
-
+                            </div>
+                            </div>
+                            
                         </div>
 
                     </div>
@@ -169,6 +216,7 @@ const Post = (props) => {
                 </div>
             </div>
         </>
-    ) : (<div>loacing</div>)
+
+    ):(<div>Loading</div>)
 }
 export default Post

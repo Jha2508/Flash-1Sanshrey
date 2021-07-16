@@ -34,6 +34,7 @@ margin-right: 5px;
 }
 .author-title{
     display: flex;
+    flex-direction: row;
     justify-content: left;
 }
 .post-actions{
@@ -85,4 +86,22 @@ box-shadow: 6px 33px 198px -13px rgba(0,0,0,0.7) inset;
 .author-img-modal{
 padding: 0;
 
+}
+
+/* Download Icon css Properties.................. */
+
+.downloadIconContainer{
+    float: right;
+    height: 40px;
+    width: 40px;
+    margin:10px -50px 10px 200px;
+    background: transparent;
+}
+
+.downloadIcon{
+    cursor: pointer;
+    float:right ;
+    color: white;
+    height: 30px;
+    width: 40px;
 }
