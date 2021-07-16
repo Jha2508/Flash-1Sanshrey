@@ -1,23 +1,40 @@
-import React from 'react'
+import React ,{useEffect,useState} from 'react'
 import "./rightbar.css"
 import { RiRadioButtonLine } from 'react-icons/ri'
+import firebase from '../../firebase'
 
 export default function Rightbar() {
+    const [allusers, setallusers] = useState([])
+    useEffect(() => {
+        const ref = firebase.firestore().collection("Users")
+        ref.onSnapshot((querySnap) => {
+            const newpost = []
+            querySnap.forEach(
+                (doc) => {
+                    newpost.push(doc.data());
+                }
+            )
+            setallusers(newpost)
+            
+
+        })
+    }, [])
+console.log(allusers)
     return (
         <div className="rightbar">
             <div className="rightbarWrapper">
             <center>
-                <h2 className="rightbarHead">Friends</h2></center>
+                <h2 className="rightbarHead">Explore!</h2></center>
                 <center><hr className="rightbarHr" /></center>
                 <ul className="rightbarFriendList">
-
-                    <div className='row'><div className='col-10'>
+                    {allusers.map((item,index)=>{return(
+                        <div key={index} className='row'><div className='col-10'>
                         <li className="rightbarFriend">
                             <div className="rightbarFriendImgContainer">
-                                <img className="rightbarFriendImg" src="http://c.files.bbci.co.uk/17B2C/production/_117586079_avatar_getty.jpg" alt="" />
+                                <img className="rightbarFriendImg" src={item.image} alt="" />
 
                                 <span className="rightbarFriendName">
-                                    CC PK Chal
+                                    {item.name}
                                 </span>
                             </div>
 
@@ -25,371 +42,10 @@ export default function Rightbar() {
                     </div>
 
 
-                        <div className='col-2'>
-                            <RiRadioButtonLine className='onlinestatus' />
-                        </div></div>
-
-                    <div className='row'><div className='col-10'>
-                        <li className="rightbarFriend">
-                            <div className="rightbarFriendImgContainer">
-                                <img className="rightbarFriendImg" src="http://c.files.bbci.co.uk/17B2C/production/_117586079_avatar_getty.jpg" alt="" />
-
-                                <span className="rightbarFriendName">
-                                    CC PK Chal
-                                </span>
-                            </div>
-
-                        </li>
-                    </div>
-
-
-                        <div className='col-2'>
-                            <RiRadioButtonLine className='onlinestatus' />
-                        </div></div>
-
-                    <div className='row'><div className='col-10'>
-                        <li className="rightbarFriend">
-                            <div className="rightbarFriendImgContainer">
-                                <img className="rightbarFriendImg" src="http://c.files.bbci.co.uk/17B2C/production/_117586079_avatar_getty.jpg" alt="" />
-
-                                <span className="rightbarFriendName">
-                                    CC PK Chal
-                                </span>
-                            </div>
-
-                        </li>
-                    </div>
-
-
-                        <div className='col-2'>
-                            <RiRadioButtonLine className='onlinestatus' />
-                        </div></div>
-
-                    <div className='row'><div className='col-10'>
-                        <li className="rightbarFriend">
-                            <div className="rightbarFriendImgContainer">
-                                <img className="rightbarFriendImg" src="http://c.files.bbci.co.uk/17B2C/production/_117586079_avatar_getty.jpg" alt="" />
-
-                                <span className="rightbarFriendName">
-                                    CC PK Chal
-                                </span>
-                            </div>
-
-                        </li>
-                    </div>
-
-
-                        <div className='col-2'>
-                            <RiRadioButtonLine className='onlinestatus' />
-                        </div></div>
-
-                    <div className='row'><div className='col-10'>
-                        <li className="rightbarFriend">
-                            <div className="rightbarFriendImgContainer">
-                                <img className="rightbarFriendImg" src="http://c.files.bbci.co.uk/17B2C/production/_117586079_avatar_getty.jpg" alt="" />
-
-                                <span className="rightbarFriendName">
-                                    CC PK Chal
-                                </span>
-                            </div>
-
-                        </li>
-                    </div>
-
-
-                        <div className='col-2'>
-                            <RiRadioButtonLine className='onlinestatus' />
-                        </div></div>
-
-                    <div className='row'><div className='col-10'>
-                        <li className="rightbarFriend">
-                            <div className="rightbarFriendImgContainer">
-                                <img className="rightbarFriendImg" src="http://c.files.bbci.co.uk/17B2C/production/_117586079_avatar_getty.jpg" alt="" />
-
-                                <span className="rightbarFriendName">
-                                    CC PK Chal
-                                </span>
-                            </div>
-
-                        </li>
-                    </div>
-
-
-                        <div className='col-2'>
-                            <RiRadioButtonLine className='onlinestatus' />
-                        </div></div>
-
-                    <div className='row'><div className='col-10'>
-                        <li className="rightbarFriend">
-                            <div className="rightbarFriendImgContainer">
-                                <img className="rightbarFriendImg" src="http://c.files.bbci.co.uk/17B2C/production/_117586079_avatar_getty.jpg" alt="" />
-
-                                <span className="rightbarFriendName">
-                                    CC PK Chal
-                                </span>
-                            </div>
-
-                        </li>
-                    </div>
-
-
-                        <div className='col-2'>
-                            <RiRadioButtonLine className='onlinestatus' />
-                        </div></div>
-
-                    <div className='row'><div className='col-10'>
-                        <li className="rightbarFriend">
-                            <div className="rightbarFriendImgContainer">
-                                <img className="rightbarFriendImg" src="http://c.files.bbci.co.uk/17B2C/production/_117586079_avatar_getty.jpg" alt="" />
-
-                                <span className="rightbarFriendName">
-                                    CC PK Chal
-                                </span>
-                            </div>
-
-                        </li>
-                    </div>
-
-
-                        <div className='col-2'>
-                            <RiRadioButtonLine className='onlinestatus' />
-                        </div></div>
-
-                    <div className='row'><div className='col-10'>
-                        <li className="rightbarFriend">
-                            <div className="rightbarFriendImgContainer">
-                                <img className="rightbarFriendImg" src="http://c.files.bbci.co.uk/17B2C/production/_117586079_avatar_getty.jpg" alt="" />
-
-                                <span className="rightbarFriendName">
-                                    CC PK Chal
-                                </span>
-                            </div>
-
-                        </li>
-                    </div>
-
-
-                        <div className='col-2'>
-                            <RiRadioButtonLine className='onlinestatus' />
-                        </div></div>
-
-                    <div className='row'><div className='col-10'>
-                        <li className="rightbarFriend">
-                            <div className="rightbarFriendImgContainer">
-                                <img className="rightbarFriendImg" src="http://c.files.bbci.co.uk/17B2C/production/_117586079_avatar_getty.jpg" alt="" />
-
-                                <span className="rightbarFriendName">
-                                    CC PK Chal
-                                </span>
-                            </div>
-
-                        </li>
-                    </div>
-
-
-                        <div className='col-2'>
-                            <RiRadioButtonLine className='onlinestatus' />
-                        </div></div>
-
-                    <div className='row'><div className='col-10'>
-                        <li className="rightbarFriend">
-                            <div className="rightbarFriendImgContainer">
-                                <img className="rightbarFriendImg" src="http://c.files.bbci.co.uk/17B2C/production/_117586079_avatar_getty.jpg" alt="" />
-
-                                <span className="rightbarFriendName">
-                                    CC PK Chal
-                                </span>
-                            </div>
-
-                        </li>
-                    </div>
-
-
-                        <div className='col-2'>
-                            <RiRadioButtonLine className='onlinestatus' />
-                        </div></div>
-
-                    <div className='row'><div className='col-10'>
-                        <li className="rightbarFriend">
-                            <div className="rightbarFriendImgContainer">
-                                <img className="rightbarFriendImg" src="http://c.files.bbci.co.uk/17B2C/production/_117586079_avatar_getty.jpg" alt="" />
-
-                                <span className="rightbarFriendName">
-                                    CC PK Chal
-                                </span>
-                            </div>
-
-                        </li>
-                    </div>
-
-
-                        <div className='col-2'>
-                            <RiRadioButtonLine className='onlinestatus' />
-                        </div></div>
-
-                    <div className='row'><div className='col-10'>
-                        <li className="rightbarFriend">
-                            <div className="rightbarFriendImgContainer">
-                                <img className="rightbarFriendImg" src="http://c.files.bbci.co.uk/17B2C/production/_117586079_avatar_getty.jpg" alt="" />
-
-                                <span className="rightbarFriendName">
-                                    CC PK Chal
-                                </span>
-                            </div>
-
-                        </li>
-                    </div>
-
-
-                        <div className='col-2'>
-                            <RiRadioButtonLine className='onlinestatus' />
-                        </div></div>
-
-                    <div className='row'><div className='col-10'>
-                        <li className="rightbarFriend">
-                            <div className="rightbarFriendImgContainer">
-                                <img className="rightbarFriendImg" src="http://c.files.bbci.co.uk/17B2C/production/_117586079_avatar_getty.jpg" alt="" />
-
-                                <span className="rightbarFriendName">
-                                    CC PK Chal
-                                </span>
-                            </div>
-
-                        </li>
-                    </div>
-
-
-                        <div className='col-2'>
-                            <RiRadioButtonLine className='onlinestatus' />
-                        </div></div>
-
-                    <div className='row'><div className='col-10'>
-                        <li className="rightbarFriend">
-                            <div className="rightbarFriendImgContainer">
-                                <img className="rightbarFriendImg" src="http://c.files.bbci.co.uk/17B2C/production/_117586079_avatar_getty.jpg" alt="" />
-
-                                <span className="rightbarFriendName">
-                                    CC PK Chal
-                                </span>
-                            </div>
-
-                        </li>
-                    </div>
-
-
-                        <div className='col-2'>
-                            <RiRadioButtonLine className='onlinestatus' />
-                        </div></div>
-
-                    <div className='row'><div className='col-10'>
-                        <li className="rightbarFriend">
-                            <div className="rightbarFriendImgContainer">
-                                <img className="rightbarFriendImg" src="http://c.files.bbci.co.uk/17B2C/production/_117586079_avatar_getty.jpg" alt="" />
-
-                                <span className="rightbarFriendName">
-                                    CC PK Chal
-                                </span>
-                            </div>
-
-                        </li>
-                    </div>
-
-
-                        <div className='col-2'>
-                            <RiRadioButtonLine className='onlinestatus' />
-                        </div></div>
-
-                    <div className='row'><div className='col-10'>
-                        <li className="rightbarFriend">
-                            <div className="rightbarFriendImgContainer">
-                                <img className="rightbarFriendImg" src="http://c.files.bbci.co.uk/17B2C/production/_117586079_avatar_getty.jpg" alt="" />
-
-                                <span className="rightbarFriendName">
-                                    CC PK Chal
-                                </span>
-                            </div>
-
-                        </li>
-                    </div>
-
-
-                        <div className='col-2'>
-                            <RiRadioButtonLine className='onlinestatus' />
-                        </div></div>
-
-                    <div className='row'><div className='col-10'>
-                        <li className="rightbarFriend">
-                            <div className="rightbarFriendImgContainer">
-                                <img className="rightbarFriendImg" src="http://c.files.bbci.co.uk/17B2C/production/_117586079_avatar_getty.jpg" alt="" />
-
-                                <span className="rightbarFriendName">
-                                    CC PK Chal
-                                </span>
-                            </div>
-
-                        </li>
-                    </div>
-
-
-                        <div className='col-2'>
-                            <RiRadioButtonLine className='onlinestatus' />
-                        </div></div>
-
-                    <div className='row'><div className='col-10'>
-                        <li className="rightbarFriend">
-                            <div className="rightbarFriendImgContainer">
-                                <img className="rightbarFriendImg" src="http://c.files.bbci.co.uk/17B2C/production/_117586079_avatar_getty.jpg" alt="" />
-
-                                <span className="rightbarFriendName">
-                                    CC PK Chal
-                                </span>
-                            </div>
-
-                        </li>
-                    </div>
-
-
-                        <div className='col-2'>
-                            <RiRadioButtonLine className='onlinestatus' />
-                        </div></div>
-
-                    <div className='row'><div className='col-10'>
-                        <li className="rightbarFriend">
-                            <div className="rightbarFriendImgContainer">
-                                <img className="rightbarFriendImg" src="http://c.files.bbci.co.uk/17B2C/production/_117586079_avatar_getty.jpg" alt="" />
-
-                                <span className="rightbarFriendName">
-                                    CC PK Chal
-                                </span>
-                            </div>
-
-                        </li>
-                    </div>
-
-
-                        <div className='col-2'>
-                            <RiRadioButtonLine className='onlinestatus' />
-                        </div></div>
-
-                    <div className='row'><div className='col-10'>
-                        <li className="rightbarFriend">
-                            <div className="rightbarFriendImgContainer">
-                                <img className="rightbarFriendImg" src="http://c.files.bbci.co.uk/17B2C/production/_117586079_avatar_getty.jpg" alt="" />
-
-                                <span className="rightbarFriendName">
-                                    CC PK Chal
-                                </span>
-                            </div>
-
-                        </li>
-                    </div>
-
-
-                        <div className='col-2'>
-                            <RiRadioButtonLine className='onlinestatus' />
-                        </div></div>
-
-                </ul>
+</div>
+ 
+                    )})}
+                                  </ul>
             </div>
 
         </div>
