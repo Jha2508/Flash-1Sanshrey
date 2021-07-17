@@ -1,6 +1,5 @@
 import React ,{useEffect,useState} from 'react'
 import "./rightbar.css"
-import { RiRadioButtonLine } from 'react-icons/ri'
 import firebase from '../../firebase'
 
 export default function Rightbar() {
