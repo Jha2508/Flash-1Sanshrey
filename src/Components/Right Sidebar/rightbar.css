@@ -18,7 +18,9 @@
     padding-left: 0;
 }
 .rightbarHr{
-    width:75%
+    width:65%;
+    margin-right: -5px;
+
 }
 .rightbarFriendList{
     padding: 0;
@@ -41,7 +43,13 @@
    
 
 .rightbarFriendImgContainer{
-    margin-right: 0px;
+    margin-right: -30px;
     position: -webkit-sticky;
     cursor: pointer;
+}
+.rightbarFriendName{
+    margin-left: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: medium;
+    
 }
