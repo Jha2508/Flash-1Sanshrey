@@ -7,16 +7,19 @@ import Home from './Pages/Home/Home'
 import OurTeam from "./Pages/ourTeam/ourTeam"
 import Settings from './Pages/settings/settings'
 import ProfilePage from "./Pages/Profile Page/profilepage";
-import Post from "./Components/Post/Post"
 import { AuthProvider } from "./Auth";
 import PrivateRoute from "./PrivateRoute";
 import SavedPages from "./Pages/SavedPages";
 import firebase from "./firebase";
-import logo from './sources/sociallogo.png'
+import Error from "./Pages/Err/Error";
 function App() {
   const [posts, setposts] = useState([])
   
   const user = firebase.auth().currentUser
+  var uid = ''
+  if(user){
+    uid=user.uid
+  }
     useEffect(() => {
         const ref = firebase.firestore().collection("AllPost").orderBy("timestamp", "desc")
         ref.onSnapshot((querySnap) => {
@@ -39,20 +42,26 @@ return   (posts.length !==0)?(
             <Route exact path="/"><Landing/></Route>
             <Route exact path="/faqs"><FAQs/></Route>
             <Route exact path="/ourteam"><OurTeam/></Route>
-        <PrivateRoute path='/settings' exact component={Settings}/>
+        <PrivateRoute path='/settings' > <Settings userid ={uid}/></PrivateRoute>
         
         <PrivateRoute path='/showProfile' exact component={ProfilePage}/>
-        <PrivateRoute path='/savedposts' exact component={()=><SavedPages posts={posts}/>}/>
-        <PrivateRoute path='/MyProfile' exact component={()=><ProfilePage profileID={user.uid} pro='self'/>}/>
-        <Route path ='/Post' exact component={Post}/>
-        <PrivateRoute path='/home' exact component={()=><Home posts={posts}/>}/>
+        <PrivateRoute path='/savedposts' exact component={()=><SavedPages userid={uid} posts={posts}/>}/>
+        <Route exact path ='/profile/:id'><ProfilePage userid={uid} /></Route>
+        <Route exact path ='/error'exact component={Error}/>
+        <PrivateRoute path='/home' exact component={()=><Home userid={uid} posts={posts}/>}/>
           </Switch>
         </Router>
         </AuthProvider>
       </div>
     ):(<div className='preloader'>
-    <div className='swing'>
-      <img src={logo} alt='lgoo loader'/>
+    <div className="loader">
+        <div className="spin reel">
+          <span className="dot d_top" />
+          <span className="dot d_right" />
+          <span className="dot d_center" />
+          <span className="dot d_left" />
+          <span className="dot d_bottom" />
+        </div>
       </div>
     </div>)   
 }

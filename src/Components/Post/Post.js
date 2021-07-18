@@ -6,7 +6,7 @@ import { AiFillHeart, AiOutlineClose, AiOutlineComment, AiOutlineFolderView } fr
 import { BiSend } from 'react-icons/bi'
 import { FaBookmark } from 'react-icons/fa'
 import Commentviewer from './Commentviewer';
-
+import person from '../../sources/person.jpeg'
 const Post = (props) => {
     Array.prototype.remove = function () {
         var what, a = arguments, L = a.length, ax;
@@ -27,12 +27,12 @@ const Post = (props) => {
     const handlecomment = () => {
         const timest = Date.now()
         const datatobeentered = {
-            commentText: commentEntered,
-            uID: userid.uid,
-            timestamp: timest
+            message: commentEntered,
+            uid: userid.uid,
+            time: timest
         }
 
-        firebase.firestore().collection('AllPost').doc(props.pID).collection('Comments').add(datatobeentered).then(() => {
+        firebase.firestore().collection('AllPost').doc(props.postId).collection('comments').add(datatobeentered).then(() => {
             alert('comment dana done done!')
             setcommentEntered('')
 
@@ -41,7 +41,7 @@ const Post = (props) => {
     }
 
     useEffect(() => {
-        firebase.firestore().collection('AllPost').doc(props.pID).collection('Comments').onSnapshot((querySnap) => {
+        firebase.firestore().collection('AllPost').doc(props.postId).collection('comments').onSnapshot((querySnap) => {
             const newComment = [];
             querySnap.forEach((doc) => {
                 newComment.push(doc.data())
@@ -52,14 +52,13 @@ const Post = (props) => {
         firebase.firestore().collection('Users').doc(userid.uid).onSnapshot((doc) => { setalluserdata(doc.data()) })
 
     }, [])
-
     const savedpost = alluserdata.savedPost;
     const handlesave = () => {
-        const cond = savedpost.includes('AllPost/' + props.pID);
-        (!cond) ? savedpost.push('AllPost/' + props.pID) : savedpost.remove('AllPost/' + props.pID)
+        const cond = savedpost.includes('AllPost/' + props.postId);
+        (!cond) ? savedpost.push('AllPost/' + props.postId) : savedpost.remove('AllPost/' + props.postId)
         console.log({
             bio: alluserdata.bio,
-            image: alluserdata.image, name: alluserdata.name, passoutyear: alluserdata.passoutyear, resumeurl: alluserdata.resumeurl, phoneNO: alluserdata.phoneNO, uID: alluserdata.uID, savedPost: savedpost
+            userImg: alluserdata.userImg, name: alluserdata.name, passingYear: alluserdata.passingYear, linkedinUrl: alluserdata.linkedinUrl, phoneNo: alluserdata.phoneNo, uid: alluserdata.uid, savedPost: savedpost
         })
         if (cond)
             alert('Post  Is Unsaved');
@@ -67,15 +66,19 @@ const Post = (props) => {
             alert('Post Is Saved');
         firebase.firestore().collection('Users').doc(userid.uid).set({
             bio: alluserdata.bio,
-            image: alluserdata.image, name: alluserdata.name, passoutyear: alluserdata.passoutyear, resumeurl: alluserdata.resumeurl, phoneNO: alluserdata.phoneNO, uID: alluserdata.uID, savedPost: savedpost
-        })
-        console.log('all user data ', savedpost)
+            userImg: alluserdata.userImg,
+             name: alluserdata.name, 
+             passingYear: alluserdata.passingYear, 
+             linkedinUrl: alluserdata.linkedinUrl,
+              phoneNo: alluserdata.phoneNo, 
+              uid: alluserdata.uid, 
+              savedPost: savedpost
+         })
 
 
 
 
     }
-    console.log('post comsole', props.userProfile)
     const [isLiked, setisLiked] = useState(false)
 
 
@@ -84,38 +87,26 @@ const Post = (props) => {
     const tobepostedate = date.toDateString();
     const tobepostedtime = date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
     const likearr = props.like
-    const likes = Object.keys(props.like).length
     const addlike = () => {
         if (userid.uid!==undefined) {
             (likearr.includes(userid.uid))?likearr.remove(userid.uid):likearr.push(userid.uid)
             
            
-            firebase.firestore().collection("AllPost").doc(`${props.pID}`).update({
+            firebase.firestore().collection("AllPost").doc(`${props.postId}`).update({
                 caption:props.caption,
-                imageURL:props.image,
+                imageUrl:props.imageUrl,
                 name:props.name,
-                postID:props.pID,
+                postId:props.postId,
                 timestamp:props.timestamp,
-                userID:props.userId,
-                userProfile:props.userProfile,
-                likes: likearr
-            }).then(()=>{firebase.firestore().collection("Users").doc(`${props.userId}`).collection('MyPosts').doc(`${props.pID}`).update({
-                caption:props.caption,
-                imageURL:props.image,
-                name:props.name,
-                postID:props.pID,
-                timestamp:props.timestamp,
-                userID:props.userId,
-                userProfile:props.userProfile,
+                uid:props.userId,
+                userImg:props.userImg,
                 likes: likearr
             }).then(alert('liked a post!'))}
-            );
+          
            
         }
 
-        console.log('after click', likearr)
-
-    }
+    
 
 
 
@@ -131,11 +122,11 @@ const Post = (props) => {
 
                     <div className="card bg-dark">
 
-                        <img src={props.image} className="card-img post-img" alt="..." />
+                        <img src={props.imageUrl} className="card-img post-img" alt="..." />
 
                         <div className="card-img-overlay shadows">
                             <div className="card-title author-title">
-                                <img src={props.userProfile} alt="..." className="author-img" />
+                                <img src={(props.userImg!=='' && props.userImg!==null && props.userImg!==undefined)?props.userImg:person} alt="..." className="author-img" />
                                 <div style={{ flexDirection: 'column' }}>
                                     <h3>{props.name}</h3><br />
                                     <div className='time'>{tobepostedtime + ',' + tobepostedate}</div>
@@ -145,7 +136,7 @@ const Post = (props) => {
                                     {/* <GiSaveArrow  className='downloadIcon' /> */}
                                     {/* <HiOutlineSave className='downloadIcon' /> */}
                                     <FaBookmark className='downloadIcon' onClick={handlesave}
-                                        style={{ color: (savedpost.includes('AllPost/' + props.pID)) ? "blue" : "white" }} />
+                                        style={{ color: (savedpost.includes('AllPost/' + props.postId)) ? "blue" : "white" }} />
 
                                 </div>
                             </div>
@@ -163,7 +154,7 @@ const Post = (props) => {
                         {comments.map((item, index) => {
 
                             return (
-                                <Commentviewer commentID={item.uID} key={index} text={item.commentText} />
+                                <Commentviewer commentID={item.uid} key={index} text={item.message} />
                             )
                         })}
 
@@ -177,7 +168,7 @@ const Post = (props) => {
                             <AiOutlineComment className="post-actions dropdown-toggle" id="dropdownMenu2" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false" onClick={() => setcommentOpen(!commentOpen)} style={{ color: commentOpen ? 'red' : "wheat" }} /><div className='numberofcomments'>{numberofcomments}</div>
                             <AiOutlineFolderView className="post-actions" data-bs-toggle="modal" data-bs-target={'#Modal' + props.timestamp}  />
                         </div>
-                        <input type="text" value={commentEntered} onChange={(e)=>setcommentEntered(e.target.value)} className="form-control comment-input" placeholder="Type your Comment here"></input>
+                        <input type="text" value={commentEntered} onChange={(e)=>setcommentEntered(e.target.value)} className="form-control comment-input" placeholder="Type your Comment here"/>
                         <BiSend className="post-actions" onClick={()=>handlecomment()} />
                     </div>
                 </div>
@@ -193,12 +184,12 @@ const Post = (props) => {
                         <div className="modal-header post-head bg-dark text-white">
 
                             <h5 id="exampleModalLabel" className="card-title author-title">
-                                <img src={props.userProfile} alt="..." className="author-img" />{props.name}
+                                <img src={props.userImg} alt="..." className="author-img" />{props.name}
                             </h5>
                             <AiOutlineClose className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
                         </div>
                         <div className="modal-body bg-dark author-img-modal">
-                            <img src={props.image} className=" post-img-modal" alt="..." />
+                            <img src={(props.userImg!=='' && props.userImg!==null && props.userImg!==undefined)?props.userImg:person} className=" post-img-modal" alt="..." />
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>

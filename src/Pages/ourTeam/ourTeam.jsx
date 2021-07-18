@@ -1,7 +1,6 @@
 import React from 'react'
 import { TeamList } from '../../Components/LandingPage/teamData'
 import './ourTeam.css'
-import Dummy from '../../sources/sociallogo.png'
 import { Link } from "react-router-dom"
 import { AiFillHome } from "react-icons/ai";
 

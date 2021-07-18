@@ -39,11 +39,11 @@ const Login = ({ history }) => {
 
     if (currentUser) {
         return <Redirect to="/home" />;
-
     }
 
     const handleReg = () => {
         try{
+            const passingYear = parseInt(passoutyr)
             const promise = auth.createUserWithEmailAndPassword(rege, regp)
         promise.then(cred => {
 
@@ -60,17 +60,20 @@ const Login = ({ history }) => {
                             let data = {
                                 bio: Bio,
                                 name: regn,
-                                phoneNO: phone,
+                                phoneNo: phone,
                                 branch: branch,
-                                passingYear: passoutyr,
+                                passingYear: passingYear,
                                 linkedinUrl: resumelink,
-                                image: url,
-                                uID: cred.user.uid,
+                                userImg: url,
+                                uid: cred.user.uid,
+                                email:rege,
                                 savedPost:[]
                             }
                             console.log('data entered in reg form', data)
 
-                            firebase.firestore().collection('Users').doc(cred.user.uid).set(data).then(() => console.log('registered'))
+                            firebase.firestore().collection('Users').doc(cred.user.uid).set(data).then(() => {
+                                console.log('registered')
+                            window.location.reload(false)})
 
                         }).catch(e => alert(e.message))
                 })

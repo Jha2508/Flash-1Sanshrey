@@ -6,47 +6,48 @@ import "./MessageSender.css";
 import firebase from "../firebase";
 // import InputEmoji from "react-input-emoji";
 
-function MessageSender() {
+function MessageSender(props) {
   const store = firebase.storage()
   const filePickerRef = useRef(null);
   const [PostText, setPostText] = useState('')
   const [PostImage, setPostImage] = useState('')
-  const [imageToPost, setImageToPost] = useState(null);
+  const [imageToPost, setImageToPost] = useState(null)
   const [profileinfo, setprofileinfo] = useState('')
-
+  const [posting, setposting] = useState(false)
   const user = firebase.auth().currentUser
   useEffect(() => {
     if (user) {
-      firebase.firestore().collection('Users').doc(user.uid).get().then((snap) => { setprofileinfo(snap.data()) })
+      firebase.firestore().collection('Users').doc(props.userid).get().then((snap) => { setprofileinfo(snap.data()) })
 
     }
 
   }, [])
   const handlePosting = () => {
     const timest = Date.now()
-
+    setposting(true)
     if (user) {
 
-      const uploadimage = store.ref(`posts/${user.uid + timest}`).put(PostImage)
+      const uploadimage = store.ref(`posts/${props.userid + timest}`).put(PostImage)
       uploadimage.on("state_changed",
         function (snapshot) {
           //if we want to show a loader or something it can be done her
         }, function (errr) {
           // error handling must be done here
         }, function () {
-          store.ref(`posts/${user.uid + timest}`).getDownloadURL().then((url) => {
+          store.ref(`posts/${props.userid + timest}`).getDownloadURL().then((url) => {
             let data = {
               caption: PostText,
               likes: [],
               timestamp: timest,
-              imageURL: url,
+              imageUrl: url,
               name: profileinfo.name,
-              postID: user.uid + timest,
-              userID: user.uid,
-              userProfile: profileinfo.image
+              postId: props.userid + timest,
+              uid: props.userid,
+              userImg: profileinfo.userImg
             }
-            firebase.firestore().collection('Users').doc(user.uid).collection('MyPosts').doc(user.uid + timest).set(data)
-            firebase.firestore().collection('AllPost').doc(user.uid + timest).set(data).then(alert('done dana done done!'))
+            firebase.firestore().collection('AllPost').doc(props.userid + timest).set(data).then(()=>{
+              alert('done dana done done!')
+            setposting(false)})
           })
         })
     }
@@ -67,7 +68,7 @@ function MessageSender() {
 
       setPostImage(e.target.files[0])
       reader.readAsDataURL(e.target.files[0]);
-      console.log("Photo Done");
+
     }
     reader.onload = (readerEvent) => {
       setImageToPost(readerEvent.target.result);
@@ -90,7 +91,7 @@ function MessageSender() {
             type="text"
             className="messageSender__input"
             placeholder={`What's on your mind`}
-            onChange={setPostText}
+            onChange={(e)=>setPostText(e.target.value)}
           />
 
           <button onClick={handleSubmit} type="submit">
@@ -126,7 +127,7 @@ function MessageSender() {
           </IconContext.Provider>
         </div>
         <div className="messageSender__option">
-          <button type="button" onClick={() => handlePosting()} className="btn btn-outline-light">Post</button>
+          <button type="button" disabled={posting} onClick={() => handlePosting()} className="btn btn-outline-light">Post</button>
         </div>
       </div>
     </div>

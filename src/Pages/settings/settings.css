@@ -1,11 +1,39 @@
 .SettingsPage{
     min-height: 100vh;
-    color:white
+    color:white;
+    padding-left: 50px;
 }
 
 .cover{
     height: 100vh;
     width: 900px;
     position: absolute;
-    right:0
+    right:0;
+    z-index:100
+}
+.photochangebutton{
+    color:teal;
+    font-size: 40px;
+    position: absolute;
+    right:110px;
+    top:220px;
+    z-index:100
+}
+
+.photochangebutton:hover{
+    color:black;
+}
+.photoforchange{
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    top:190px;
+    position: absolute;
+    right: 100px;
+    z-index:100
+}
+
+.firstrow{
+    padding-top: 70px;
+    font-size: 35px;
 }

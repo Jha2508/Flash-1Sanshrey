@@ -4,10 +4,9 @@ import { FiLogOut } from 'react-icons/fi'
 import { IoHome, IoSettings } from 'react-icons/io5'
 import {BiSave} from 'react-icons/bi'
 import { CgProfile } from 'react-icons/cg'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import logon from '../../logon.png'
 import firebase from '../../firebase'
-
 import Sidebar2 from '../../Components/Sidebar2'
 
 const handlelogout = () => {
@@ -21,14 +20,13 @@ const handlelogout = () => {
 
 }
 
-function Sidebar() {
-  const user = firebase.auth().currentUser;
+function Sidebar(props) {
   
   const ref2 = firebase.firestore().collection('Users')
   const [profileinfo, setprofileinfo] = useState({image:'',name:'',passoutyr:'2023'})
   useEffect(()=>{
-    if (user) {
-      ref2.doc(user.uid).get().then((snap) => setprofileinfo(snap.data()))
+    if (props.userid) {
+      ref2.doc(props.userid).get().then((snap) => setprofileinfo(snap.data()))
     }
   },[])
   
@@ -38,14 +36,14 @@ function Sidebar() {
         <div className="smartphone-menu-trigger" />
         <header className="avatar">
           <form className="example" action="action_page.php">
-            <Sidebar2 />
+            <Sidebar2 userid={props.userid}/>
           </form>
 
           <div className="lower-us">
-            <img src={(profileinfo!==undefined)?profileinfo.image:''} alt='pp' />
+            <img src={(profileinfo!==undefined)?profileinfo.userImg:''} alt='pp' />
             <div className="name">
               <div >{(profileinfo!==undefined)?profileinfo.name:''}</div>
-              <div className='status'>Student</div>
+              <div className='status'>{profileinfo.passingYear}</div>
             </div>
           </div>
         </header>
@@ -53,10 +51,12 @@ function Sidebar() {
         <img className='logo' src={logon} alt='...' />
         </div>
        
-        <div className='logotitle'>Sanshreya</div>
+        <div className='logotitle'>Sanshray</div>
         <ul className='allmenus'>
           <li tabIndex={0} ><Link className='Menu' to='/Home'><IoHome style={{ marginRight: '8px' }} />Home</Link></li>
-          <li tabIndex={0} ><Link className='Menu' to='/MyProfile'><CgProfile style={{ marginRight: '8px' }} />View Your Profile</Link></li>
+          <li className='Menu' onClick={()=>{
+            props.history.push(`/profile/${props.userid}`)
+            window.location.reload(false);}} tabIndex={0} ><CgProfile style={{ marginRight: '8px' }} />View Your Profile</li>
           <li tabIndex={0} ><Link className='Menu' to='/savedposts'><BiSave style={{ marginRight: '8px' }} />Saved Posts</Link></li>
           <li tabIndex={0} ><Link className='Menu' to='/settings'><IoSettings style={{ marginRight: '8px' }} />Settings</Link></li>
           <li tabIndex={0} onClick={handlelogout}><div className='Menu'><FiLogOut style={{ marginRight: '8px' }} />Logout</div></li>
@@ -67,4 +67,4 @@ function Sidebar() {
   )
 }
 
-export default Sidebar
+export default withRouter(Sidebar)

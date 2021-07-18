@@ -7,15 +7,15 @@ import Rightbar from '../../Components/Right Sidebar/Rightbar'
 function Home(props) {
     
     return (<>
-        <Sidebar/>
+        <Sidebar userid={props.userid}/>
         <div className='marginforside home'>
 
             <div className='row'>
                 <div className={window.matchMedia("(max-width: 800px)").matches ? 'col' : 'col-8'}>
 
-                    <MessageSender />
+                    <MessageSender userid={props.userid}/>
                     {props.posts.map((item, index) => {
-                        return (<Post key={index} caption={item.caption} like={item.likes} image={item.imageURL} userProfile={item.userProfile} name={item.name} pID={item.postID} timestamp={item.timestamp} userId = {item.userID}/>
+                        return (<Post key={index} caption={item.caption} like={item.likes} imageUrl={item.imageUrl} userImg={item.userImg} name={item.name} postId={item.postId} timestamp={item.timestamp} userId = {item.uid}/>
                         )
                     })}
 
