@@ -3,7 +3,8 @@ import { TeamList } from '../../Components/LandingPage/teamData'
 import './ourTeam.css'
 import { Link } from "react-router-dom"
 import { AiFillHome } from "react-icons/ai";
-
+import {SiGmail} from 'react-icons/si'
+import {GoFilePdf} from 'react-icons/go'
 const OurTeam = () => {
     return (
         <>
@@ -20,13 +21,13 @@ const OurTeam = () => {
                                         <div className="team-img">
                                             <img src="https://demo.htmlcodex.com/660/team-page-html-template/img/team-2-2.jpg" alt="Team Image" />
                                             <div className="team-social">
-                                                <a className="social-fb" href></a>
-                                                <a className="social-yt" href></a>
+                                                <a className="social-fb" href><SiGmail/></a>
+                                                <a className="social-yt" href={items.memResume}><GoFilePdf/></a>
                                             </div>
                                         </div>
                                         <div className="team-content">
                                             <h2>{items.memName}</h2>
-                                            <h3>CEO &amp; Founder</h3>
+                                            <h3>{items.memRole}</h3>
                                             </div>
                                     </div>
 
