@@ -46,9 +46,10 @@ return   (posts.length !==0)?(
         
         <PrivateRoute path='/showProfile' exact component={ProfilePage}/>
         <PrivateRoute path='/savedposts' exact component={()=><SavedPages userid={uid} posts={posts}/>}/>
-        <Route exact path ='/profile/:id'><ProfilePage userid={uid} /></Route>
-        <Route exact path ='/error'exact component={Error}/>
+        <Route exact path ='/profile/:id'><ProfilePage userid={uid} pro='self' /></Route>
+        
         <PrivateRoute path='/home' exact component={()=><Home userid={uid} posts={posts}/>}/>
+        <Route component={Error}/>
           </Switch>
         </Router>
         </AuthProvider>

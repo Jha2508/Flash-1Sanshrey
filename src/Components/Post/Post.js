@@ -53,6 +53,7 @@ const Post = (props) => {
 
     }, [])
     const savedpost = alluserdata.savedPost;
+    
     const handlesave = () => {
         const cond = savedpost.includes('AllPost/' + props.postId);
         (!cond) ? savedpost.push('AllPost/' + props.postId) : savedpost.remove('AllPost/' + props.postId)
@@ -90,8 +91,6 @@ const Post = (props) => {
     const addlike = () => {
         if (userid.uid!==undefined) {
             (likearr.includes(userid.uid))?likearr.remove(userid.uid):likearr.push(userid.uid)
-            
-           
             firebase.firestore().collection("AllPost").doc(`${props.postId}`).update({
                 caption:props.caption,
                 imageUrl:props.imageUrl,
@@ -125,10 +124,10 @@ const Post = (props) => {
                         <img src={props.imageUrl} className="card-img post-img" alt="..." />
 
                         <div className="card-img-overlay shadows">
-                            <div className="card-title author-title">
+                            <div className='card-title author-title'>
                                 <img src={(props.userImg!=='' && props.userImg!==null && props.userImg!==undefined)?props.userImg:person} alt="..." className="author-img" />
                                 <div style={{ flexDirection: 'column' }}>
-                                    <h3>{props.name}</h3><br />
+                                    <h3>{props.name}</h3><br/>
                                     <div className='time'>{tobepostedtime + ',' + tobepostedate}</div>
                                 </div>
                                 {/* put here */}
@@ -189,7 +188,7 @@ const Post = (props) => {
                             <AiOutlineClose className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
                         </div>
                         <div className="modal-body bg-dark author-img-modal">
-                            <img src={(props.userImg!=='' && props.userImg!==null && props.userImg!==undefined)?props.userImg:person} className=" post-img-modal" alt="..." />
+                            <img src={(props.userImg!=='' && props.userImg!==null && props.userImg!==undefined)?props.imageUrl:person} className=" post-img-modal" alt="..." />
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>

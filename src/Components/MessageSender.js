@@ -23,11 +23,18 @@ function MessageSender(props) {
 
   }, [])
   const handlePosting = () => {
-    const timest = Date.now()
-    setposting(true)
     if (user) {
-
-      const uploadimage = store.ref(`posts/${props.userid + timest}`).put(PostImage)
+      const fsize = PostImage.size;
+      const file = Math.round((fsize / 1024));
+      // The size of the file.
+      if (file >= 3000) {
+          alert("File too Big, please select a file less than 5mb");
+      } else {
+        
+        setposting(true)
+        
+    const timest = Date.now()
+        const uploadimage = store.ref(`posts/${props.userid + timest}`).put(PostImage)
       uploadimage.on("state_changed",
         function (snapshot) {
           //if we want to show a loader or something it can be done her
@@ -50,6 +57,8 @@ function MessageSender(props) {
             setposting(false)})
           })
         })
+      }
+      
     }
 
 
