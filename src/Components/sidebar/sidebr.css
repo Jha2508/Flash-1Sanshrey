@@ -12,15 +12,30 @@
     outline: none;
   }
 
-  .logoimage{
+  .logocontainer{
     width: 100%;
-    height:210px;
+    height:200px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
     overflow-y: hidden;
     overflow-x: hidden;
   }
   .logo{
-    margin-left: -85px;
-    
+    margin-left: -85px; 
+    height:200px;
+    margin-bottom: 25px;
+    margin-left: -13px;
+  }
+  .logotitle{
+    color: white;
+    font-family: 'Yellowtail', cursive;
+    font-size: 35px;
+    text-align: center;
+    margin-top: -80px;
+    margin-left: -30px;
   }
   .Menu{
     text-decoration: none;
@@ -54,13 +69,6 @@
       margin-top: 10px;
 
   }
-  .logotitle{
-    color: white;
-    font-family: 'Yellowtail', cursive;
-    font-size: 40px;
-    text-align: center;
-    margin-top: -80px;
-  }
   .menu .avatar img {
     width: 80px;
     height: 80px;
@@ -80,7 +88,7 @@
 
   }
   .menu ul li {
-    padding: 0.5em;
+    padding: 2px;
     font-weight: regular;
     background-repeat: no-repeat;
     background-position: left 15px center;
@@ -222,7 +230,7 @@
   
   .lower-us{
       display:flex;
-      padding-top:50px;
+      padding-top:30px;
   }
   
   

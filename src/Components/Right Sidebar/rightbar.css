@@ -1,24 +1,25 @@
 .rightbar {
     padding: 10px;
     color:white;
-    position: fixed;
-    right:0
-    
+    position: fixed; 
 }
 .rightbarWrapper{
     -webkit-box-shadow: 1px 0px 5px 2px rgba(0,0,0,0.13); 
     box-shadow: 1px 0px 5px 2px rgba(119, 116, 116, 0.658);
-    width:325px;
+    width: max-content;
     height: 100vh;
-  background-color:rgb(63, 63, 63);
+    background-color:rgb(63, 63, 63);
     border-radius: 20px;
-    
     overflow-y: scroll;
     padding: 20px;
     padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 30px;
 }
 .rightbarHr{
-    width:75%
+    width:75%;
 }
 .rightbarFriendList{
     padding: 0;
@@ -33,7 +34,6 @@
     margin-right: 10px;
 }
 .rightbarFriend{
-    display: flex;
     align-items: center;
     margin-bottom: 15px;
 }
@@ -42,6 +42,20 @@
 
 .rightbarFriendImgContainer{
     margin-right: 0px;
+    width: max-content;
     position: -webkit-sticky;
     cursor: pointer;
+    display: flex;
+    flex-direction: row;
+}
+
+.rightbarFriendName{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.rightbarHead{
+    font-size: 3em;
+    font-weight: bold;
+    font-family: 'Yellowtail', cursive;
+    color: wheat;
 }
