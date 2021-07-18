@@ -19,8 +19,10 @@
     width: 100%;
 }
 .post-img{
-    height: 700px;
-    width: inherit;
+    height: 500px;
+    width: 100%;
+    object-fit: contain;
+    margin-top: 75px;
 }
 
 .author-img{
@@ -28,6 +30,7 @@ height: 4rem;
 width: 4rem;
 border-radius: 100px;
 margin-right: 5px;
+object-fit: cover;
 }
 .time{
     margin-top: -30px;
