@@ -48,8 +48,9 @@ function Sidebar(props) {
           </div>
         </header>
         <div className='logocontainer'>
+        <center>
         <img className='logo' src={logon} alt='...' />
-        <div className='logotitle'>Sanshrey</div>
+        </center>
         </div>
 
         <ul className='allmenus'>
