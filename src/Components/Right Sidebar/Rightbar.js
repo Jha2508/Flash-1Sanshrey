@@ -23,34 +23,32 @@ import person from '../../sources/person.jpeg'
         <div className="rightbar">
             <div className="rightbarWrapper">
             <center>
-                <h2 className="rightbarHead">Explore!</h2></center>
+                <h2 className="rightbarHead">Explore !</h2>
+            </center>
                 <center><hr className="rightbarHr" /></center>
                 <ul className="rightbarFriendList">
                     {allusers.map((item,index)=>{return(
                         <div key={index} onClick={()=>{
                             props.history.push(`/profile/${item.uid}`)
-                            window.location.reload(false);}} className='row'><div className='col-10'>
-                        <li className="rightbarFriend">
-                            <div className="rightbarFriendImgContainer">
-                                <img onError={(e)=>e.target.src = person} className="rightbarFriendImg" src={item. userImg} alt="" />
+                            window.location.reload(false);}} className='row'>
+                            <div className='col-10'>
+                                <li className="rightbarFriend">
+                                    <div className="rightbarFriendImgContainer">
+                                        <img onError={(e)=>e.target.src = person} className="rightbarFriendImg" src={item. userImg} alt="" />
 
-                                <span className="rightbarFriendName">
-                                    {item.name}
-                                </span>
+                                        <span className="rightbarFriendName"> {item.name}</span>
+                                    </div>
+
+                                </li>
                             </div>
-
-                        </li>
-                    </div>
-
-
-</div>
- 
-                    )})}
-                                  </ul>
+                        </div>
+                        )})}
+                    </ul>
             </div>
 
         </div>
     )
 }
+
 
 export default withRouter(Rightbar)
