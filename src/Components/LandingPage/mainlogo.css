@@ -21,10 +21,12 @@
 }
 
 .landing-left-2 span{
-    font-size: 120px;
-    font-weight: 400;
-    font-family: 'Yellowtail', cursive;
-    color: aliceblue;
+    /* font-size: 30px;
+    font-weight: 800; */
+    /* font-family: 'Yellowtail', cursive; */
+    
+    
+   
 }
 
 .landing-left-2 p{
@@ -50,8 +52,160 @@
         font-weight: 400;
         font-family: 'Yellowtail', cursive;
         color: aliceblue;
+        
     }
     .landing-left{
     height: fit-content;
 }
 }
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+ 
+
+
+.containerr{
+    text-align: center;
+    left: 40%;
+    top: 55%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    width: fit-content;
+    /* background-color: #240090; */
+    /* background-image:linear-gradient(to bottom right, black, #ECB32F); */
+    margin-right: 20px;
+    padding: 25px;
+    background-color: rgb(33,37,41);
+}
+.containerr span {
+    text-transform: uppercase;
+    display: block;
+}
+.text1{
+    color: aliceblue;
+    font-size: 55px;
+    transform: scale(1,1.5);
+    font-weight: 800px;
+    letter-spacing: 8px;
+    margin-bottom: 30px;
+    position: relative;
+    font-family: 'Yellowtail', cursive;
+    animation: text 3s 1;
+    /* background-color: #240090;*/
+    /* background-image: linear-gradient(to bottom right, #240090,#190061);  */
+    /* background-image:linear-gradient(to bottom right, black, #ECB32F); */
+    z-index: 100;
+    background-color: rgb(33,37,41);
+    
+}
+.text2{
+    font-size: 50px;
+    font-weight: 900;
+    color: aliceblue;
+    font-family: 'Gotu', sans-serif;
+    overflow: hidden;
+    position: relative;
+
+}
+@keyframes text {
+    0%{
+        color: #000;
+        margin-bottom: -40px;
+    }
+    30%{
+        letter-spacing: 25px;
+        margin-bottom: -40px;
+    }
+    85%{
+        letter-spacing: 8px;
+        margin-bottom: -40px;
+    }
+} 
+
+
+@import url('https://fonts.googleapis.com/css2?family=Gotu&family=Yatra+One&display=swap');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+  .mainss {
+margin-top: 110px;
+    font-size: 35px;
+    font-family: "Lato", sans-serif;
+    text-align: center;
+    left: 42%;
+    top: 55%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    width: fit-content;
+  }
+
+  .mainss h2 {
+      margin-top: 25px;
+    font-size: 25px;
+    font-family: "Lato", sans-serif;
+    text-transform: uppercase;
+    margin-top: 34px;
+    font-weight: 600;
+    background: linear-gradient(to right,#fad38b 50%, rgb(255, 255, 255) 40%);
+    
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-fill-color: transparent; 
+    -webkit-text-fill-color: transparent;
+    transition: 2s ease-in-out ;
+    
+  }
+  h2:hover {
+    animation: textanimation reverse infinite 2s;
+  
+     transform: scale(1.07,1.07);
+      transition: 2s cubic-bezier(0, 0.21, 0.18, 0.9);
+   
+  }
+  
+  @keyframes textanimation {
+   
+    to {
+      background-position: 200% center;
+      
+    }
+    
+  }
+  p{
+    color:#ddd;
+    font-size:10px;
+  }
+
+
+
+
+
+
+
+

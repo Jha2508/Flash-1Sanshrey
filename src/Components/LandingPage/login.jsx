@@ -3,6 +3,7 @@ import './login.css'
 import firebase from '../../firebase'
 import { Redirect } from 'react-router-dom'
 import { AuthContext } from '../../Auth'
+import TextTransition, { presets } from "react-text-transition";
 
 const Login = ({history}) => {
     const auth = firebase.auth()
@@ -105,6 +106,7 @@ const Login = ({history}) => {
     }
     return (
         <>
+      
             <div className="container landing-page-right" style={{ display: login ? "" : "none" }}>
                 <h1>Login</h1>
                 <p>Use your Password for login.</p>
@@ -174,5 +176,6 @@ const Login = ({history}) => {
         </>
     )
 }
+
 
 export default Login
