@@ -40,7 +40,7 @@ function Sidebar(props) {
           </form>
 
           <div className="lower-us">
-            <img src={(profileinfo!==undefined)?profileinfo.userImg:''} alt='pp' />
+            <img className="pp" src={(profileinfo!==undefined)?profileinfo.userImg:''} alt='pp' />
             <div className="name">
               <div >{(profileinfo!==undefined)?profileinfo.name:''}</div>
               <div className='status'>{profileinfo.passingYear}</div>

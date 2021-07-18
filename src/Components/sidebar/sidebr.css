@@ -11,6 +11,11 @@
     z-index: 5;
     outline: none;
   }
+  .pp{
+    object-fit: cover;
+    border-radius: 25%;
+    margin-right: 5px;
+  }
 
   .logoimage{
     width: 100%;
