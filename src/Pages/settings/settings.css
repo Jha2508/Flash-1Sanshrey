@@ -15,7 +15,7 @@
     color:teal;
     font-size: 40px;
     position: absolute;
-    right:110px;
+    right:100px;
     top:220px;
     z-index:100
 }
@@ -27,9 +27,10 @@
     height: 300px;
     width: 300px;
     border-radius: 50%;
+    object-fit: cover;
     top:190px;
     position: absolute;
-    right: 100px;
+    right: 90px;
     z-index:100
 }
 
