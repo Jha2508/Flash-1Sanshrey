@@ -49,11 +49,10 @@ function Sidebar() {
             </div>
           </div>
         </header>
-        <div className='logoimage'>
+        <div className='logocontainer'>
         <img className='logo' src={logon} alt='...' />
-        </div>
-       
         <div className='logotitle'>Sanshreya</div>
+        </div>
         <ul className='allmenus'>
           <li tabIndex={0} ><Link className='Menu' to='/Home'><IoHome style={{ marginRight: '8px' }} />Home</Link></li>
           <li tabIndex={0} ><Link className='Menu' to='/MyProfile'><CgProfile style={{ marginRight: '8px' }} />View Your Profile</Link></li>
