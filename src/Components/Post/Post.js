@@ -7,6 +7,7 @@ import { BiSend } from 'react-icons/bi'
 import { FaBookmark } from 'react-icons/fa'
 import Commentviewer from './Commentviewer';
 import person from '../../sources/person.jpeg'
+import { withRouter } from 'react-router-dom';
 const Post = (props) => {
     Array.prototype.remove = function () {
         var what, a = arguments, L = a.length, ax;
@@ -67,13 +68,13 @@ const Post = (props) => {
         firebase.firestore().collection('Users').doc(userid.uid).set({
             bio: alluserdata.bio,
             userImg: alluserdata.userImg,
-             name: alluserdata.name, 
-             passingYear: alluserdata.passingYear, 
-             linkedinUrl: alluserdata.linkedinUrl,
-              phoneNo: alluserdata.phoneNo, 
-              uid: alluserdata.uid, 
-              savedPost: savedpost
-         })
+            name: alluserdata.name,
+            passingYear: alluserdata.passingYear,
+            linkedinUrl: alluserdata.linkedinUrl,
+            phoneNo: alluserdata.phoneNo,
+            uid: alluserdata.uid,
+            savedPost: savedpost
+        })
 
 
 
@@ -88,25 +89,26 @@ const Post = (props) => {
     const tobepostedtime = date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
     const likearr = props.like
     const addlike = () => {
-        if (userid.uid!==undefined) {
-            (likearr.includes(userid.uid))?likearr.remove(userid.uid):likearr.push(userid.uid)
-            
-           
+        if (userid.uid !== undefined) {
+            (likearr.includes(userid.uid)) ? likearr.remove(userid.uid) : likearr.push(userid.uid)
+
+
             firebase.firestore().collection("AllPost").doc(`${props.postId}`).update({
-                caption:props.caption,
-                imageUrl:props.imageUrl,
-                name:props.name,
-                postId:props.postId,
-                timestamp:props.timestamp,
-                uid:props.userId,
-                userImg:props.userImg,
+                caption: props.caption,
+                imageUrl: props.imageUrl,
+                name: props.name,
+                postId: props.postId,
+                timestamp: props.timestamp,
+                uid: props.userId,
+                userImg: props.userImg,
                 likes: likearr
-            }).then(alert('liked a post!'))}
-          
-           
+            }).then(alert('liked a post!'))
         }
 
-    
+
+    }
+
+
 
 
 
@@ -116,7 +118,7 @@ const Post = (props) => {
 
         <>
 
-            <div className=" post-container">
+            <div className=" post-container" >
 
                 <div className="card bg-dark text-white">
 
@@ -126,10 +128,13 @@ const Post = (props) => {
 
                         <div className="card-img-overlay shadows">
                             <div className="card-title author-title">
-                                <img src={(props.userImg!=='' && props.userImg!==null && props.userImg!==undefined)?props.userImg:person} alt="..." className="author-img" />
+                                <div onClick={()=>{ props.history.push(`/profile/${props.userId}`)
+                                window.location.reload(false);}} className="postAuthor">
+                                <img src={(props.userImg !== '' && props.userImg !== null && props.userImg !== undefined) ? props.userImg : person} alt="..." className="author-img" />
                                 <div style={{ flexDirection: 'column' }}>
                                     <h3>{props.name}</h3><br />
                                     <div className='time'>{tobepostedtime + ',' + tobepostedate}</div>
+                                </div>
                                 </div>
                                 {/* put here */}
                                 <div className='downloadIconContainer'>
@@ -164,12 +169,12 @@ const Post = (props) => {
                             <AiFillHeart className="post-actions" onClick={() => {
                                 setisLiked(!isLiked);
                                 addlike()
-                                }} style={likearr.includes(userid.uid)?{color:'red'}:{color:'wheat'}}/><div className='numberofcomments'>{props.like.length}</div>
+                            }} style={likearr.includes(userid.uid) ? { color: 'red' } : { color: 'wheat' }} /><div className='numberofcomments'>{props.like.length}</div>
                             <AiOutlineComment className="post-actions dropdown-toggle" id="dropdownMenu2" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false" onClick={() => setcommentOpen(!commentOpen)} style={{ color: commentOpen ? 'red' : "wheat" }} /><div className='numberofcomments'>{numberofcomments}</div>
-                            <AiOutlineFolderView className="post-actions" data-bs-toggle="modal" data-bs-target={'#Modal' + props.timestamp}  />
+                            <AiOutlineFolderView className="post-actions" data-bs-toggle="modal" data-bs-target={'#Modal' + props.timestamp} />
                         </div>
-                        <input type="text" value={commentEntered} onChange={(e)=>setcommentEntered(e.target.value)} className="form-control comment-input" placeholder="Type your Comment here"/>
-                        <BiSend className="post-actions" onClick={()=>handlecomment()} />
+                        <input type="text" value={commentEntered} onChange={(e) => setcommentEntered(e.target.value)} className="form-control comment-input" placeholder="Type your Comment here" />
+                        <BiSend className="post-actions" onClick={() => handlecomment()} />
                     </div>
                 </div>
             </div>
@@ -189,7 +194,7 @@ const Post = (props) => {
                             <AiOutlineClose className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
                         </div>
                         <div className="modal-body bg-dark author-img-modal">
-                            <img src={(props.userImg!=='' && props.userImg!==null && props.userImg!==undefined)?props.userImg:person} className=" post-img-modal" alt="..." />
+                            <img src={(props.userImg !== '' && props.userImg !== null && props.userImg !== undefined) ? props.userImg : person} className=" post-img-modal" alt="..." />
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -201,4 +206,4 @@ const Post = (props) => {
 
     ) : (<div>Loading</div>)
 }
-export default Post
+export default withRouter(Post)
