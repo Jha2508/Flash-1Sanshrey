@@ -16,17 +16,20 @@ const OurTeam = () => {
                         <div className="row">
                             {TeamList.map((items, index) => {
                                 return (
-                                    <div key={index} className="col">
-
-                                        <div className="card bg-dark text-white member-card">
-                                            <img src='' className="card-img profile-img" alt="..." />
-                                            <div className="card-img-overlay member-data">
-                                                <h5 className="card-title member-name">{items.memName}</h5>
-                                                <a href={items.memResume} target="_blank" rel="noreferrer" className="member-link"><button type="button" className="btn btn-info">View Resume</button></a>
+                                    <div key={index} className="team">
+                                        <div className="team-img">
+                                            <img src="https://demo.htmlcodex.com/660/team-page-html-template/img/team-2-2.jpg" alt="Team Image" />
+                                            <div className="team-social">
+                                                <a className="social-fb" href></a>
+                                                <a className="social-yt" href></a>
                                             </div>
                                         </div>
-
+                                        <div className="team-content">
+                                            <h2>{items.memName}</h2>
+                                            <h3>CEO &amp; Founder</h3>
+                                            </div>
                                     </div>
+
                                 )
                             })}
                         </div>

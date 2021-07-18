@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Comments from './Comments'
+import Comments from './comments'
 import {FaHeart,FaComment} from 'react-icons/fa'
 import {AiOutlineClose} from 'react-icons/ai'
 import firebase from '../../firebase'
