@@ -30,6 +30,7 @@ const Login = ({ history }) => {
             } catch (error) {
                 alert(error);
             }
+            
         },
         [history, email, password]
     );

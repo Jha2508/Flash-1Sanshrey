@@ -10,16 +10,37 @@ import { ImLinkedin } from 'react-icons/im'
 import { FiSettings } from 'react-icons/fi'
 import nitp from '../../sources/nitplogo.png'
 import eesa from '../../sources/eesastyle.jpeg'
+import ClockLoader from 'react-spinners/ClockLoader'
 function Settings(props) {
 
     const [name, setname] = useState()
     const [passoutyear, setpassoutyear] = useState()
     const [link, setlink] = useState()
     const [Bio, setBio] = useState()
+    const [imageupload, setimageupload] = useState(false)
     const handleimgchange = () => {
+        setimageupload(true)
         firebase.storage().ref(`/images/${setting.uid}`).put(dataimage).on("state_changed",
             function (snapshot) { }, function (err) { }, function () {
-                alert("photo has been changed succesfully")
+                firebase.storage().ref(`/images/${setting.uid}`).getDownloadURL().then((url)=>{
+
+                    
+        firebase.firestore().collection('Users').doc(setting.uid).set({
+                        bio: setting.bio,
+                        name: setting.name,
+                        phoneNo: setting.phoneNo,
+                        branch: setting.branch,
+                        linkedinUrl: setting.linkedinUrl,
+                        passingYear:setting.passingYear,
+                        userImg: url,
+                        uid: setting.uid,
+                        email: setting.email,
+                        savedPost: setting.savedPost 
+                      })
+                    }).then(()=>{
+                        setimageupload(false)
+                        alert('new display picture uploaded!')
+                    })
             })
     }
 
@@ -219,7 +240,8 @@ function Settings(props) {
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" onClick={handleimgchange} className="btn btn-primary">Save changes</button>
+                        <button type="button" onClick={handleimgchange} disabled={imageupload} className="btn btn-primary">Save changes</button><ClockLoader loading={imageupload} color='wheat'/>
+
                     </div>
 
                 </div>

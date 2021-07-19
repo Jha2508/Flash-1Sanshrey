@@ -28,7 +28,7 @@ function SearchBar(props) {
     setFilteredData([]);
     setWordEntered("");
   };
-
+  console.log('data on profile page for search',props)
   return (
     <div className="SearchBarSection">
       <div className="header__left">

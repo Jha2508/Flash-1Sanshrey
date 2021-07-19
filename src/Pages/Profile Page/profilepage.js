@@ -25,7 +25,6 @@ function ProfilePage (props){
                     setnumberofposts(Object.keys(profilePosts).length)
                 })
             const date = new Date()
-            console.log('selfuser',selfuser)
         return (profileData!==undefined && profileData.linkedinUrl!==undefined )?(
             <div>
             <Sidebar userid={props.userid}/>

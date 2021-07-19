@@ -21,7 +21,7 @@ const OurTeam = () => {
                                         <div className="team-img">
                                             <img className='teamimgwow' src={items.memPic} alt="Team Image" />
                                             <div className="team-social">
-                                                <a className="social-fb" href={items.memEmail}><SiGmail/></a>
+                                                <a className="social-fb" href={"https://mail.google.com/mail/?view=cm&fs=1&tf=1&to="+items.memEmail}><SiGmail/></a>
                                                 <a className="social-yt" href={items.memResume}><GoFilePdf/></a>
                                             </div>
                                         </div>

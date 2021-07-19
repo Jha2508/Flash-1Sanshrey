@@ -8,15 +8,12 @@ function Sidebar2() {
     useEffect(() => {
       
       firebase.firestore().collection('Users').onSnapshot((snap)=>{
-
         const users =[]
         snap.forEach((doc)=>{
           users.push(doc.data())
         })
         setuserData(users)
       })
-    
-      
     }, [])
   return (
     <div>

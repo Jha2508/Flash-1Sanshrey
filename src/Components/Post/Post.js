@@ -217,6 +217,6 @@ const Post = (props) => {
             </div>
         </>
 
-    ) : (<div>Loading</div>)
+    ) : (<div class="lds-hourglass"></div>)
 }
 export default withRouter(Post)

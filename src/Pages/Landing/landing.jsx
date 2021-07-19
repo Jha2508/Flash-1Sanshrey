@@ -12,9 +12,7 @@ function Landing() {
                 <div className="row">
                     <div className="col col-md-6">
                         <Mainlogo />
-                        
-                <p><IoLogoGooglePlaystore/> Get our App </p>
-                    </div>
+                      </div>
                     <div className="col col-md-6">
                         <Login />
                     </div>
