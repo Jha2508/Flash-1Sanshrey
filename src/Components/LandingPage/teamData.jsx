@@ -1,58 +1,89 @@
+import Anamika from '../../sources/Anamika2.jpeg'
+import Ayushman from '../../sources/Ayushman2.jpg'
+import Kshitiz from '../../sources/Kshitiz2.jpeg'
+import Mayank from '../../sources/Mayank2.jpeg'
+import Sameer from '../../sources/Sameer2.jpeg'
+import Hritik from '../../sources/Hritik2.jpeg'
+import Zohaib from '../../sources/Zohaib2.jpeg'
+import Amit from '../../sources/Amit2.jpeg'
+import Shashwat from '../../sources/Shashwat2.jpeg'
+import Suraj from '../../sources/Suraj2.jpg'
+import Rishabh from '../../sources/Rishabh2.jpeg'
 export const TeamList = [
     {
         memName: "Kshitiz Jha",
-        memPic: "https://drive.google.com/file/d/1nLPH3MJzJ1CpuWuL6jojj7nNMgMPfi1R/view?usp=sharing",
+        memPic: Kshitiz ,
         memResume: "https://projecteesa.page.link/c8Ci",
-        memRole:'Lead Web Developer'
+        memRole:'Lead Web Developer',
+        memEmail:'kshitizj.ug19.ee@nitp.ac.in'
     },
     {
         memName: "Sameer Shekhar",
-        memPic: "https://drive.google.com/file/d/12ZNq_82h3THZI0deMS07YEawbB00FZlo/view?usp=sharing",
+        memPic: Sameer ,
         memResume: "https://drive.google.com/file/d/1jhwy48-Bez8394HfvE8hiItnzOzVHHDY/view?usp=sharing",
-        memRole:'Lead Android Developer'
+        memRole:'Lead Android Developer',
+        memEmail:'sameers.ug19.ee@nitp.ac.in'
     },{
         memName: "Mayank Kumar",
-        memPic: "https://drive.google.com/file/d/1QbvlY-QDh_1uMSu6eoEBzKZZ5RwD04-k/view?usp=sharing",
+        memPic: Mayank ,
         memResume: "https://drive.google.com/file/d/1JvPe-LN8EUqp9AW9hszJJ8pweo1aaMOM/view?usp=sharing",
-        memRole:'Android Developer'
+        memRole:'Android Developer',
+        memEmail:'mayankk.ug19.ee@nitp.ac.in'
     },{
         memName: "Shashwat Awasthi",
-        memPic: "https://drive.google.com/file/d/17S0WpArUtGDp1XiGp4OS61LNDRtuN3Bk/view?usp=sharing",
+        memPic: Shashwat ,
         memResume: "https://drive.google.com/file/d/16ned1xRTXwQvci4MmBk3Owj3KS7nDtKo/view?usp=sharing",
-        memRole:'Web Developer'
+        memRole:'Web Developer',
+        
+        memEmail:'shashwata.ug19.ee@nitp.ac.in'
     },
     {
         memName: "Amit Kumar Singh",
-        memPic: "https://drive.google.com/file/d/1udKcC0bo7WbSxKHTMP0sn-FluJnLIdPJ/view?usp=sharing",
+        memPic: Amit ,
         memResume: "https://drive.google.com/file/d/1NYcxEJDO8hkKcYXK6ktiVA_JcFEqfrBN/view?usp=sharing",
-        memRole:'Web Developer'
+        memRole:'Web Developer',
+        memEmail:'amitsingh.ug19.ee@nitp.ac.in'
     },
     {
         memName: "Anamika Kumari",
-        memPic: "https://drive.google.com/file/d/1j9TuO5Ke3oswO3jcHah27OVXz6VGqOAe/view?usp=sharing",
+        memPic:Anamika,
         memResume: "https://drive.google.com/file/d/1DgeFjoHMli9xqzXGqST3fIY0imqTqdxK/view?usp=sharing",
-        memRole:'Web Developer'
+        memRole:'Web Developer',
+        memEmail:'anamikak.ug19.ee@nitp.ac.in'
     },
     {
         memName: "Ayushman Sharma",
-        memPic: "https://drive.google.com/file/d/1Aa_03zNSCAFYWEhlg50VeKdyZq60h-NP/view?usp=sharing",
+        memPic: Ayushman ,
         memResume: "https://drive.google.com/file/d/1i9uWa2ePaVSMH9js4w_CWXP9BCuGMlBm/view?usp=sharing",
-        memRole:'Android Developer'
-    }, {
+        memRole:'Android Developer',
+        memEmail:'ayushmans.ug19.ee@nitp.ac.in'
+    },
+     {
         memName: "Hritik Sharma",
-        memPic: "https://drive.google.com/file/d/17XObN0YcQsyFBR-AhAUmP_eZUEY9OvZM/view?usp=sharing",
+        memPic: Hritik ,
         memResume: "https://drive.google.com/file/d/1B7mnnrf1hBuMixykYfUxqyK3ycycTZhJ/view?usp=sharing",
-        memRole:'Web Developer'
+        memRole:'Web Developer',
+        memEmail:'hritiks.ug19.ee@nitp.ac.in'
     }, 
     {
         memName: "Zohaib Bin Hamid",
-        memPic: "https://drive.google.com/file/d/1V6D-QikPebr-vlTsbjMeZR6h_4yFx1is/view?usp=sharing",
+        memPic: Zohaib,
         memResume: "https://drive.google.com/file/d/18Ks1IlAQAl2YNQXP_fa6lhiUKHVOze27/view?usp=sharing",
-        memRole:'Web Developer'
+        memRole:'Web Developer',
+        memEmail:'zohaibh.ug19.ee@nitp.ac.in'
     }, {
+        memName: "Rishabh Mishra",
+        memPic: Rishabh,
+        memResume: "https://drive.google.com/file/d/1JD77zQBpPx42_tQIvoZII0uQnK4_wUvo/view?usp=sharing",
+        memRole:'Content Designer',
+        memEmail:'rishabhm.ug19.ee@nitp.ac.in'
+
+    },
+    {
         memName: "Suraj Kumar",
-        memPic: "https://drive.google.com/file/d/1nyLIBRpt0Zuk8ISBxKiRDQ0Sqf5UiVwx/view?usp=sharing",
+        memPic: Suraj,
         memResume: "https://drive.google.com/file/d/1CGPW_eUz7_CXYMJOed6JBqbkwJt2nV7c/view?usp=sharing",
-        memRole:'Web Developer'
+        memRole:'Web Developer',
+        memEmail:'surajkumar.ug19.ee@nitp.ac.in'
     }
 ]

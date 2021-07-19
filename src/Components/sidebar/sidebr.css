@@ -36,9 +36,7 @@
   .Menu:hover{
       color: wheat
   }
-  .menu .avatar {
-    background-image: url(https://blog.spoongraphics.co.uk/wp-content/uploads/2019/composite-background/final-lg.jpg);
-    background-size: 140%;
+  .menu .avatar { background-size: 140%;
     padding: 1em 0.5em;
     text-align: center;
    
@@ -46,7 +44,7 @@
   .status{
     background-color: #9b870c;
     width: fit-content;
-    margin-left: 10px;
+    margin-left: 80px;
     padding: 0 3px 0 3px;
     border-radius: 10px;
     font-family: Algerian;
@@ -56,12 +54,14 @@
       color: white;
       flex-direction: column;
       font-family:Georgia, 'Times New Roman', Times, serif;
-      margin-top: 10px;
+      margin-top: 15px;
+      font-size: 20px
 
   }
+
   .menu .avatar img {
-    width: 80px;
-    height: 80px;
+    width: 180px;
+    height: 180px;
     border-radius: 30%;
     overflow: hidden;
     box-shadow: 1px 1px 2px 1px rgba(255, 255, 255, 0.2);
@@ -223,7 +223,6 @@
       padding-top:30px;
       margin-bottom: 5px;
   }
-  
   
   * {
       box-sizing: border-box;

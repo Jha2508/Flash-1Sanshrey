@@ -20,7 +20,9 @@
     font-size: 30px;
     cursor: pointer;
 }
-
+.socialmediawow{
+    margin-right: 50px;
+}
 .deletebutton:hover{
     color:wheat
 }

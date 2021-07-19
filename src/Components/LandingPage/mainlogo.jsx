@@ -1,6 +1,7 @@
 import React from 'react'
 import Logo from "../../sources/sociallogo.png"
 import "./mainlogo.css"
+import {IoLogoGooglePlaystore} from 'react-icons/io5'
 
 const Mainlogo = () => {
     return (
@@ -9,8 +10,9 @@ const Mainlogo = () => {
                 <img src={Logo} alt='... ' className="landing-left-img" />
             </div>
             <div className="col col-md-4 landing-left-2">
-                <span>Sanshreya</span>
-                <p>Lets Socialize!!</p>
+                <span>Sanshray</span>
+                <p>Connecting Alumni..</p>
+
             </div>
         </div>
     )

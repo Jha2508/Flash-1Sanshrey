@@ -26,7 +26,7 @@ function ProfilePage (props){
                 })
             const date = new Date()
             console.log('selfuser',selfuser)
-        return (profileData!==undefined)?(
+        return (profileData!==undefined && profileData.linkedinUrl!==undefined )?(
             <div>
             <Sidebar userid={props.userid}/>
                 <div className='postpage'>
@@ -56,8 +56,8 @@ function ProfilePage (props){
                                     </div>
 
                                     <button type="button" onClick={()=>setbuttonMssg('Feature not available')} style={props.pro==='self'?{display:'none'}:{display:'block'}} className="btn btn-outline-warning">{buttonMssg}</button>
-                                    <div>
-                                        <a href={profileData.linkedinUrl} rel="noreferrer" target="_blank">
+                                    <div className='socialmediawow'>
+                                        <a href={(profileData.linkedinUrl.includes('https://'))?profileData.linkedinUrl:'https://'+profileData.linkedinUrl} rel="noreferrer" target="_blank">
                                     <ImLinkedin className='pdfyt' style={{backgroundColor:'white',borderRadius:'10px'}}  color='blue' /></a>
                                         <a href={"https://mail.google.com/mail/?view=cm&fs=1&tf=1&to="+profileData.email} rel="noreferrer" target="_blank"><IoIosMailOpen className='pdfyt' style={{backgroundColor:'white',borderRadius:'10px'}}  color='#F9A602' /></a>
                                     </div>

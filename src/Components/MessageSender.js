@@ -4,6 +4,7 @@ import { MdPhotoLibrary } from "react-icons/md";
 import { BsChatSquareFill } from "react-icons/bs";
 import "./MessageSender.css";
 import firebase from "../firebase";
+import GridLoader from 'react-spinners/GridLoader'
 // import InputEmoji from "react-input-emoji";
 
 function MessageSender(props) {
@@ -94,7 +95,7 @@ function MessageSender(props) {
           <BsChatSquareFill />
         </IconContext.Provider>
         <form>
-
+          
           <textarea
             rows={(imageToPost === null) ? '2' : '10'}
             type="text"
@@ -136,7 +137,7 @@ function MessageSender(props) {
           </IconContext.Provider>
         </div>
         <div className="messageSender__option">
-          <button type="button" disabled={posting} onClick={() => handlePosting()} className="btn btn-outline-light">Post</button>
+          <button type="button" style={posting?{display:'none'}:{display:'block'}} disabled={posting} onClick={() => handlePosting()} className="btn btn-outline-light">Post</button><GridLoader color='gold' loading={posting}/>
         </div>
       </div>
     </div>

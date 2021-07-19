@@ -19,9 +19,9 @@ const OurTeam = () => {
                                 return (
                                     <div key={index} className="team">
                                         <div className="team-img">
-                                            <img src="https://demo.htmlcodex.com/660/team-page-html-template/img/team-2-2.jpg" alt="Team Image" />
+                                            <img className='teamimgwow' src={items.memPic} alt="Team Image" />
                                             <div className="team-social">
-                                                <a className="social-fb" href><SiGmail/></a>
+                                                <a className="social-fb" href={items.memEmail}><SiGmail/></a>
                                                 <a className="social-yt" href={items.memResume}><GoFilePdf/></a>
                                             </div>
                                         </div>

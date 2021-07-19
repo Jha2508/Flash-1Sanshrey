@@ -54,7 +54,7 @@ function SearchBar(props) {
 
       <div className='sidebar' style={filteredData.length === 0 ? { zIndex: '-10', overflow: 'hidden' } : { zIndex: '1000' }}>
         <div className="header__left">
-          <div className="header__input" style={{ marginTop: '17px' }}>
+          <div className="header__input" style={{ marginTop: '17px', marginLeft:'8px' }}>
             <input
               type="text"
               placeholder="Search Friends"

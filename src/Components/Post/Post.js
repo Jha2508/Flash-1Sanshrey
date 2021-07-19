@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Post.css'
 import firebase from '../../firebase';
-
+import SkewLoader from 'react-spinners/SkewLoader'
 import { AiFillHeart, AiOutlineClose, AiOutlineComment, AiOutlineFolderView } from 'react-icons/ai';
 import { BiSend } from 'react-icons/bi'
 import { FaBookmark } from 'react-icons/fa'
@@ -25,7 +25,9 @@ const Post = (props) => {
     const userid = firebase.auth().currentUser;
     const [numberofcomments, setnumberofcomments] = useState(0)
     const [alluserdata, setalluserdata] = useState([]);
+    const [commentupload, setcommentupload] = useState(false)
     const handlecomment = () => {
+        setcommentupload(true)
         const timest = Date.now()
         const datatobeentered = {
             message: commentEntered,
@@ -34,7 +36,8 @@ const Post = (props) => {
         }
 
         firebase.firestore().collection('AllPost').doc(props.postId).collection('comments').add(datatobeentered).then(() => {
-            alert('comment dana done done!')
+            setcommentupload(false)
+            alert('Comment added.')
             setcommentEntered('')
 
         })
@@ -60,7 +63,15 @@ const Post = (props) => {
         (!cond) ? savedpost.push('AllPost/' + props.postId) : savedpost.remove('AllPost/' + props.postId)
         console.log({
             bio: alluserdata.bio,
-            userImg: alluserdata.userImg, name: alluserdata.name, passingYear: alluserdata.passingYear, linkedinUrl: alluserdata.linkedinUrl, phoneNo: alluserdata.phoneNo, uid: alluserdata.uid, savedPost: savedpost
+            userImg: alluserdata.userImg,
+             name: alluserdata.name, 
+             passingYear: alluserdata.passingYear, 
+             linkedinUrl: alluserdata.linkedinUrl,
+              phoneNo: alluserdata.phoneNo,
+               uid: alluserdata.uid, 
+               savedPost: savedpost,
+               branch:alluserdata.branch,
+               email:alluserdata.email
         })
         if (cond)
             alert('Post  Is Unsaved');
@@ -74,7 +85,9 @@ const Post = (props) => {
             linkedinUrl: alluserdata.linkedinUrl,
             phoneNo: alluserdata.phoneNo,
             uid: alluserdata.uid,
-            savedPost: savedpost
+            savedPost: savedpost,
+            branch:alluserdata.branch,
+            email:alluserdata.email
         })
 
 
@@ -173,7 +186,8 @@ const Post = (props) => {
                             <AiOutlineFolderView className="post-actions" data-bs-toggle="modal" data-bs-target={'#Modal' + props.timestamp} />
                         </div>
                         <input type="text" value={commentEntered} onChange={(e) => setcommentEntered(e.target.value)} className="form-control comment-input" placeholder="Type your Comment here" />
-                        <BiSend className="post-actions" onClick={() => handlecomment()} />
+                        <BiSend className="post-actions" style={commentupload?{display:'none'}:{display:'block'}} onClick={() => handlecomment()} />
+                            <SkewLoader color='wheat' loading={commentupload}/>
                     </div>
                 </div>
             </div>

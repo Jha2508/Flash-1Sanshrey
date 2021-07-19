@@ -1,12 +1,12 @@
 .rightbar {
-    padding: 10px;
     color:white;
-    position: fixed; 
+    position: fixed;
+    right:0;
+    width: 20rem;
 }
 .rightbarWrapper{
     -webkit-box-shadow: 1px 0px 5px 2px rgba(0,0,0,0.13); 
     box-shadow: 1px 0px 5px 2px rgba(119, 116, 116, 0.658);
-    width: max-content;
     height: 100vh;
     background-color:rgb(63, 63, 63);
     border-radius: 20px;

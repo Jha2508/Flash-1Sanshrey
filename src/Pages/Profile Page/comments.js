@@ -13,10 +13,10 @@ function Comments(props) {
     
     return (
         <div className='row'>
-            <div className='col-3'>
+            <div className='col-4'>
                 <img src={(commentUSer.userImg!=='' && commentUSer.userImg!==null && commentUSer.userImg!==undefined)?commentUSer.userImg:person} className='rounded-circle profilepicfriendmod' alt='...' />
             </div>
-            <div className='col-9'>
+            <div className='col-8'>
                 <div className='row profiletitlefriendmodal'>
                     {commentUSer.name}
                 </div>
