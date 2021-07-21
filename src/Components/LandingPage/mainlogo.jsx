@@ -10,7 +10,7 @@ const Mainlogo = () => {
             </div>
             <div className="col col-md-4 landing-left-2">
                 <span>Sanshray</span>
-                <p>Connecting Alumni ...</p>
+                <p>Connecting Alumni..</p>
 
             </div>
         </div>

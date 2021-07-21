@@ -8,19 +8,17 @@ function Profilepost(props) {
     const [comments, setcomments] = useState([])
     const [keysofcomment, setkeysofcomment] = useState([])
     const handleDel = ()=>{
-        console.log('started',keysofcomment)
         for(const element of keysofcomment){
             firebase.firestore().collection('AllPost').doc(props.item.postId).collection('comments').doc(element).delete()
         }
         firebase.storage().ref('posts/'+props.item.postId).delete().then(()=>{
-            console.log('photo deleted from storagre')
             firebase.firestore().collection('AllPost').doc(props.item.postId).delete().then(alert('Your Post is successfully deleted!!!'))
        
         })
         
             }
     useEffect(() => {
-        firebase.firestore().collection('AllPost').doc(props.item.postId).collection('comments').onSnapshot((querysnap)=>{
+        firebase.firestore().collection('AllPost').doc(props.item.postId).collection('comments').orderBy("time","desc").onSnapshot((querysnap)=>{
             const arrr=[]
             const mew =[]
             querysnap.forEach((doc)=>{

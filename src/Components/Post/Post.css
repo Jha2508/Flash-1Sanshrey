@@ -63,10 +63,19 @@ margin-right: 5px;
 }
 
 .numberoflikes{
-    margin:10px
+    margin:10px;
+    cursor: pointer;
 }
 .numberofcomments{
     margin:10px
+}
+.biolike{
+    white-space: nowrap; 
+    overflow: hidden;
+    color: white;
+  text-overflow: " [...]"; 
+  width: inherit;
+
 }
 .shadows{
     -webkit-box-shadow: 6px 33px 78px -13px rgba(0,0,0,0.7) inset;

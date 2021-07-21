@@ -54,7 +54,6 @@ function MessageSender(props) {
               userImg: profileinfo.userImg
             }
             firebase.firestore().collection('AllPost').doc(props.userid + timest).set(data).then(()=>{
-              alert('done dana done done!')
             setposting(false)})
           })
         })
@@ -69,7 +68,6 @@ function MessageSender(props) {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Post Done");
   };
 
   const addImageToPost = (e) => {

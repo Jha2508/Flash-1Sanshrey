@@ -1,7 +1,5 @@
 import React from 'react'
 import './faqs.css'
-import { Link } from "react-router-dom"
-import { AiFillHome } from "react-icons/ai";
 import Eesa from "../../sources/eesa.png"
 import Nitplogo from "../../sources/nitplogo.png"
 import Sociallogo from "../../sources/sociallogo.png"

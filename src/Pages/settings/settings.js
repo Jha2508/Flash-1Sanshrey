@@ -109,7 +109,6 @@ function Settings(props) {
     useEffect(() => {
         firebase.firestore().collection('Users').doc(props.userid).onSnapshot((d) => setsetting(d.data()))
     }, [])
-    console.log('setting data recieved', setting)
     return (<>
 
         <Sidebar userid={props.userid} />

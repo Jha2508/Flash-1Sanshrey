@@ -7,6 +7,7 @@ import Sidebar from '../../Components/sidebar/sidebar'
 import firebase from '../../firebase'
 import { withRouter } from 'react-router-dom'
 import Profilepost from './Profilepost'
+import person from '../../sources/person.jpeg'
 function ProfilePage (props){
             const selfuser = (props.match.params.id===props.userid)
             const [buttonMssg, setbuttonMssg] = useState('Send friend Request')
@@ -14,7 +15,7 @@ function ProfilePage (props){
             const [profilePosts, setprofilePosts] = useState([])
             const [numberofposts, setnumberofposts] = useState(0)
                 firebase.firestore().collection('Users').doc(props.match.params.id).onSnapshot((snap)=>{setprofileData(snap.data())})
-                    firebase.firestore().collection("AllPost").where("uid", "==",props.match.params.id).onSnapshot((querySnap) => {
+                    firebase.firestore().collection("AllPost").orderBy("timestamp","desc").where("uid", "==",props.match.params.id).onSnapshot((querySnap) => {
                     const newpost = []
                     querySnap.forEach(
                         (doc) => {
@@ -32,7 +33,7 @@ function ProfilePage (props){
 
                     <div className='row initials'>
                         <div data-bs-toggle="modal" data-bs-target="#profileModal" className='col-sm-3'>
-                            <img src={profileData.userImg} className='rounded-circle profilepic' alt='...' />
+                            <img src={profileData.userImg} onError={(e) => { e.target.onerror = null; e.target.src = person }} className='rounded-circle profilepic' alt='...' />
                         </div>
                         <div className='col-sm'>
                             <div className='profiletitle'>
