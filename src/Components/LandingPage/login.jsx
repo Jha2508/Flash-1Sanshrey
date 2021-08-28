@@ -3,7 +3,6 @@ import './login.css'
 import firebase from '../../firebase'
 import { Redirect } from 'react-router-dom'
 import { AuthContext } from '../../Auth'
-
 const Login = ({ history }) => {
     const auth = firebase.auth()
     const store = firebase.storage()
@@ -14,8 +13,8 @@ const Login = ({ history }) => {
     const [regp, setregp] = useState('')
     const [regimage, setregimage] = useState('')
     const [phone, setphone] = useState('')
-    const [Bio, setBio] = useState('')
-    const [passoutyr, setpassoutyr] = useState('')
+    const [Bio, setBio] = useState('Member of NITP Family')
+    const [passoutyr, setpassoutyr] = useState(2023)
     const [resumelink, setresumelink] = useState('')
     const [branch, setbranch] = useState('EE')
     const [style, setstyle] = useState({ display: 'none' })
@@ -31,6 +30,7 @@ const Login = ({ history }) => {
             } catch (error) {
                 alert(error);
             }
+            
         },
         [history, email, password]
     );

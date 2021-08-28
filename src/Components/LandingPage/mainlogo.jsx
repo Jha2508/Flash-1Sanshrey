@@ -9,8 +9,9 @@ const Mainlogo = () => {
                 <img src={Logo} alt='... ' className="landing-left-img" />
             </div>
             <div className="col col-md-4 landing-left-2">
-                <span>Sanshreya</span>
-                <p>Lets Socialize!!</p>
+                <span>Sanshray</span>
+                <p>Connecting Alumni..</p>
+
             </div>
         </div>
     )

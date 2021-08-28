@@ -13,7 +13,19 @@
 .modallike:hover {
     color: rgb(197, 4, 4)
 }
-
+.deletebutton{
+    position: absolute;
+    right: 40px;
+    top: -80px;
+    font-size: 30px;
+    cursor: pointer;
+}
+.socialmediawow{
+    margin-right: 50px;
+}
+.deletebutton:hover{
+    color:wheat
+}
 .modalsend:hover {
     color: rgb(197, 4, 4)
 }

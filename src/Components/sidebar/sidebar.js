@@ -5,14 +5,14 @@ import { IoHome, IoSettings } from 'react-icons/io5'
 import {BiSave} from 'react-icons/bi'
 import { CgProfile } from 'react-icons/cg'
 import { Link, withRouter } from 'react-router-dom'
-import logon from '../../logon.png'
+import person from '../../sources/person.jpeg'
 import firebase from '../../firebase'
 import Sidebar2 from '../../Components/Sidebar2'
 
 const handlelogout = () => {
   firebase.auth().signOut().then(() => {
     // Sign-out successful.
-    alert('Signed Out! See Ya all next time!')
+    alert('Successfully logged out.')
 
   }).catch((error) => {
     // An error happened.
@@ -21,12 +21,12 @@ const handlelogout = () => {
 }
 
 function Sidebar(props) {
-  
+  const id = firebase.auth().currentUser
   const ref2 = firebase.firestore().collection('Users')
-  const [profileinfo, setprofileinfo] = useState({image:'',name:'',passoutyr:'2023'})
+  const [profileinfo, setprofileinfo] = useState({userImg:person,name:'userName',passingYear:'2023'})
   useEffect(()=>{
-    if (props.userid) {
-      ref2.doc(props.userid).get().then((snap) => setprofileinfo(snap.data()))
+    if (id) {
+      ref2.doc(id.uid).get().then((snap) => setprofileinfo(snap.data()))
     }
   },[])
   
@@ -40,18 +40,15 @@ function Sidebar(props) {
           </form>
 
           <div className="lower-us">
-            <img src={(profileinfo!==undefined)?profileinfo.userImg:''} alt='pp' />
-            <div className="name">
+            <img src={profileinfo.userImg} alt='pp' />
+            
+          </div>
+          <div className="name">
               <div >{(profileinfo!==undefined)?profileinfo.name:''}</div>
               <div className='status'>{profileinfo.passingYear}</div>
             </div>
-          </div>
         </header>
-        <div className='logocontainer'>
-        <center>
-        <img className='logo' src={logon} alt='...' />
-        </center>
-        </div>
+        
 
         <ul className='allmenus'>
           <li tabIndex={0} ><Link className='Menu' to='/Home'><IoHome style={{ marginRight: '8px' }} />Home</Link></li>

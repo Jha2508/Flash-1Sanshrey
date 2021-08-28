@@ -14,12 +14,13 @@ const Navbar = () => {
         <>
             <nav className="landing-nav">
                 <div className="landing-logo">
-                    <img className="navbar-logo" alt='...' src={Logo} /><span>anshreya</span>
+                    <img className="navbar-logo" alt='...' src={Logo} /><span>anshray</span>
                 </div>
                 <ul className="landing-nav-links" style={{ transform: open ? "translateX(0px)" : "" }}>
                     <li><Link to="/">Home</Link></li>
-                    <li><Link to="/faqs">FAQs</Link></li>
+                    <li><Link to="/faqs">About Us</Link></li>
                     <li><Link to="/ourteam">Our Team</Link></li>
+                    <li><a href='https://sites.google.com/view/sanshreya-home/home'>Privacy Policy</a></li>
                     <li><ImCross className="landing-toggle" onClick={() => setOpen(!open)} /></li>
                 </ul>
                 <FaBars className="landing-toggle" onClick={() => setOpen(!open)} />

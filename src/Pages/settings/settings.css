@@ -9,7 +9,18 @@
     width: 900px;
     position: absolute;
     right:0;
-    z-index:100
+    z-index:10
+}
+.lastrow{
+    position: absolute;
+    bottom:0;
+    font-size: 35px;
+    z-index: 100;
+}.collegelogo{
+    width:280px;
+    height: 280px;
+    padding: 20px;
+    border-radius: 50%;
 }
 .photochangebutton{
     color:teal;
@@ -19,7 +30,11 @@
     top:220px;
     z-index:100
 }
-
+.compimage{
+    z-index: 100;
+    width: 100px;
+    height: 100px;
+}
 .photochangebutton:hover{
     color:black;
 }
@@ -34,6 +49,17 @@
 }
 
 .firstrow{
-    padding-top: 70px;
+    padding-top: 50px;
     font-size: 35px;
+    z-index: 100;
+}
+.firstrow .col{
+    z-index: 100;
+}
+.SettingsPage button{
+    margin-left: 10px;
+    font-size: 20px;
+}
+.modal-body button{
+    margin-left: 60px;
 }

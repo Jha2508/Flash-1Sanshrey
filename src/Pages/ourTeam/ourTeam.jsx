@@ -3,7 +3,8 @@ import { TeamList } from '../../Components/LandingPage/teamData'
 import './ourTeam.css'
 import { Link } from "react-router-dom"
 import { AiFillHome } from "react-icons/ai";
-
+import {SiGmail} from 'react-icons/si'
+import {GoFilePdf} from 'react-icons/go'
 const OurTeam = () => {
     return (
         <>
@@ -16,17 +17,20 @@ const OurTeam = () => {
                         <div className="row">
                             {TeamList.map((items, index) => {
                                 return (
-                                    <div key={index} className="col">
-
-                                        <div className="card bg-dark text-white member-card">
-                                            <img src='' className="card-img profile-img" alt="..." />
-                                            <div className="card-img-overlay member-data">
-                                                <h5 className="card-title member-name">{items.memName}</h5>
-                                                <a href={items.memResume} target="_blank" rel="noreferrer" className="member-link"><button type="button" className="btn btn-info">View Resume</button></a>
+                                    <div key={index} className="team">
+                                        <div className="team-img">
+                                            <img className='teamimgwow' src={items.memPic} alt="Team Image" />
+                                            <div className="team-social">
+                                                <a className="social-fb" href={"https://mail.google.com/mail/?view=cm&fs=1&tf=1&to="+items.memEmail}><SiGmail/></a>
+                                                <a className="social-yt" href={items.memResume}><GoFilePdf/></a>
                                             </div>
                                         </div>
-
+                                        <div className="team-content">
+                                            <h2>{items.memName}</h2>
+                                            <h3>{items.memRole}</h3>
+                                            </div>
                                     </div>
+
                                 )
                             })}
                         </div>

@@ -4,6 +4,7 @@ import { MdPhotoLibrary } from "react-icons/md";
 import { BsChatSquareFill } from "react-icons/bs";
 import "./MessageSender.css";
 import firebase from "../firebase";
+import GridLoader from 'react-spinners/GridLoader'
 // import InputEmoji from "react-input-emoji";
 
 function MessageSender(props) {
@@ -23,11 +24,18 @@ function MessageSender(props) {
 
   }, [])
   const handlePosting = () => {
-    const timest = Date.now()
-    setposting(true)
     if (user) {
-
-      const uploadimage = store.ref(`posts/${props.userid + timest}`).put(PostImage)
+      const fsize = PostImage.size;
+      const file = Math.round((fsize / 1024));
+      // The size of the file.
+      if (file >= 3000) {
+          alert("File too Big, please select a file less than 5mb");
+      } else {
+        
+        setposting(true)
+        
+    const timest = Date.now()
+        const uploadimage = store.ref(`posts/${props.userid + timest}`).put(PostImage)
       uploadimage.on("state_changed",
         function (snapshot) {
           //if we want to show a loader or something it can be done her
@@ -46,10 +54,11 @@ function MessageSender(props) {
               userImg: profileinfo.userImg
             }
             firebase.firestore().collection('AllPost').doc(props.userid + timest).set(data).then(()=>{
-              alert('done dana done done!')
             setposting(false)})
           })
         })
+      }
+      
     }
 
 
@@ -59,7 +68,6 @@ function MessageSender(props) {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Post Done");
   };
 
   const addImageToPost = (e) => {
@@ -85,7 +93,7 @@ function MessageSender(props) {
           <BsChatSquareFill />
         </IconContext.Provider>
         <form>
-
+          
           <textarea
             rows={(imageToPost === null) ? '2' : '10'}
             type="text"
@@ -127,7 +135,7 @@ function MessageSender(props) {
           </IconContext.Provider>
         </div>
         <div className="messageSender__option">
-          <button type="button" disabled={posting} onClick={() => handlePosting()} className="btn btn-outline-light">Post</button>
+          <button type="button" style={posting?{display:'none'}:{display:'block'}} disabled={posting} onClick={() => handlePosting()} className="btn btn-outline-light">Post</button><GridLoader color='gold' loading={posting}/>
         </div>
       </div>
     </div>
