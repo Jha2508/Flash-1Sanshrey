@@ -46,6 +46,7 @@ const Login = ({ history }) => {
             const passingYear = parseInt(passoutyr)
             const promise = auth.createUserWithEmailAndPassword(rege, regp)
         promise.then(cred => {
+            
 
             alert('signup successful! with email :')
             var uploadtask = store.ref(`/images/${cred.user.uid}`).put(regimage)
