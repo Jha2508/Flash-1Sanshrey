@@ -1,4 +1,4 @@
-# Getting Started with Mozilo's React App
+# Getting Started with Sanshrey React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
