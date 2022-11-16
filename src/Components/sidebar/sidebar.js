@@ -48,8 +48,15 @@ function Sidebar(props) {
               <div className='status'>{profileinfo.passingYear}</div>
             </div>
         </header>
+<<<<<<< HEAD
         
 
+=======
+        <div className='logocontainer'>
+        <img className='logo' src={logon} alt='...' />
+        <div className='logotitle'>Sanshreya</div>
+        </div>
+>>>>>>> ddf053af9c0b06a3c7093c32b571eb1f0e343ba9
         <ul className='allmenus'>
           <li tabIndex={0} ><Link className='Menu' to='/Home'><IoHome style={{ marginRight: '8px' }} />Home</Link></li>
           <li className='Menu' onClick={()=>{

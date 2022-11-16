@@ -1,8 +1,12 @@
 .rightbar {
     color:white;
+<<<<<<< HEAD
     position: fixed;
     right:0;
     width: 20rem;
+=======
+    position: fixed;  
+>>>>>>> ddf053af9c0b06a3c7093c32b571eb1f0e343ba9
 }
 .rightbarWrapper{
     -webkit-box-shadow: 1px 0px 5px 2px rgba(0,0,0,0.13); 
@@ -45,12 +49,19 @@
     width: max-content;
     position: -webkit-sticky;
     cursor: pointer;
+<<<<<<< HEAD
     display: flex;
     flex-direction: row;
+=======
+>>>>>>> ddf053af9c0b06a3c7093c32b571eb1f0e343ba9
 }
 
 .rightbarFriendName{
     font-family:Georgia, 'Times New Roman', Times, serif;
+<<<<<<< HEAD
+=======
+    /* font-family: 'Yellowtail', cursive; */
+>>>>>>> ddf053af9c0b06a3c7093c32b571eb1f0e343ba9
 }
 
 .rightbarHead{

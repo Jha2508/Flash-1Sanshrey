@@ -14,6 +14,15 @@
 
   .logocontainer{
     width: 100%;
+<<<<<<< HEAD
+=======
+    height:200px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+>>>>>>> ddf053af9c0b06a3c7093c32b571eb1f0e343ba9
     overflow-y: hidden;
     overflow-x: hidden;
     text-align: center;
@@ -21,10 +30,25 @@
     justify-content: center;
   }
   .logo{
+<<<<<<< HEAD
     height: 350px;
     width: 20em;
     margin-bottom: 10px;
     margin-top: -60px;
+=======
+    margin-left: -85px; 
+    height:200px;
+    margin-bottom: 25px;
+    margin-left: -13px;
+  }
+  .logotitle{
+    color: white;
+    font-family: 'Yellowtail', cursive;
+    font-size: 35px;
+    text-align: center;
+    margin-top: -80px;
+    margin-left: -10px;
+>>>>>>> ddf053af9c0b06a3c7093c32b571eb1f0e343ba9
   }
   
   .Menu{
@@ -58,7 +82,10 @@
       font-size: 20px
 
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> ddf053af9c0b06a3c7093c32b571eb1f0e343ba9
   .menu .avatar img {
     width: 180px;
     height: 180px;
@@ -221,7 +248,10 @@
   .lower-us{
       display:flex;
       padding-top:30px;
+<<<<<<< HEAD
       margin-bottom: 5px;
+=======
+>>>>>>> ddf053af9c0b06a3c7093c32b571eb1f0e343ba9
   }
   
   * {

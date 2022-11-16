@@ -22,6 +22,7 @@ import person from '../../sources/person.jpeg'
     return (
         <div className="rightbar">
             <div className="rightbarWrapper">
+<<<<<<< HEAD
             <center>
                 <h2 className="rightbarHead">Explore !</h2>
             </center>
@@ -44,6 +45,28 @@ import person from '../../sources/person.jpeg'
                         </div>
                         )})}
                     </ul>
+=======
+                <center>
+                <h2 className="rightbarHead">Explore !</h2>
+                </center>
+                <center><hr className="rightbarHr" /></center>
+                <ul className="rightbarFriendList">
+                    {allusers.map((item,index)=>{return(
+                        <div key={index} className='row'>
+                            <div className='col-10'>
+                              <li className="rightbarFriend">
+                                <div className="rightbarFriendImgContainer">
+                                 <img className="rightbarFriendImg" src={item.image} alt="" />
+                                    <span className="rightbarFriendName">{item.name}</span>
+                                </div>
+
+                              </li>
+                            </div>
+                       </div>
+ 
+                    )})}
+                </ul>
+>>>>>>> ddf053af9c0b06a3c7093c32b571eb1f0e343ba9
             </div>
 
         </div>
