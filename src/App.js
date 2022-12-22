@@ -30,8 +30,6 @@ function App() {
                 }
             )
             setposts(newpost)
-            
-
         })
     }, [])
 return   (posts.length !==0)?(
@@ -44,19 +42,17 @@ return   (posts.length !==0)?(
             <Route exact path="/ourteam"><OurTeam/></Route>
         
         <PrivateRoute path='/showProfile' exact component={ProfilePage}/>
-<<<<<<< HEAD
         <PrivateRoute path='/savedposts' exact component={()=><SavedPages userid={uid} posts={posts}/>}/>
-        <PrivateRoute exact path ='/profile/:id' exact component={()=> <ProfilePage userid={uid} pro='self' />}/>
+        <PrivateRoute exact path ='/profile/:id'  component={()=> <ProfilePage userid={uid} pro='self' />}/>
         <PrivateRoute path='/home' exact component={()=><Home userid={uid} posts={posts}/>}/>
         
         <PrivateRoute path='/settings'exact component={()=><Settings userid ={uid}/>}/>
         <Route component={Error}/>
-=======
+
         <PrivateRoute path='/savedposts' exact component={()=><SavedPages posts={posts}/>}/>
         <PrivateRoute path='/MyProfile' exact component={()=><ProfilePage  pro='self'/>}/>
         <Route path ='/Post' exact component={Post}/>
         <PrivateRoute path='/home' exact component={()=><Home posts={posts}/>}/>
->>>>>>> ddf053af9c0b06a3c7093c32b571eb1f0e343ba9
           </Switch>
         </Router>
         </AuthProvider>
